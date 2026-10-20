@@ -97,7 +97,7 @@
   };
   document.querySelectorAll(".whatsapp-link").forEach(link => {
     const text = messages[link.dataset.message] || messages.general;
-    link.href = "https://wa.me/" + (/^\d{10,15}$/.test(WHATSAPP_NUMBER) ? WHATSAPP_NUMBER : "TU_NUMERO_CON_CODIGO_DE_PAIS") + "?text=" + encodeURIComponent(text);
+    link.href = "https://wa.me/" + (/^\d{10,15}$/.test(WHATSAPP_NUMBER) ? WHATSAPP_NUMBER : "5664921229") + "?text=" + encodeURIComponent(text);
     link.target = "_blank";
     link.rel = "noopener noreferrer";
   });
