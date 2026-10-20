@@ -97,4 +97,51 @@
   };
   document.querySelectorAll(".whatsapp-link").forEach(link => {
     const text = messages[link.dataset.message] || messages.general;
-    link.href = "https://wa.me/" + (/^\d{10,15}$/.test(WHATSAPP_NUMBER) ? WHATSAPP_NUMBER : "5256649212
+    link.href = "https://wa.me/" + (/^\d{10,15}$/.test(WHATSAPP_NUMBER) ? WHATSAPP_NUMBER : "525664921229") + "?text=" + encodeURIComponent(text);
+    link.target = "_blank";
+    link.rel = "noopener noreferrer";
+  });
+
+  document.getElementById("year").textContent = new Date().getFullYear();
+  const nav = document.getElementById("nav");
+  const menu = document.getElementById("menu");
+  const menuBtn = document.getElementById("menuBtn");
+  const closeMenu = () => {
+    menu.classList.remove("open");
+    menuBtn.setAttribute("aria-expanded", "false");
+    menuBtn.textContent = "☰";
+    menuBtn.setAttribute("aria-label", "Abrir menú");
+  };
+  menuBtn.addEventListener("click", () => {
+    const open = menu.classList.toggle("open");
+    menuBtn.setAttribute("aria-expanded", String(open));
+    menuBtn.textContent = open ? "×" : "☰";
+    menuBtn.setAttribute("aria-label", open ? "Cerrar menú" : "Abrir menú");
+  });
+  menu.querySelectorAll("a").forEach(a => a.addEventListener("click", closeMenu));
+  document.addEventListener("keydown", e => { if (e.key === "Escape") closeMenu(); });
+
+  const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  let scheduled = false;
+  function onScroll() {
+    if (scheduled) return;
+    scheduled = true;
+    requestAnimationFrame(() => {
+      const y = window.scrollY;
+      const max = Math.max(1, document.documentElement.scrollHeight - window.innerHeight);
+      document.documentElement.style.setProperty("--scroll", (y / max).toFixed(4));
+      if (!reduced) document.documentElement.style.setProperty("--shift", Math.max(-125, Math.min(125, -y * .085)) + "px");
+      nav.classList.toggle("scrolled", y > 35);
+      scheduled = false;
+    });
+  }
+  window.addEventListener("scroll", onScroll, {passive:true});
+  onScroll();
+  if ("IntersectionObserver" in window && !reduced) {
+    const io = new IntersectionObserver(entries => entries.forEach(entry => {
+      if (entry.isIntersecting) { entry.target.classList.add("visible"); io.unobserve(entry.target); }
+    }), {threshold:.09});
+    document.querySelectorAll(".reveal").forEach(el => io.observe(el));
+  } else document.querySelectorAll(".reveal").forEach(el => el.classList.add("visible"));
+})();
+</script></body></html>
