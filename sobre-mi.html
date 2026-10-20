@@ -54,7 +54,7 @@
 <script>
 (() => {
   // Sustituye el marcador por tu número internacional, solo dígitos y sin +, espacios ni guiones.
-  const WHATSAPP_NUMBER = "TU_NUMERO_CON_CODIGO_DE_PAIS";
+  const WHATSAPP_NUMBER = "5664921229";
   const messages = {
     general: "Hola, YORU STUDIO. Me gustaría hablar sobre una idea que tengo.",
     services: "Hola, YORU STUDIO. Quisiera consultar información sobre sus servicios.",
@@ -62,7 +62,7 @@
   };
   document.querySelectorAll(".whatsapp-link").forEach(link => {
     const text = messages[link.dataset.message] || messages.general;
-    link.href = "https://wa.me/" + (/^\d{10,15}$/.test(WHATSAPP_NUMBER) ? WHATSAPP_NUMBER : "TU_NUMERO_CON_CODIGO_DE_PAIS") + "?text=" + encodeURIComponent(text);
+    link.href = "https://wa.me/" + (/^\d{10,15}$/.test(WHATSAPP_NUMBER) ? WHATSAPP_NUMBER : "5664921229") + "?text=" + encodeURIComponent(text);
     link.target = "_blank";
     link.rel = "noopener noreferrer";
   });
