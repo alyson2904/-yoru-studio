@@ -1,147 +1,979 @@
 <!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#080809">
+<meta name="description" content="YORU STUDIO: tecnología con propósito, diseño digital y soluciones creativas con identidad propia.">
+<meta property="og:title" content="YORU STUDIO — Digital Atelier">
+<meta property="og:description" content="Tecnología con propósito. Ideas sin límites.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://alyson2904.github.io/yoru-studio/">
+<meta property="og:image" content="https://alyson2904.github.io/yoru-studio/assets/yoru.png">
+<title>YORU STUDIO — Digital Atelier</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23080809'/%3E%3Ctext x='10' y='48' font-size='45' fill='%23e84967'%3E%E5%A4%9C%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-<html lang="es"><head><meta charset="utf-8"/><meta content="width=device-width,initial-scale=1,viewport-fit=cover" name="viewport"/><meta content="#090709" name="theme-color"/><meta name="description" content="YORU STUDIO: tecnología con propósito, diseño digital y soluciones creativas con una identidad propia."/><title>YORU STUDIO 「夜」 — Digital Atelier</title>
-<meta property="og:type" content="website"/>
-<meta property="og:title" content="YORU STUDIO — Digital Atelier"/>
-<meta property="og:description" content="Tecnología con propósito. Ideas sin límites."/>
-<meta property="og:url" content="https://alyson2904.github.io/yoru-studio/"/>
-<meta property="og:image" content="https://alyson2904.github.io/yoru-studio/assets/yoru.png"/>
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='8' fill='%23090709'/%3E%3Ctext x='12' y='46' font-size='42' fill='%23e84967'%3E%E5%A4%9C%3C/text%3E%3C/svg%3E"/>
-<link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&amp;family=DM+Sans:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
 <style>
-:root{--ink:#090709;--wine:#a82945;--red:#e84967;--white:#f8f0f0;--muted:#bcb0b5;--line:rgba(255,214,225,.17);--scroll:0;--shift:0px}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--ink);color:var(--white);font-family:'DM Sans',sans-serif;overflow-x:hidden;-webkit-font-smoothing:antialiased}::selection{background:#a82945;color:white}a{color:inherit;text-decoration:none}button{font:inherit}button,a{-webkit-tap-highlight-color:transparent}button:focus-visible,a:focus-visible{outline:2px solid #ff7890;outline-offset:4px}.bg{position:fixed;inset:-9vh -4vw;z-index:-3;pointer-events:none;overflow:hidden;background:#090709}.bg-image{position:absolute;inset:-7%;background-image:url("./assets/yoru.png");background-repeat:no-repeat;background-position:66% 35%;background-size:cover;filter:blur(3.5px) brightness(.69) saturate(.95);transform:translate3d(0,var(--shift),0) scale(1.08);will-change:transform}.bg:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(5,4,7,.90) 0%,rgba(6,4,7,.76) 38%,rgba(7,3,7,.38) 75%,rgba(8,3,6,.55)),linear-gradient(0deg,rgba(6,4,6,.87),transparent 22%,transparent 72%,rgba(7,4,7,.36))}.noise{position:fixed;inset:0;z-index:15;pointer-events:none;opacity:.12;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.84' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.19'/%3E%3C/svg%3E")}.progress{position:fixed;z-index:30;top:0;left:0;height:2px;width:calc(var(--scroll)*100%);background:linear-gradient(90deg,#641427,#ff627d);box-shadow:0 0 15px #ff5276}.wrap{width:min(1200px,calc(100% - 9vw));margin:auto}.nav{position:fixed;top:0;left:0;right:0;z-index:20;border-bottom:1px solid transparent;transition:background .3s,border .3s}.nav.scrolled{background:rgba(8,5,9,.83);backdrop-filter:blur(22px);border-color:var(--line)}.nav-inner{height:80px;display:flex;align-items:center;justify-content:space-between;gap:20px}.logo{display:flex;align-items:center;gap:14px;font-family:Cinzel,serif;font-weight:600;letter-spacing:.16em;font-size:17px;white-space:nowrap}.logo-mark{border:1px solid #a83c55;width:39px;height:39px;display:grid;place-items:center;color:#ff738e;font-size:20px;box-shadow:inset 0 0 15px #6e17202e}.logo small{display:block;font:500 9px 'DM Sans',sans-serif;letter-spacing:.38em;color:#dba0ae;margin-top:3px}.nav-links{display:flex;align-items:center;gap:29px}.nav-links a{font-size:10px;letter-spacing:.19em;text-transform:uppercase;color:#e2d8db;transition:color .2s}.nav-links a:hover{color:#ff7690}.nav-cta{padding:12px 17px;border:1px solid #a93b52!important;color:white!important}.menu-toggle{display:none;background:none;border:1px solid var(--line);color:white;width:42px;height:42px;font-size:22px;cursor:pointer}.hero{min-height:100svh;display:flex;align-items:center;position:relative;padding:130px 0 100px}.hero-copy{max-width:710px}.eyebrow{display:flex;align-items:center;gap:15px;font-size:10px;font-weight:600;letter-spacing:.38em;text-transform:uppercase;color:#eaa4b6}.eyebrow:before{content:"";display:inline-block;width:35px;height:1px;background:var(--red)}h1,h2,h3,p{margin-top:0}.hero h1{font:500 clamp(62px,10.7vw,155px)/.99 Cinzel,serif;letter-spacing:-.035em;margin:26px 0 22px;text-shadow:0 5px 55px #0009}.hero h1 span{display:block;color:transparent;-webkit-text-stroke:1px #e5a0ad;text-shadow:none}.hero .lead{font-size:clamp(15px,1.5vw,19px);line-height:1.9;max-width:460px;color:#ddd0d3;font-weight:300}.actions{display:flex;flex-wrap:wrap;gap:13px;margin-top:38px}.btn{min-height:52px;padding:17px 25px;display:inline-flex;align-items:center;justify-content:center;gap:18px;border:1px solid #8f3046;background:linear-gradient(115deg,#b32b4a,#75172e);color:white;font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;transition:transform .25s,background .25s,border .25s;cursor:pointer}.btn:hover{transform:translateY(-3px);background:#cf3655}.btn.secondary{background:#0b080bb5;border-color:#b9a5ad70}.btn.secondary:hover{border-color:#e96a84}.hero-bottom{position:absolute;bottom:38px;left:0;right:0;display:flex;align-items:center;justify-content:space-between;gap:20px;color:#c9aab2;font-size:10px;letter-spacing:.26em;text-transform:uppercase}.scroll-mark{display:flex;align-items:center;gap:15px}.scroll-line{width:1px;height:39px;background:linear-gradient(#ee607f,transparent)}.vertical-word{writing-mode:vertical-rl;letter-spacing:.35em}.section{position:relative;padding:125px 0;scroll-margin-top:65px}.section-rule{border-top:1px solid var(--line)}.section-heading{display:grid;grid-template-columns:1fr 1fr;gap:35px;align-items:end;margin-bottom:50px}.kicker{color:#e77b95;font-size:10px;letter-spacing:.32em;font-weight:700;text-transform:uppercase;margin-bottom:20px}.section h2{font:500 clamp(35px,5vw,68px)/1.15 Cinzel,serif;letter-spacing:-.025em;margin-bottom:0}.section h2 em{font-style:normal;color:#e7768e}.section-intro{max-width:450px;line-height:1.9;font-size:15px;color:#cbbcc2;font-weight:300;justify-self:end}.services{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}.service{min-height:265px;padding:36px 30px;background:rgba(11,7,12,.78);backdrop-filter:blur(14px);position:relative;overflow:hidden;transition:background .35s,transform .35s}.service:hover{background:rgba(45,14,29,.9)}.service:before{content:"";position:absolute;top:0;left:0;width:0;height:2px;background:#ff6686;transition:width .35s}.service:hover:before{width:100%}.service .number{font:400 12px Cinzel,serif;color:#e86b86;letter-spacing:.2em}.service h3{font:500 23px Cinzel,serif;margin:38px 0 13px;letter-spacing:.01em}.service p{color:#c2b3ba;line-height:1.8;font-size:13px;font-weight:300;margin:0}.service .arrow{position:absolute;top:29px;right:30px;color:#d98698;font-size:23px}.manifesto{min-height:440px;display:flex;align-items:center;justify-content:center;text-align:center;border-block:1px solid var(--line);background:linear-gradient(90deg,transparent,#1d0b16a8,transparent);backdrop-filter:blur(5px)}.manifesto blockquote{font:400 clamp(27px,4.6vw,59px)/1.38 Cinzel,serif;max-width:900px;margin:0 auto}.manifesto blockquote strong{color:#f47c95;font-weight:500}.manifesto .quote-label{margin-top:30px;color:#d6a7b5;font-size:10px;letter-spacing:.35em}.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}.step{border-top:1px solid #d05d7866;padding-top:28px}.step .step-n{font:500 36px Cinzel,serif;color:#f07691}.step h3{font:500 22px Cinzel,serif;margin:25px 0 10px}.step p{color:#c5b7bc;line-height:1.85;font-size:14px}.contact-panel{border:1px solid #b7536b69;padding:clamp(28px,6vw,85px);background:linear-gradient(115deg,rgba(36,10,22,.9),rgba(9,6,11,.8));backdrop-filter:blur(16px);position:relative;overflow:hidden}.contact-panel:after{content:'夜';position:absolute;right:-15px;bottom:-110px;font:300 350px Cinzel,serif;color:#bc456312;pointer-events:none}.contact-panel h2{max-width:700px;margin:0 0 22px}.contact-panel p{max-width:540px;line-height:1.8;color:#d5c0c8}.contact-panel .btn{position:relative;z-index:1;margin-top:16px}.footer{border-top:1px solid var(--line);padding:32px 0 42px;background:#090709d9}.footer-inner{display:flex;justify-content:space-between;align-items:center;gap:25px;flex-wrap:wrap}.footer p{font-size:11px;color:#b69da8;margin:0;letter-spacing:.12em}.reveal{opacity:0;transform:translateY(28px);transition:opacity .8s ease,transform .8s ease}.reveal.visible{opacity:1;transform:translateY(0)}@media(max-width:800px){.wrap{width:calc(100% - 44px)}.nav-inner{height:68px}.menu-toggle{display:block}.nav-links{display:none;position:absolute;top:68px;left:0;right:0;padding:25px 22px 32px;background:rgba(9,5,10,.97);border-bottom:1px solid var(--line);backdrop-filter:blur(24px);flex-direction:column;align-items:stretch;gap:23px}.nav-links.open{display:flex}.nav-links a{font-size:12px}.hero{min-height:100svh;padding:120px 0 95px}.hero h1{font-size:clamp(55px,12vw,90px)}.hero-copy{max-width:540px}.bg-image{background-position:59% center;filter:blur(4px) brightness(.65)}.bg:after{background:linear-gradient(90deg,#070408db,#0805088a 65%,#07040880),linear-gradient(0deg,#070408e8,transparent 38%,#07040842)}.section{padding:85px 0}.section-heading{grid-template-columns:1fr;gap:20px}.section-intro{justify-self:start}.services{grid-template-columns:repeat(2,1fr)}.steps{grid-template-columns:1fr;gap:20px}.manifesto{min-height:330px}.vertical-word{display:none}}@media(max-width:530px){.logo{font-size:14px;gap:10px}.logo-mark{width:35px;height:35px}.hero h1{font-size:clamp(49px,12.3vw,72px)}.hero .lead{max-width:330px;font-size:14px}.eyebrow{font-size:9px;letter-spacing:.23em}.hero-bottom{font-size:9px}.services{grid-template-columns:1fr}.service{min-height:205px;padding:26px}.service h3{margin:27px 0 9px}.section h2{font-size:clamp(33px,9vw,49px)}.btn{font-size:10px;padding:16px 17px}.actions{gap:10px}.contact-panel{padding:32px 24px}.manifesto blockquote{font-size:clamp(24px,7vw,35px)}}@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.bg-image{transform:none!important;will-change:auto}.reveal{opacity:1;transform:none;transition:none}.service,.btn{transition:none}}
+:root {
+  --black: #080809;
+  --panel: #121214;
+  --red: #b91c3b;
+  --crimson: #7f1d1d;
+  --white: #f5f5f5;
+  --muted: #a1a1aa;
+  --line: rgba(245,245,245,.14);
+  --shift: 0px;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 85px; }
+body {
+  margin: 0;
+  background: var(--black);
+  color: var(--white);
+  font-family: 'Inter', Arial, sans-serif;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+body, button, a { -webkit-tap-highlight-color: transparent; }
+a { color: inherit; text-decoration: none; }
+button { font: inherit; }
+a:focus-visible, button:focus-visible {
+  outline: 2px solid #ff718a;
+  outline-offset: 4px;
+}
+::selection { background: var(--red); color: white; }
 
-/* YORU STUDIO refinements */
-.nav-links a[aria-current="page"]{color:#fff}
-.nav-links a[aria-current="page"]:after{content:"";display:block;height:1px;background:#e84967;margin-top:7px}
-.menu-toggle{position:relative;z-index:5;touch-action:manipulation}
-.nav-links{z-index:4}
-.service{cursor:default}
-.service h3{overflow-wrap:anywhere}
-.service p{max-width:34ch}
-.contact-panel .btn{cursor:pointer}
-.footer-links{display:flex;gap:17px;flex-wrap:wrap;font-size:11px;color:#d8c4cc}
-.footer-links a:hover{color:#ff7890}
-@media(max-width:800px){.nav-links{top:68px;max-height:calc(100svh - 68px);overflow-y:auto}.nav-links a{padding:8px 0}}
-@media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;transition:none!important;animation:none!important}}
+.background {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+  background: var(--black);
+}
+.background-image {
+  position: absolute;
+  inset: -8%;
+  background-image: url("./assets/yoru.png");
+  background-position: 67% 34%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  filter: brightness(.61) saturate(.95);
+  transform: translate3d(0,var(--shift),0) scale(1.08);
+  will-change: transform;
+}
+.background::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(90deg,
+      rgba(8,8,9,.97) 0%,
+      rgba(8,8,9,.88) 36%,
+      rgba(8,8,9,.48) 72%,
+      rgba(8,8,9,.48) 100%),
+    linear-gradient(0deg,
+      #080809 0%,
+      rgba(8,8,9,.42) 25%,
+      transparent 60%,
+      rgba(8,8,9,.45) 100%);
+}
+.page-content { position: relative; z-index: 1; }
+.container { width: min(1160px, calc(100% - 48px)); margin: auto; }
 
-</style></head><body>
-<div aria-hidden="true" class="bg"><div class="bg-image"></div></div><div aria-hidden="true" class="noise"></div><div aria-hidden="true" class="progress"></div>
-<header class="nav" id="nav"><div class="wrap nav-inner">
-<a aria-label="Yoru Studio, ir al inicio" class="logo" href="./index.html"><span class="logo-mark">夜</span><span>yoru studio<small>digital atelier</small></span></a>
-<button type="button" aria-controls="menu" aria-expanded="false" aria-label="Abrir menú" class="menu-toggle" id="menuBtn">☰</button>
-<nav aria-label="Navegación principal" class="nav-links" id="menu">
-<a href="./index.html" aria-current="page">Inicio</a>
-<a href="./servicios.html">Servicios</a>
-<a href="./proyectos.html">Proyectos</a>
-<a href="./sobre-mi.html">Sobre mí</a>
-<a class="nav-cta whatsapp-link" data-message="general" href="https://wa.me/TU_NUMERO_CON_CODIGO_DE_PAIS">Hablemos ↗</a>
-</nav></div></header>
-<main>
-<section class="hero" id="inicio"><div class="wrap"><div class="hero-copy">
-<div class="eyebrow reveal">夜 · creative technology studio</div>
-<h1 class="reveal">yoru<span>studio.</span></h1>
-<p class="lead reveal">Tecnología con propósito. Ideas sin límites.</p>
-<p class="lead reveal" style="max-width:470px">Diseño, código y creatividad en soluciones digitales con una identidad propia, pensadas para funcionar y hechas con intención.</p>
-<div class="actions reveal">
-<a class="btn" href="./servicios.html">explorar servicios <span aria-hidden="true">↗</span></a>
-<a class="btn secondary whatsapp-link" data-message="general" href="https://wa.me/TU_NUMERO_CON_CODIGO_DE_PAIS">hablemos de tu idea <span aria-hidden="true">→</span></a>
-</div></div><div class="hero-bottom"><div class="scroll-mark"><span class="scroll-line"></span>desliza para descubrir</div><span class="vertical-word">est. 2026 — 夜</span></div></div></section>
+.top-line {
+  position: fixed;
+  z-index: 100;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: #e84967;
+  box-shadow: 0 0 12px #b91c3b;
+}
 
-<section class="section section-rule" id="servicios"><div class="wrap">
-<div class="section-heading reveal"><div><p class="kicker">01 / lo que hacemos</p><h2>ideas que se<br/><em>convierten en realidad.</em></h2></div><p class="section-intro">Soluciones digitales con intención. Cada propuesta se adapta a tus necesidades, cuidando tanto la estética como la funcionalidad.</p></div>
-<div class="services">
-<article class="service reveal"><span class="number">01 / WEB</span><span class="arrow">↗</span><h3>desarrollo web</h3><p>Sitios y experiencias adaptables, claros y pensados para verse bien en cualquier pantalla.</p></article>
-<article class="service reveal"><span class="number">02 / DESIGN</span><span class="arrow">↗</span><h3>diseño e identidad visual</h3><p>Interfaces, recursos visuales e identidad digital con una estética coherente y reconocible.</p></article>
-<article class="service reveal"><span class="number">03 / AUTOMATION</span><span class="arrow">↗</span><h3>bots y automatización</h3><p>Flujos útiles para simplificar tareas repetitivas y hacer más ágiles los procesos digitales.</p></article>
-<article class="service reveal"><span class="number">04 / TOOLS</span><span class="arrow">↗</span><h3>apps y herramientas</h3><p>Herramientas digitales prácticas que responden a necesidades concretas.</p></article>
-<article class="service reveal"><span class="number">05 / SUPPORT</span><span class="arrow">↗</span><h3>soporte técnico</h3><p>Orientación para diagnosticar problemas y ayudarte a mantener tus herramientas en orden.</p></article>
+header {
+  position: fixed;
+  z-index: 50;
+  top: 0;
+  left: 0;
+  width: 100%;
+  border-bottom: 1px solid transparent;
+  transition: background .3s, border-color .3s;
+}
+header.scrolled {
+  background: rgba(8,8,9,.91);
+  border-color: var(--line);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+}
+.nav-inner {
+  height: 82px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+.logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  flex-shrink: 0;
+}
+.logo-symbol {
+  width: 43px;
+  height: 43px;
+  display: grid;
+  place-items: center;
+  border: 1px solid #b91c3b;
+  color: #ff718a;
+  font-family: serif;
+  font-size: 25px;
+}
+.logo-name {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 700;
+  font-size: 15px;
+  letter-spacing: .14em;
+}
+.logo-name small {
+  display: block;
+  margin-top: 5px;
+  color: #c59aa4;
+  font: 500 9px 'Inter', sans-serif;
+  letter-spacing: .35em;
+}
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+}
+.nav-links a {
+  position: relative;
+  color: #d7d3d5;
+  font-size: 10px;
+  letter-spacing: .13em;
+  text-transform: uppercase;
+  transition: color .2s;
+}
+.nav-links a:hover,
+.nav-links a[aria-current="page"] { color: white; }
+.nav-links a[aria-current="page"]::after {
+  content: "";
+  position: absolute;
+  bottom: -9px;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: #e84967;
+}
+.nav-links .nav-contact {
+  padding: 13px 15px;
+  border: 1px solid #8e3447;
+}
+.menu-button {
+  display: none;
+  width: 44px;
+  height: 44px;
+  border: 1px solid var(--line);
+  background: rgba(8,8,9,.65);
+  color: white;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.hero {
+  min-height: 100svh;
+  display: flex;
+  align-items: center;
+  position: relative;
+  padding: 145px 0 115px;
+}
+.hero-copy { max-width: 680px; }
+.eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  color: #e7a0b0;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: .27em;
+  text-transform: uppercase;
+}
+.eyebrow::before {
+  content: "";
+  width: 39px;
+  height: 1px;
+  background: #e84967;
+  flex-shrink: 0;
+}
+h1, h2, h3, p { margin-top: 0; }
+.hero h1 {
+  margin: 30px 0 24px;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(64px, 10vw, 132px);
+  line-height: .91;
+  font-weight: 600;
+  letter-spacing: -.075em;
+}
+.hero h1 span {
+  display: block;
+  color: transparent;
+  -webkit-text-stroke: 1px #e88ba0;
+  font-weight: 500;
+  letter-spacing: -.06em;
+  margin-top: 9px;
+}
+.hero-tagline {
+  font-size: clamp(17px, 2vw, 22px);
+  line-height: 1.6;
+  font-weight: 500;
+  margin-bottom: 14px;
+}
+.hero-description {
+  max-width: 530px;
+  color: #c5c1c5;
+  font-size: 15px;
+  font-weight: 300;
+  line-height: 1.95;
+}
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 13px;
+  margin-top: 34px;
+}
+.button {
+  display: inline-flex;
+  min-height: 54px;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  padding: 17px 23px;
+  border: 1px solid #b91c3b;
+  background: #a81736;
+  color: white;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: transform .25s, background .25s, border-color .25s;
+}
+.button:hover {
+  transform: translateY(-2px);
+  background: #c32648;
+}
+.button.secondary {
+  background: rgba(8,8,9,.62);
+  border-color: rgba(245,245,245,.35);
+}
+.button.secondary:hover { border-color: #e84967; }
+.hero-bottom {
+  position: absolute;
+  bottom: 35px;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: #c5aab2;
+  font-size: 9px;
+  letter-spacing: .24em;
+  text-transform: uppercase;
+}
+.scroll-hint { display: flex; align-items: center; gap: 13px; }
+.scroll-hint::before {
+  content: "";
+  width: 43px;
+  height: 1px;
+  background: #e84967;
+}
+.hero-index { color: #88757c; }
+
+.section {
+  padding: 115px 0;
+  border-top: 1px solid var(--line);
+  scroll-margin-top: 80px;
+}
+.section-heading {
+  display: grid;
+  grid-template-columns: 1fr .8fr;
+  align-items: end;
+  gap: 35px;
+  margin-bottom: 45px;
+}
+.kicker {
+  color: #e87991;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .25em;
+  text-transform: uppercase;
+  margin-bottom: 19px;
+}
+.section h2 {
+  margin-bottom: 0;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(36px, 5.3vw, 68px);
+  font-weight: 500;
+  line-height: 1.08;
+  letter-spacing: -.055em;
+}
+.section h2 em {
+  color: #e84967;
+  font-style: normal;
+}
+.section-intro {
+  justify-self: end;
+  max-width: 440px;
+  color: #bdb8be;
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 1.95;
+  margin-bottom: 0;
+}
+.service-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 1px;
+  background: var(--line);
+  border: 1px solid var(--line);
+}
+.service {
+  position: relative;
+  grid-column: span 2;
+  min-height: 245px;
+  padding: 30px;
+  background: rgba(13,12,15,.84);
+  transition: background .3s;
+}
+.service:nth-child(4) { grid-column: 2 / span 2; }
+.service:hover { background: rgba(42,13,25,.94); }
+.service-number {
+  color: #e87991;
+  font-size: 10px;
+  letter-spacing: .2em;
+}
+.service-arrow {
+  position: absolute;
+  right: 25px;
+  top: 22px;
+  color: #e87991;
+  font-size: 20px;
+}
+.service h3 {
+  margin: 38px 0 13px;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 22px;
+  font-weight: 500;
+  letter-spacing: -.03em;
+}
+.service p {
+  margin-bottom: 0;
+  color: #bdb6bd;
+  font-size: 13px;
+  line-height: 1.85;
+  font-weight: 300;
+}
+.section-actions { margin-top: 28px; }
+
+.manifesto {
+  padding: 110px 0;
+  text-align: center;
+  border-block: 1px solid var(--line);
+  background: linear-gradient(90deg, transparent, rgba(48,11,25,.55), transparent);
+}
+.manifesto blockquote {
+  max-width: 850px;
+  margin: 0 auto 25px;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(30px, 5vw, 59px);
+  font-weight: 500;
+  letter-spacing: -.05em;
+  line-height: 1.22;
+}
+.manifesto blockquote span { color: #e84967; }
+.manifesto p {
+  max-width: 650px;
+  margin: 0 auto 24px;
+  color: #bdb6bd;
+  font-size: 14px;
+  line-height: 1.9;
+  font-weight: 300;
+}
+.manifesto .kicker { margin-bottom: 25px; }
+
+.values {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 35px;
+}
+.value {
+  padding: 24px 0;
+  border-top: 1px solid #a63a51;
+}
+.value-number {
+  color: #e87991;
+  font-size: 10px;
+  letter-spacing: .2em;
+}
+.value h3 {
+  margin: 19px 0 10px;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 22px;
+  font-weight: 500;
+}
+.value p {
+  max-width: 420px;
+  color: #bdb6bd;
+  font-size: 13px;
+  line-height: 1.9;
+  font-weight: 300;
+  margin-bottom: 0;
+}
+
+.process {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+.process-item {
+  border-top: 1px solid #a63a51;
+  padding-top: 23px;
+}
+.process-number {
+  color: #e87991;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 36px;
+}
+.process-item h3 {
+  margin: 21px 0 11px;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 21px;
+  font-weight: 500;
+}
+.process-item p {
+  color: #bdb6bd;
+  font-size: 13px;
+  line-height: 1.9;
+  font-weight: 300;
+}
+
+.contact-panel {
+  position: relative;
+  overflow: hidden;
+  padding: clamp(30px, 7vw, 78px);
+  border: 1px solid rgba(190,57,83,.6);
+  background: linear-gradient(120deg, rgba(46,12,25,.91), rgba(12,10,13,.91));
+}
+.contact-panel::after {
+  content: "夜";
+  position: absolute;
+  right: 12px;
+  bottom: -100px;
+  color: rgba(210,50,83,.07);
+  font-family: serif;
+  font-size: 300px;
+  pointer-events: none;
+}
+.contact-panel h2 {
+  position: relative;
+  z-index: 1;
+  max-width: 700px;
+  margin-bottom: 20px;
+}
+.contact-panel p {
+  position: relative;
+  z-index: 1;
+  max-width: 540px;
+  color: #c9bdc3;
+  font-size: 14px;
+  line-height: 1.9;
+}
+.contact-panel .actions { position: relative; z-index: 2; }
+
+footer {
+  position: relative;
+  z-index: 1;
+  padding: 35px 0;
+  border-top: 1px solid var(--line);
+  background: rgba(8,8,9,.93);
+}
+.footer-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+.footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 17px;
+}
+.footer-links a {
+  color: #c5bdc2;
+  font-size: 11px;
+  transition: color .2s;
+}
+.footer-links a:hover { color: #ff718a; }
+.footer-note {
+  width: 100%;
+  color: #8f838a;
+  font-size: 10px;
+  letter-spacing: .1em;
+  margin: 0;
+}
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity .7s ease, transform .7s ease;
+}
+.reveal.visible { opacity: 1; transform: translateY(0); }
+
+@media (max-width: 850px) {
+  .container { width: calc(100% - 44px); }
+  .nav-inner { height: 72px; }
+  .menu-button { display: block; position: relative; z-index: 3; }
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 72px;
+    left: 0;
+    right: 0;
+    max-height: calc(100svh - 72px);
+    overflow-y: auto;
+    padding: 22px;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    background: rgba(8,8,9,.98);
+    border-bottom: 1px solid var(--line);
+  }
+  .nav-links.open { display: flex; }
+  .nav-links a { padding: 16px 4px; font-size: 12px; }
+  .nav-links a[aria-current="page"]::after { display: none; }
+  .nav-links .nav-contact { text-align: center; margin-top: 10px; }
+  .hero { padding: 125px 0 105px; }
+  .hero-copy { max-width: 590px; }
+  .background-image {
+    background-position: 61% 34%;
+    filter: brightness(.54);
+  }
+  .background::after {
+    background:
+      linear-gradient(90deg, rgba(8,8,9,.9), rgba(8,8,9,.58)),
+      linear-gradient(0deg, #080809 0%, transparent 65%);
+  }
+  .section { padding: 85px 0; }
+  .section-heading { grid-template-columns: 1fr; gap: 20px; }
+  .section-intro { justify-self: start; }
+  .service-grid { grid-template-columns: repeat(2,1fr); }
+  .service, .service:nth-child(4) { grid-column: auto; }
+  .service:last-child { grid-column: 1 / -1; }
+  .process { gap: 20px; }
+}
+@media (max-width: 560px) {
+  .container { width: calc(100% - 40px); }
+  .logo-name { font-size: 13px; }
+  .logo-symbol { width: 38px; height: 38px; }
+  .hero { min-height: 100svh; padding: 115px 0 115px; }
+  .hero h1 { font-size: clamp(54px, 13vw, 76px); }
+  .hero-description { font-size: 13px; }
+  .hero-tagline { font-size: 16px; }
+  .eyebrow { font-size: 9px; letter-spacing: .18em; }
+  .background-image {
+    inset: -3%;
+    background-position: 59% center;
+    background-size: cover;
+    filter: brightness(.48);
+  }
+  .background::after {
+    background:
+      linear-gradient(180deg, rgba(8,8,9,.42), rgba(8,8,9,.54) 38%, #080809 100%),
+      linear-gradient(90deg, rgba(8,8,9,.65), transparent);
+  }
+  .actions { flex-direction: column; align-items: stretch; }
+  .button { width: 100%; min-height: 52px; }
+  .hero-bottom { bottom: 27px; font-size: 8px; }
+  .hero-index { display: none; }
+  .section { padding: 72px 0; }
+  .section h2 { font-size: clamp(34px, 9vw, 47px); }
+  .service-grid { grid-template-columns: 1fr; }
+  .service, .service:last-child {
+    grid-column: auto;
+    min-height: 200px;
+    padding: 26px;
+  }
+  .service h3 { margin-top: 29px; }
+  .manifesto { padding: 78px 0; }
+  .manifesto blockquote { font-size: 31px; }
+  .values, .process { grid-template-columns: 1fr; gap: 20px; }
+  .contact-panel { padding: 30px 23px; }
+  .contact-panel::after { font-size: 190px; bottom: -50px; }
+  .footer-inner { align-items: flex-start; flex-direction: column; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    scroll-behavior: auto !important;
+    animation: none !important;
+    transition: none !important;
+  }
+  .background-image { transform: none !important; }
+  .reveal { opacity: 1; transform: none; }
+}
+</style>
+</head>
+
+<body>
+<div class="background" aria-hidden="true">
+  <div class="background-image"></div>
 </div>
-<p class="actions reveal"><a class="btn secondary" href="./servicios.html">ver todos los servicios <span aria-hidden="true">↗</span></a><a class="btn whatsapp-link" data-message="services" href="https://wa.me/TU_NUMERO_CON_CODIGO_DE_PAIS">consultar por WhatsApp <span aria-hidden="true">↗</span></a></p>
-</div></section>
+<div class="top-line" id="topLine" aria-hidden="true"></div>
 
-<section class="manifesto" id="estudio"><div class="wrap reveal"><p class="kicker">02 / el estudio</p><blockquote>“la tecnología también puede tener <strong>personalidad.</strong>”</blockquote><p class="quote-label">yoru studio — 夜</p><p class="section-intro" style="max-width:620px">YORU STUDIO une creatividad y tecnología para transformar ideas en experiencias digitales claras, cuidadas y funcionales. Sin soluciones copiadas: primero escuchamos, después damos forma.</p><p><a class="btn secondary" href="./sobre-mi.html">conoce el estudio <span aria-hidden="true">↗</span></a></p></div></section>
+<div class="page-content">
+<header id="header">
+  <div class="container nav-inner">
+    <a class="logo" href="./index.html" aria-label="YORU STUDIO, inicio">
+      <span class="logo-symbol">夜</span>
+      <span class="logo-name">YORU STUDIO<small>DIGITAL ATELIER</small></span>
+    </a>
 
-<section class="section" id="diferenciadores"><div class="wrap"><div class="section-heading reveal"><div><p class="kicker">03 / nuestra filosofía</p><h2>el detalle cambia<br/><em>la experiencia.</em></h2></div><p class="section-intro">Cada decisión visual y técnica tiene un propósito: crear algo útil, fácil de entender y ajustado a lo que necesitas.</p></div>
-<div class="services values-grid">
-<article class="service reveal"><span class="number">A / 01</span><h3>diseño cuidado</h3><p>Jerarquía, consistencia y una identidad visual que se siente intencional.</p></article>
-<article class="service reveal"><span class="number">B / 02</span><h3>soluciones prácticas</h3><p>Priorizamos la utilidad y evitamos añadir complejidad innecesaria.</p></article>
-<article class="service reveal"><span class="number">C / 03</span><h3>adaptación real</h3><p>El enfoque parte de tus objetivos, recursos y necesidades concretas.</p></article>
-<article class="service reveal"><span class="number">D / 04</span><h3>atención al detalle</h3><p>Revisamos presentación, funcionamiento y adaptación antes de entregar.</p></article>
-</div></div></section>
+    <button class="menu-button" id="menuButton" type="button"
+      aria-label="Abrir menú" aria-expanded="false" aria-controls="navigation">☰</button>
 
-<section class="section" id="proceso"><div class="wrap"><div class="section-heading reveal"><div><p class="kicker">04 / nuestro proceso</p><h2>de la visión<br/><em>al resultado.</em></h2></div><p class="section-intro">Un proceso claro, sin complicaciones innecesarias. Primero entendemos tu idea; después diseñamos una solución a tu medida.</p></div>
-<div class="steps">
-<div class="step reveal"><span class="step-n">01</span><h3>comprender</h3><p>Conversamos sobre lo que necesitas, tus objetivos y cómo imaginas el resultado.</p></div>
-<div class="step reveal"><span class="step-n">02</span><h3>planificar</h3><p>Definimos el alcance, la estructura y los detalles antes de empezar a construir.</p></div>
-<div class="step reveal"><span class="step-n">03</span><h3>desarrollar y entregar</h3><p>Construimos, revisamos los detalles y te entregamos una solución lista para usar.</p></div>
-</div></div></section>
+    <nav class="nav-links" id="navigation" aria-label="Navegación principal">
+      <a href="./index.html" aria-current="page">Inicio</a>
+      <a href="./servicios.html">Servicios</a>
+      <a href="./proyectos.html">Proyectos</a>
+      <a href="./sobre-mi.html">Sobre mí</a>
+      <a class="nav-contact whatsapp-link" data-message="general"
+         href="https://wa.me/525664921229">Contacto ↗</a>
+    </nav>
+  </div>
+</header>
 
-<section class="section" id="contacto"><div class="wrap"><div class="contact-panel reveal"><p class="kicker">05 / contacto</p><h2>tu próxima idea<br/><em>comienza aquí.</em></h2><p>Cuéntanos qué tienes en mente. Hablemos de una solución digital con personalidad, pensada para tus necesidades.</p>
-<div class="actions">
-<a class="btn whatsapp-link" data-message="quote" href="https://wa.me/TU_NUMERO_CON_CODIGO_DE_PAIS" id="contactBtn">solicitar cotización <span aria-hidden="true">↗</span></a>
-<a class="btn secondary whatsapp-link" data-message="services" href="https://wa.me/TU_NUMERO_CON_CODIGO_DE_PAIS">consultar servicios <span aria-hidden="true">↗</span></a>
-</div></div></div></section></main>
-<footer class="footer"><div class="wrap footer-inner">
-<a class="logo" href="./index.html"><span class="logo-mark">夜</span><span>yoru studio<small>digital atelier</small></span></a>
-<div class="footer-links" aria-label="Enlaces del pie"><a href="./index.html">Inicio</a><a href="./servicios.html">Servicios</a><a href="./proyectos.html">Proyectos</a><a href="./sobre-mi.html">Sobre mí</a><a href="./contacto.html">Contacto</a></div>
-<p>© <span id="year"></span> YORU STUDIO. DISEÑADO PARA DESTACAR.</p><p>YOUR VISION. OUR POWER.</p></div></footer>
+<main>
+<section class="hero" id="inicio">
+  <div class="container">
+    <div class="hero-copy">
+      <div class="eyebrow reveal">夜 · Creative Technology Studio</div>
+      <h1 class="reveal">YORU<span>STUDIO.</span></h1>
+      <p class="hero-tagline reveal">Tecnología con propósito. Ideas sin límites.</p>
+      <p class="hero-description reveal">
+        Diseño, código y creatividad en soluciones digitales con una identidad propia,
+        pensadas para funcionar y hechas con intención.
+      </p>
+      <div class="actions reveal">
+        <a class="button" href="./servicios.html">Explorar servicios <span>↗</span></a>
+        <a class="button secondary whatsapp-link" data-message="general"
+           href="https://wa.me/525664921229">Hablemos de tu idea <span>→</span></a>
+      </div>
+    </div>
+    <div class="hero-bottom">
+      <span class="scroll-hint">Desliza para descubrir</span>
+      <span class="hero-index">Diseño con carácter · Tecnología útil</span>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="presentacion">
+  <div class="container">
+    <div class="section-heading reveal">
+      <div>
+        <p class="kicker">01 / El estudio</p>
+        <h2>Ideas que dejan<br><em>huella.</em></h2>
+      </div>
+      <p class="section-intro">
+        YORU STUDIO une tecnología y creatividad para dar forma a experiencias
+        digitales con intención. Cada decisión visual tiene un propósito y cada
+        solución parte de lo que realmente necesitas.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="servicios">
+  <div class="container">
+    <div class="section-heading reveal">
+      <div>
+        <p class="kicker">02 / Lo que hacemos</p>
+        <h2>Diseñado para<br><em>hacerlo posible.</em></h2>
+      </div>
+      <p class="section-intro">
+        Desde una presencia web hasta herramientas digitales, buscamos el equilibrio
+        entre una estética cuidada, claridad y utilidad.
+      </p>
+    </div>
+
+    <div class="service-grid">
+      <article class="service reveal">
+        <span class="service-number">01 / WEB</span><span class="service-arrow">↗</span>
+        <h3>Desarrollo web</h3>
+        <p>Sitios adaptables, navegación clara y experiencias pensadas para distintas pantallas.</p>
+      </article>
+      <article class="service reveal">
+        <span class="service-number">02 / DESIGN</span><span class="service-arrow">↗</span>
+        <h3>Diseño e identidad visual</h3>
+        <p>Interfaces, recursos visuales e identidades digitales coherentes y reconocibles.</p>
+      </article>
+      <article class="service reveal">
+        <span class="service-number">03 / AUTOMATION</span><span class="service-arrow">↗</span>
+        <h3>Bots y automatización</h3>
+        <p>Flujos útiles para reducir tareas repetitivas y simplificar procesos digitales.</p>
+      </article>
+      <article class="service reveal">
+        <span class="service-number">04 / TOOLS</span><span class="service-arrow">↗</span>
+        <h3>Apps y herramientas</h3>
+        <p>Herramientas prácticas creadas alrededor de necesidades concretas.</p>
+      </article>
+      <article class="service reveal">
+        <span class="service-number">05 / SUPPORT</span><span class="service-arrow">↗</span>
+        <h3>Soporte técnico</h3>
+        <p>Orientación para diagnosticar problemas y mantener tus recursos digitales en orden.</p>
+      </article>
+    </div>
+
+    <div class="actions section-actions reveal">
+      <a class="button secondary" href="./servicios.html">Ver servicios <span>↗</span></a>
+      <a class="button whatsapp-link" data-message="services"
+         href="https://wa.me/525664921229">Consultar por WhatsApp <span>↗</span></a>
+    </div>
+  </div>
+</section>
+
+<section class="manifesto" id="filosofia">
+  <div class="container reveal">
+    <p class="kicker">03 / Nuestra filosofía</p>
+    <blockquote>La tecnología también puede tener <span>personalidad.</span></blockquote>
+    <p>
+      No se trata de añadir efectos por añadirlos. Se trata de crear algo que se vea
+      bien, funcione correctamente y tenga sentido para quien lo utiliza.
+    </p>
+    <a class="button secondary" href="./sobre-mi.html">Conoce el estudio <span>↗</span></a>
+  </div>
+</section>
+
+<section class="section" id="diferenciadores">
+  <div class="container">
+    <div class="section-heading reveal">
+      <div>
+        <p class="kicker">04 / Lo que nos guía</p>
+        <h2>El detalle cambia<br><em>la experiencia.</em></h2>
+      </div>
+      <p class="section-intro">
+        Cada proyecto merece atención a sus objetivos, su contexto y las personas
+        que van a utilizarlo.
+      </p>
+    </div>
+
+    <div class="values">
+      <article class="value reveal">
+        <span class="value-number">A / 01</span>
+        <h3>Diseño cuidado</h3>
+        <p>Jerarquía visual, consistencia y una identidad que se reconoce sin saturar.</p>
+      </article>
+      <article class="value reveal">
+        <span class="value-number">B / 02</span>
+        <h3>Soluciones prácticas</h3>
+        <p>Priorizamos la utilidad y evitamos la complejidad que no aporta valor.</p>
+      </article>
+      <article class="value reveal">
+        <span class="value-number">C / 03</span>
+        <h3>Adaptación real</h3>
+        <p>La propuesta parte de tus objetivos y de lo que necesitas resolver.</p>
+      </article>
+      <article class="value reveal">
+        <span class="value-number">D / 04</span>
+        <h3>Atención al detalle</h3>
+        <p>Cuidamos la presentación, la navegación y el comportamiento en distintos dispositivos.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="proceso">
+  <div class="container">
+    <div class="section-heading reveal">
+      <div>
+        <p class="kicker">05 / El proceso</p>
+        <h2>De la idea<br><em>al resultado.</em></h2>
+      </div>
+      <p class="section-intro">
+        Un proceso claro permite tomar mejores decisiones y avanzar sin perder de
+        vista el objetivo.
+      </p>
+    </div>
+
+    <div class="process">
+      <article class="process-item reveal">
+        <span class="process-number">01</span>
+        <h3>Comprender</h3>
+        <p>Conversamos sobre tu idea, tus necesidades y el resultado que buscas.</p>
+      </article>
+      <article class="process-item reveal">
+        <span class="process-number">02</span>
+        <h3>Planificar</h3>
+        <p>Definimos la estructura, las prioridades y el alcance de la solución.</p>
+      </article>
+      <article class="process-item reveal">
+        <span class="process-number">03</span>
+        <h3>Desarrollar y entregar</h3>
+        <p>Construimos la propuesta, revisamos sus detalles y preparamos la entrega.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="contacto">
+  <div class="container">
+    <div class="contact-panel reveal">
+      <p class="kicker">06 / Hablemos</p>
+      <h2>Tu próxima idea<br><em>comienza aquí.</em></h2>
+      <p>
+        Cuéntanos qué tienes en mente. Podemos conversar sobre tu idea, explorar
+        opciones y valorar qué solución digital encaja contigo.
+      </p>
+      <div class="actions">
+        <a class="button whatsapp-link" data-message="quote"
+           href="https://wa.me/525664921229">Solicitar cotización <span>↗</span></a>
+        <a class="button secondary whatsapp-link" data-message="services"
+           href="https://wa.me/525664921229">Consultar servicios <span>↗</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="container footer-inner">
+    <a class="logo" href="./index.html">
+      <span class="logo-symbol">夜</span>
+      <span class="logo-name">YORU STUDIO<small>DIGITAL ATELIER</small></span>
+    </a>
+    <nav class="footer-links" aria-label="Navegación del pie de página">
+      <a href="./index.html">Inicio</a>
+      <a href="./servicios.html">Servicios</a>
+      <a href="./proyectos.html">Proyectos</a>
+      <a href="./sobre-mi.html">Sobre mí</a>
+      <a href="./contacto.html">Contacto</a>
+    </nav>
+    <p class="footer-note">© <span id="year"></span> YORU STUDIO · TECNOLOGÍA CON PROPÓSITO.</p>
+  </div>
+</footer>
+</div>
+
 <script>
 (() => {
-  // Sustituye el marcador por tu número internacional, solo dígitos y sin +, espacios ni guiones.
-  const WHATSAPP_NUMBER = "TU_NUMERO_CON_CODIGO_DE_PAIS";
+  "use strict";
+
+  // Número de WhatsApp en formato internacional: México +52.
+  const WHATSAPP_NUMBER = "525664921229";
+
   const messages = {
     general: "Hola, YORU STUDIO. Me gustaría hablar sobre una idea que tengo.",
-    services: "Hola, YORU STUDIO. Quisiera consultar información sobre sus servicios.",
-    quote: "Hola, YORU STUDIO. Me gustaría solicitar una cotización para un proyecto. ¿Qué información necesitan?"
+    services: "Hola, YORU STUDIO. Quisiera conocer más información sobre sus servicios.",
+    quote: "Hola, YORU STUDIO. Me gustaría solicitar una cotización. ¿Qué información necesitan?"
   };
+
+  // Configura todos los enlaces de WhatsApp.
   document.querySelectorAll(".whatsapp-link").forEach(link => {
-    const text = messages[link.dataset.message] || messages.general;
-    link.href = "https://wa.me/" + (/^\d{10,15}$/.test(WHATSAPP_NUMBER) ? WHATSAPP_NUMBER : "5664921229") + "?text=" + encodeURIComponent(text);
+    const type = link.dataset.message || "general";
+    const message = messages[type] || messages.general;
+    link.href = "https://wa.me/" + WHATSAPP_NUMBER +
+      "?text=" + encodeURIComponent(message);
     link.target = "_blank";
     link.rel = "noopener noreferrer";
   });
 
+  // Año actualizado automáticamente.
   document.getElementById("year").textContent = new Date().getFullYear();
-  const nav = document.getElementById("nav");
-  const menu = document.getElementById("menu");
-  const menuBtn = document.getElementById("menuBtn");
-  const closeMenu = () => {
-    menu.classList.remove("open");
-    menuBtn.setAttribute("aria-expanded", "false");
-    menuBtn.textContent = "☰";
-    menuBtn.setAttribute("aria-label", "Abrir menú");
-  };
-  menuBtn.addEventListener("click", () => {
-    const open = menu.classList.toggle("open");
-    menuBtn.setAttribute("aria-expanded", String(open));
-    menuBtn.textContent = open ? "×" : "☰";
-    menuBtn.setAttribute("aria-label", open ? "Cerrar menú" : "Abrir menú");
-  });
-  menu.querySelectorAll("a").forEach(a => a.addEventListener("click", closeMenu));
-  document.addEventListener("keydown", e => { if (e.key === "Escape") closeMenu(); });
 
-  const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  let scheduled = false;
-  function onScroll() {
-    if (scheduled) return;
-    scheduled = true;
+  // Menú móvil funcional.
+  const header = document.getElementById("header");
+  const menuButton = document.getElementById("menuButton");
+  const navigation = document.getElementById("navigation");
+
+  function closeMenu() {
+    navigation.classList.remove("open");
+    menuButton.setAttribute("aria-expanded", "false");
+    menuButton.setAttribute("aria-label", "Abrir menú");
+    menuButton.textContent = "☰";
+  }
+
+  menuButton.addEventListener("click", () => {
+    const isOpen = navigation.classList.toggle("open");
+    menuButton.setAttribute("aria-expanded", String(isOpen));
+    menuButton.setAttribute("aria-label", isOpen ? "Cerrar menú" : "Abrir menú");
+    menuButton.textContent = isOpen ? "×" : "☰";
+  });
+
+  navigation.querySelectorAll("a").forEach(link => {
+    link.addEventListener("click", closeMenu);
+  });
+
+  document.addEventListener("keydown", event => {
+    if (event.key === "Escape") closeMenu();
+  });
+
+  document.addEventListener("click", event => {
+    if (!header.contains(event.target)) closeMenu();
+  });
+
+  // Barra de progreso, cabecera y fondo con desplazamiento.
+  const topLine = document.getElementById("topLine");
+  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  let ticking = false;
+
+  function updateScroll() {
+    if (ticking) return;
+    ticking = true;
+
     requestAnimationFrame(() => {
-      const y = window.scrollY;
-      const max = Math.max(1, document.documentElement.scrollHeight - window.innerHeight);
-      document.documentElement.style.setProperty("--scroll", (y / max).toFixed(4));
-      if (!reduced) document.documentElement.style.setProperty("--shift", Math.max(-125, Math.min(125, -y * .085)) + "px");
-      nav.classList.toggle("scrolled", y > 35);
-      scheduled = false;
+      const scrollY = window.scrollY;
+      const maxScroll = Math.max(
+        1,
+        document.documentElement.scrollHeight - window.innerHeight
+      );
+      const progress = Math.min(100, (scrollY / maxScroll) * 100);
+
+      topLine.style.width = progress + "%";
+      header.classList.toggle("scrolled", scrollY > 25);
+
+      if (!reduceMotion) {
+        const shift = Math.max(-100, Math.min(100, -scrollY * 0.08));
+        document.documentElement.style.setProperty("--shift", shift + "px");
+      }
+
+      ticking = false;
     });
   }
-  window.addEventListener("scroll", onScroll, {passive:true});
-  onScroll();
-  if ("IntersectionObserver" in window && !reduced) {
-    const io = new IntersectionObserver(entries => entries.forEach(entry => {
-      if (entry.isIntersecting) { entry.target.classList.add("visible"); io.unobserve(entry.target); }
-    }), {threshold:.09});
-    document.querySelectorAll(".reveal").forEach(el => io.observe(el));
-  } else document.querySelectorAll(".reveal").forEach(el => el.classList.add("visible"));
+
+  window.addEventListener("scroll", updateScroll, { passive: true });
+  window.addEventListener("resize", updateScroll);
+  updateScroll();
+
+  // Aparición sutil de las secciones al desplazarse.
+  const revealElements = document.querySelectorAll(".reveal");
+
+  if ("IntersectionObserver" in window && !reduceMotion) {
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.08 });
+
+    revealElements.forEach(element => observer.observe(element));
+  } else {
+    revealElements.forEach(element => element.classList.add("visible"));
+  }
 })();
-</script></body></html>
+</script>
+</body>
+</html>
