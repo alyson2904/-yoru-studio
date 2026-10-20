@@ -35,7 +35,7 @@
 <a href="./servicios.html">Servicios</a>
 <a href="./proyectos.html">Proyectos</a>
 <a href="./sobre-mi.html">Sobre mí</a>
-<a class="nav-cta whatsapp-link" data-message="general" href="https://wa.me/TU_NUMERO_CON_CODIGO_DE_PAIS">Hablemos ↗</a>
+<a class="nav-cta whatsapp-link" data-message="general" href="https://wa.me/+525664921229">Hablemos ↗</a>
 </nav></div></header>
 <main>
 <section class="hero"><div class="wrap"><div class="hero-copy">
@@ -61,7 +61,7 @@
   };
   document.querySelectorAll(".whatsapp-link").forEach(link => {
     const text = messages[link.dataset.message] || messages.general;
-    link.href = "https://wa.me/" + (/^\d{10,15}$/.test(WHATSAPP_NUMBER) ? WHATSAPP_NUMBER : "TU_NUMERO_CON_CODIGO_DE_PAIS") + "?text=" + encodeURIComponent(text);
+    link.href = "https://wa.me/" + (/^\d{10,15}$/.test(WHATSAPP_NUMBER) ? WHATSAPP_NUMBER : "+52 566 492 1229") + "?text=" + encodeURIComponent(text);
     link.target = "_blank";
     link.rel = "noopener noreferrer";
   });
