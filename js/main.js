@@ -82,7 +82,7 @@
   // Mapeo de las secciones a sus imágenes
   const sectionBackgrounds = {
     "inicio": "./assets/yoru.png",
-    "estudio": "./assets/yoru-roja.png",
+    "estudio": "./assets/yoru.png", // Mantenemos la imagen original aquí para que no cambie
     "servicios-top": "./assets/yoru-azul.png",
     "proyectos-top": "./assets/yoru-morada.png",
     "contacto": "./assets/yoru-bosque.png"
