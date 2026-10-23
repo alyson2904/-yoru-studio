@@ -156,10 +156,11 @@ section > .wrap {
 }
 
 /* Asignación de imágenes a cada sección */
-#bg-servicios { background-image: url('../assets/archivo_00000000f43481f5bf8149f7456fd87b.png'); }
-#bg-proyectos { background-image: url('../assets/archivo_0000000097c081f5ace5e17bb31f9fab.png'); }
-#bg-sobre-mi { background-image: url('../assets/archivo_00000000b1081f58d7f3aa73e940203.png'); }
-#bg-contacto { background-image: url('../assets/archivo_00000000899481f582027f8584595ad7.png'); }
+/* Asignación de imágenes a cada sección */
+#bg-servicios { background-image: url('../assets/file_00000000f43481f5bf8149f7456fd87b.png'); }
+#bg-proyectos { background-image: url('../assets/file_0000000097c081f5ace5e17bb31f9fab.png'); }
+#bg-sobre-mi { background-image: url('../assets/file_00000000b1081f58d7f3aa73e940203.png'); }
+#bg-contacto { background-image: url('../assets/file_00000000899481f582027f8584595ad7.png'); }
 
 /* Ajuste para móviles (background-attachment: fixed a veces falla en Android) */
 @media (max-width: 800px) {
