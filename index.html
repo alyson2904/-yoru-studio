@@ -9,7 +9,7 @@
 <link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&amp;family=DM+Sans:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
 <link rel="stylesheet" href="./css/style.css">
 </head><body>
-<div aria-hidden="true" class="bg"><div class="bg-image"></div></div><div aria-hidden="true" class="noise"></div><div aria-hidden="true" class="progress"></div>
+<div aria-hidden="true" class="noise"></div><div aria-hidden="true" class="progress"></div>
 <header class="nav" id="nav"><div class="wrap nav-inner">
 <a aria-label="Yoru Studio, ir al inicio" class="logo" href="./index.html"><span class="logo-mark">夜</span><span>yoru studio<small>digital atelier</small></span></a>
 <button type="button" aria-controls="menu" aria-expanded="false" aria-label="Abrir menú" class="menu-toggle" id="menuBtn">☰</button>
@@ -21,7 +21,10 @@
 <a class="nav-cta whatsapp-link" data-message="general" href="https://wa.me/525664921229">Hablemos ↗</a>
 </nav></div></header>
 <main>
-<section class="hero" id="inicio"><div class="wrap"><div class="hero-copy">
+<!-- Hero (Mantenemos la imagen original de fondo) -->
+<section class="hero" id="inicio">
+  <div class="bg"><div class="bg-image"></div></div>
+  <div class="wrap"><div class="hero-copy">
 <div class="eyebrow reveal">夜 · creative technology studio</div>
 <h1 class="reveal">yoru<span>studio.</span></h1>
 <p class="lead reveal">Tecnología con propósito. Ideas sin límites.</p>
@@ -31,8 +34,10 @@
 <a class="btn secondary whatsapp-link" data-message="general" href="https://wa.me/525664921229">hablemos de tu idea <span aria-hidden="true">→</span></a>
 </div></div><div class="hero-bottom"><div class="scroll-mark"><span class="scroll-line"></span>desliza para descubrir</div><span class="vertical-word">est. 2026 — 夜</span></div></div></section>
 
-<!-- NUEVA SECCIÓN DE PROYECTOS DESTACADOS -->
-<section class="section section-rule" id="proyectos-destacados"><div class="wrap">
+<!-- PROYECTOS (Fondo Morado) -->
+<section class="section section-rule" id="proyectos-destacados">
+  <div class="section-bg" id="bg-proyectos"></div>
+  <div class="wrap">
 <div class="section-heading reveal"><div><p class="kicker">01 / portafolio</p><h2>trabajos<br/><em>recientes.</em></h2></div><p class="section-intro">Una muestra del tipo de soluciones que construimos. Próximamente se irán añadiendo más casos de estudio.</p></div>
 <div class="project-grid">
   <a href="./proyectos.html" class="project-card reveal">
@@ -52,8 +57,10 @@
 </div>
 </div></section>
 
-<!-- SECCIÓN DE SERVICIOS REDISEÑADA -->
-<section class="section" id="servicios"><div class="wrap">
+<!-- SERVICIOS (Fondo Azul) -->
+<section class="section" id="servicios">
+  <div class="section-bg" id="bg-servicios"></div>
+  <div class="wrap">
 <div class="section-heading reveal"><div><p class="kicker">02 / lo que hacemos</p><h2>ideas que se<br/><em>convierten en realidad.</em></h2></div><p class="section-intro">Soluciones digitales con intención. Cada propuesta se adapta a tus necesidades, cuidando tanto la estética como la funcionalidad.</p></div>
 <div class="services" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px;">
   <article class="service-card-new reveal">
@@ -90,9 +97,23 @@
 <p class="actions reveal" style="margin-top: 40px;"><a class="btn secondary" href="./servicios.html">ver todos los servicios <span aria-hidden="true">↗</span></a><a class="btn whatsapp-link" data-message="services" href="https://wa.me/525664921229">consultar por WhatsApp <span aria-hidden="true">↗</span></a></p>
 </div></section>
 
-<section class="manifesto" id="estudio"><div class="wrap reveal"><p class="kicker">03 / el estudio</p><blockquote>“la tecnología también puede tener <strong>personalidad.</strong>”</blockquote><p class="quote-label">yoru studio — 夜</p><p class="section-intro" style="max-width:620px">YORU STUDIO une creatividad y tecnología para transformar ideas en experiencias digitales claras, cuidadas y funcionales. Sin soluciones copiadas: primero escuchamos, después damos forma.</p><p><a class="btn secondary" href="./sobre-mi.html">conoce el estudio <span aria-hidden="true">↗</span></a></p></div></section>
+<!-- SOBRE MÍ (Fondo Rojo Oscuro) -->
+<section class="section" id="estudio">
+  <div class="section-bg" id="bg-sobre-mi"></div>
+  <div class="wrap">
+    <div class="contact-panel reveal" style="text-align: center;">
+      <p class="kicker">03 / el estudio</p>
+      <h2>“la tecnología también puede tener<br/><em>personalidad.”</em></h2>
+      <p style="max-width: 600px; margin: 0 auto 30px;">YORU STUDIO une creatividad y tecnología para transformar ideas en experiencias digitales claras, cuidadas y funcionales. Sin soluciones copiadas: primero escuchamos, después damos forma.</p>
+      <a class="btn secondary" href="./sobre-mi.html">conoce el estudio <span aria-hidden="true">↗</span></a>
+    </div>
+  </div>
+</section>
 
-<section class="section" id="contacto"><div class="wrap"><div class="contact-panel reveal"><p class="kicker">04 / contacto</p><h2>tu próxima idea<br/><em>comienza aquí.</em></h2><p>Cuéntanos qué tienes en mente. Hablemos de una solución digital con personalidad, pensada para tus necesidades.</p>
+<!-- CONTACTO (Fondo Bosque Rojo) -->
+<section class="section" id="contacto">
+  <div class="section-bg" id="bg-contacto"></div>
+  <div class="wrap"><div class="contact-panel reveal"><p class="kicker">04 / contacto</p><h2>tu próxima idea<br/><em>comienza aquí.</em></h2><p>Cuéntanos qué tienes en mente. Hablemos de una solución digital con personalidad, pensada para tus necesidades.</p>
 <div class="actions">
 <a class="btn whatsapp-link" data-message="quote" href="https://wa.me/525664921229" id="contactBtn">solicitar cotización <span aria-hidden="true">↗</span></a>
 <a class="btn secondary whatsapp-link" data-message="services" href="https://wa.me/525664921229">consultar servicios <span aria-hidden="true">↗</span></a>
