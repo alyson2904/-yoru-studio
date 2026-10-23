@@ -127,3 +127,44 @@
   font-size: 18px;
   font-weight: 500;
 }
+/* =========================================
+   FONDOS INDEPENDIENTES POR SECCIÓN
+   ========================================= */
+
+/* Hacemos que las secciones sean relativas para contener la imagen */
+section {
+  position: relative;
+  background-color: var(--ink); /* Color de respaldo */
+}
+
+/* Creamos la capa de fondo */
+.section-bg {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  z-index: 0;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed; /* Efecto parallax */
+  opacity: 0.35; /* Oscurecemos la imagen para que resalte el texto */
+  pointer-events: none; /* Para que no bloquee los clics */
+}
+
+/* Aseguramos que el contenido quede por encima del fondo */
+section > .wrap {
+  position: relative;
+  z-index: 1;
+}
+
+/* Asignación de imágenes a cada sección */
+#bg-servicios { background-image: url('../assets/archivo_00000000f43481f5bf8149f7456fd87b.png'); }
+#bg-proyectos { background-image: url('../assets/archivo_0000000097c081f5ace5e17bb31f9fab.png'); }
+#bg-sobre-mi { background-image: url('../assets/archivo_00000000b1081f58d7f3aa73e940203.png'); }
+#bg-contacto { background-image: url('../assets/archivo_00000000899481f582027f8584595ad7.png'); }
+
+/* Ajuste para móviles (background-attachment: fixed a veces falla en Android) */
+@media (max-width: 800px) {
+  .section-bg {
+    background-attachment: scroll;
+    opacity: 0.25; /* Un poco más oscuro en móvil para legibilidad */
+  }
+}
