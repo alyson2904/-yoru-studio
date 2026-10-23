@@ -102,4 +102,43 @@
 
     sections.forEach(section => observerBg.observe(section));
   }
+  // --- LÓGICA DE MODALES (CATÁLOGO DE SERVICIOS) ---
+const serviceCards = document.querySelectorAll('.service[data-target]');
+const modals = document.querySelectorAll('.modal-overlay');
+const closeBtns = document.querySelectorAll('[data-close]');
+
+if (serviceCards.length > 0) {
+  // Abrir modal al tocar una tarjeta
+  serviceCards.forEach(card => {
+    card.addEventListener('click', () => {
+      const targetId = card.getAttribute('data-target');
+      const modal = document.getElementById(targetId);
+      if (modal) {
+        modal.classList.add('active');
+        document.body.style.overflow = 'hidden'; // Evitar scroll de fondo
+      }
+    });
+  });
+
+  // Cerrar modal con la X
+  closeBtns.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      const modal = e.target.closest('.modal-overlay');
+      if (modal) {
+        modal.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+    });
+  });
+
+  // Cerrar modal al tocar fuera de la caja
+  modals.forEach(modal => {
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) {
+        modal.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+    });
+  });
+}
 })();
