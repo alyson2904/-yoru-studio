@@ -150,3 +150,23 @@ section > .wrap {
 @media (max-width: 800px) {
   .section-bg { background-attachment: scroll; opacity: 0.25; }
 }
+/* Ajuste para que las portadas de las subpáginas se vean más imponentes */
+.hero-servicios, .hero-proyectos, .hero-sobre-mi, .hero-contacto {
+  min-height: 85svh;
+}
+
+/* Hacemos que el texto del hero resalte más sobre las imágenes */
+.hero-servicios .hero-copy, .hero-proyectos .hero-copy, .hero-sobre-mi .hero-copy, .hero-contacto .hero-copy {
+  background: rgba(9, 7, 9, 0.4);
+  padding: 40px;
+  border-radius: 4px;
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+@media (max-width: 800px) {
+  .hero-servicios .hero-copy, .hero-proyectos .hero-copy, .hero-sobre-mi .hero-copy, .hero-contacto .hero-copy {
+    padding: 20px;
+    background: rgba(9, 7, 9, 0.6);
+  }
+}
