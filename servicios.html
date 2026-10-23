@@ -9,7 +9,7 @@
 <link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&amp;family=DM+Sans:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
 <link rel="stylesheet" href="./css/style.css">
 </head><body>
-<div class="bg-fixed" id="global-bg" style="background-image: url('./assets/yoru-azul.png');"></div>
+<div class="bg-fixed" style="background-image: url('./assets/yoru-azul.png'); position: fixed; height: 100vh; z-index: -1;"></div>
 <div aria-hidden="true" class="noise"></div><div aria-hidden="true" class="progress"></div>
 <header class="nav" id="nav"><div class="wrap nav-inner">
 <a aria-label="Yoru Studio, ir al inicio" class="logo" href="./index.html"><span class="logo-mark">夜</span><span>yoru studio<small>digital atelier</small></span></a>
@@ -31,19 +31,118 @@
 
 <section class="section section-rule">
   <div class="wrap">
-<div class="section-heading reveal"><div><p class="kicker">01 / capacidades</p><h2>cada idea necesita<br/><em>su propia forma.</em></h2></div><p class="section-intro">Podemos definir el alcance según lo que quieres resolver. El primer paso es entender tu necesidad.</p></div>
+<div class="section-heading reveal"><div><p class="kicker">01 / capacidades</p><h2>cada idea necesita<br/><em>su propia forma.</em></h2></div><p class="section-intro">Podemos definir el alcance según lo que quieres resolver. El primer paso es entender tu necesidad. Toca cualquier tarjeta para ver más detalles.</p></div>
+
 <div class="services">
-<article class="service reveal"><span class="number">01 / WEB</span><span class="arrow">↗</span><h3>desarrollo web</h3><p>Sitios modernos, adaptables y fáciles de navegar desde el móvil o la computadora.</p></article>
-<article class="service reveal"><span class="number">02 / DESIGN</span><span class="arrow">↗</span><h3>diseño digital e identidad visual</h3><p>Interfaces, piezas digitales y sistemas visuales con una dirección estética coherente.</p></article>
-<article class="service reveal"><span class="number">03 / AUTOMATION</span><span class="arrow">↗</span><h3>bots y automatización</h3><p>Flujos digitales para organizar tareas repetitivas y simplificar procesos.</p></article>
-<article class="service reveal"><span class="number">04 / TOOLS</span><span class="arrow">↗</span><h3>aplicaciones y herramientas</h3><p>Pequeñas herramientas digitales centradas en una necesidad concreta.</p></article>
-<article class="service reveal"><span class="number">05 / SUPPORT</span><span class="arrow">↗</span><h3>soporte técnico</h3><p>Orientación para revisar problemas y mantener tus recursos digitales funcionando mejor.</p></article>
-</div></div></section>
+  <!-- Servicio 1 -->
+  <article class="service reveal" data-target="modal-1">
+    <span class="number">01 / WEB</span><span class="arrow">↗</span><h3>desarrollo web</h3>
+    <p>Sitios modernos, adaptables y fáciles de navegar desde el móvil o la computadora.</p>
+  </article>
+  <!-- Servicio 2 -->
+  <article class="service reveal" data-target="modal-2">
+    <span class="number">02 / DESIGN</span><span class="arrow">↗</span><h3>diseño digital e identidad visual</h3>
+    <p>Interfaces, piezas digitales y sistemas visuales con una dirección estética coherente.</p>
+  </article>
+  <!-- Servicio 3 -->
+  <article class="service reveal" data-target="modal-3">
+    <span class="number">03 / AUTOMATION</span><span class="arrow">↗</span><h3>bots y automatización</h3>
+    <p>Flujos digitales para organizar tareas repetitivas y simplificar procesos.</p>
+  </article>
+  <!-- Servicio 4 -->
+  <article class="service reveal" data-target="modal-4">
+    <span class="number">04 / TOOLS</span><span class="arrow">↗</span><h3>aplicaciones y herramientas</h3>
+    <p>Pequeñas herramientas digitales centradas en una necesidad concreta.</p>
+  </article>
+  <!-- Servicio 5 -->
+  <article class="service reveal" data-target="modal-5">
+    <span class="number">05 / SUPPORT</span><span class="arrow">↗</span><h3>soporte técnico</h3>
+    <p>Orientación para revisar problemas y mantener tus recursos digitales funcionando mejor.</p>
+  </article>
+</div>
+</div></section>
 
 <section class="section">
   <div class="wrap"><div class="contact-panel reveal"><p class="kicker">02 / siguiente paso</p><h2>hablemos de<br/><em>lo que necesitas.</em></h2><p>Cuéntanos tu idea y podemos conversar sobre el enfoque más adecuado.</p><div class="actions"><a class="btn whatsapp-link" data-message="quote" href="https://wa.me/525664921229">solicitar cotización <span aria-hidden="true">↗</span></a></div></div></div>
 </section>
 </main>
+
+<!-- MODALES (Ocultos por defecto) -->
+<div class="modal-overlay" id="modal-1">
+  <div class="modal-content">
+    <button class="modal-close" data-close>&times;</button>
+    <h3>Desarrollo Web</h3>
+    <p>Sitios y experiencias adaptables, claros y pensados para verse bien en cualquier pantalla. Desde landings page hasta tiendas online.</p>
+    <ul class="modal-list">
+      <li>Diseño responsivo (móvil y escritorio)</li>
+      <li>Optimización de velocidad de carga</li>
+      <li>Integración con WhatsApp y redes</li>
+      <li>Estructura SEO amigable</li>
+    </ul>
+    <a href="https://wa.me/525664921229?text=Hola,%20me%20interesa%20el%20servicio%20de%20Desarrollo%20Web" target="_blank" class="btn" style="width: 100%;">consultar este servicio <span aria-hidden="true">↗</span></a>
+  </div>
+</div>
+
+<div class="modal-overlay" id="modal-2">
+  <div class="modal-content">
+    <button class="modal-close" data-close>&times;</button>
+    <h3>Diseño e Identidad Visual</h3>
+    <p>Interfaces, recursos visuales e identidad digital con una estética coherente y reconocible que conecte con tu audiencia.</p>
+    <ul class="modal-list">
+      <li>Diseño de logotipos y paletas de color</li>
+      <li>Diseño de interfaces UI/UX</li>
+      <li>Creación de banners y piezas gráficas</li>
+      <li>Manual de marca básico</li>
+    </ul>
+    <a href="https://wa.me/525664921229?text=Hola,%20me%20interesa%20el%20servicio%20de%20Diseño%20e%20Identidad%20Visual" target="_blank" class="btn" style="width: 100%;">consultar este servicio <span aria-hidden="true">↗</span></a>
+  </div>
+</div>
+
+<div class="modal-overlay" id="modal-3">
+  <div class="modal-content">
+    <button class="modal-close" data-close>&times;</button>
+    <h3>Bots y Automatización</h3>
+    <p>Flujos digitales para organizar tareas repetitivas y simplificar procesos, ahorrándote tiempo y reduciendo errores.</p>
+    <ul class="modal-list">
+      <li>Creación de bots para Discord o Telegram</li>
+      <li>Automatización de respuestas en WhatsApp</li>
+      <li>Scripts para organización de archivos</li>
+      <li>Conexión entre distintas herramientas</li>
+    </ul>
+    <a href="https://wa.me/525664921229?text=Hola,%20me%20interesa%20el%20servicio%20de%20Bots%20y%20Automatización" target="_blank" class="btn" style="width: 100%;">consultar este servicio <span aria-hidden="true">↗</span></a>
+  </div>
+</div>
+
+<div class="modal-overlay" id="modal-4">
+  <div class="modal-content">
+    <button class="modal-close" data-close>&times;</button>
+    <h3>Aplicaciones y Herramientas</h3>
+    <p>Pequeñas herramientas digitales centradas en una necesidad concreta, ideales para resolver problemas específicos de tu negocio.</p>
+    <ul class="modal-list">
+      <li>Calculadoras personalizadas</li>
+      <li>Generadores de contenido o documentos</li>
+      <li>Paneles de control simples</li>
+      <li>Extensiones para navegador</li>
+    </ul>
+    <a href="https://wa.me/525664921229?text=Hola,%20me%20interesa%20el%20servicio%20de%20Aplicaciones%20y%20Herramientas" target="_blank" class="btn" style="width: 100%;">consultar este servicio <span aria-hidden="true">↗</span></a>
+  </div>
+</div>
+
+<div class="modal-overlay" id="modal-5">
+  <div class="modal-content">
+    <button class="modal-close" data-close>&times;</button>
+    <h3>Soporte Técnico</h3>
+    <p>Orientación para revisar problemas y mantener tus recursos digitales funcionando mejor, evitando caídas y pérdida de datos.</p>
+    <ul class="modal-list">
+      <li>Revisión de páginas web</li>
+      <li>Solución de errores en código</li>
+      <li>Asesoría para mejoras de rendimiento</li>
+      <li>Mantenimiento preventivo</li>
+    </ul>
+    <a href="https://wa.me/525664921229?text=Hola,%20me%20interesa%20el%20servicio%20de%20Soporte%20Técnico" target="_blank" class="btn" style="width: 100%;">consultar este servicio <span aria-hidden="true">↗</span></a>
+  </div>
+</div>
+
 <footer class="footer"><div class="wrap footer-inner">
 <a class="logo" href="./index.html"><span class="logo-mark">夜</span><span>yoru studio<small>digital atelier</small></span></a>
 <div class="footer-links" aria-label="Enlaces del pie"><a href="./index.html">Inicio</a><a href="./servicios.html">Servicios</a><a href="./proyectos.html">Proyectos</a><a href="./sobre-mi.html">Sobre mí</a><a href="./contacto.html">Contacto</a></div>
