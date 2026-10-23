@@ -128,44 +128,40 @@
   font-weight: 500;
 }
 /* =========================================
-   FONDOS INDEPENDIENTES POR SECCIÓN
+   FONDOS POR SECCIÓN Y PORTADAS
    ========================================= */
 
-/* Hacemos que las secciones sean relativas para contener la imagen */
-section {
-  position: relative;
-  background-color: var(--ink); /* Color de respaldo */
-}
-
-/* Creamos la capa de fondo */
+/* Estilos para el fondo de las secciones */
 .section-bg {
   position: absolute;
   top: 0; left: 0; right: 0; bottom: 0;
   z-index: 0;
   background-size: cover;
   background-position: center;
-  background-attachment: fixed; /* Efecto parallax */
-  opacity: 0.35; /* Oscurecemos la imagen para que resalte el texto */
-  pointer-events: none; /* Para que no bloquee los clics */
+  background-attachment: fixed;
+  opacity: 0.35; /* Oscurece la imagen para que el texto resalte */
+  pointer-events: none;
 }
 
-/* Aseguramos que el contenido quede por encima del fondo */
+/* Aseguramos que el contenido quede sobre el fondo */
 section > .wrap {
   position: relative;
   z-index: 1;
 }
 
-/* Asignación de imágenes a cada sección */
-/* Asignación de imágenes a cada sección */
-#bg-servicios { background-image: url('../assets/file_00000000f43481f5bf8149f7456fd87b.png'); }
-#bg-proyectos { background-image: url('../assets/file_0000000097c081f5ace5e17bb31f9fab.png'); }
-#bg-sobre-mi { background-image: url('../assets/file_00000000b1081f58d7f3aa73e940203.png'); }
-#bg-contacto { background-image: url('../assets/file_00000000899481f582027f8584595ad7.png'); }
+/* Fondos de las secciones en Index */
+#bg-servicios { background-image: url('../assets/yoru-azul.png'); }
+#bg-proyectos { background-image: url('../assets/yoru-morada.png'); }
+#bg-sobre-mi { background-image: url('../assets/yoru-roja.png'); }
+#bg-contacto { background-image: url('../assets/yoru-bosque.png'); }
 
-/* Ajuste para móviles (background-attachment: fixed a veces falla en Android) */
+/* FONDOS PARA LAS PORTADAS (HERO) DE CADA PÁGINA */
+/* Como el CSS está en otra carpeta, usamos ../assets/ */
+.hero-servicios { background-image: linear-gradient(rgba(9,7,9,0.7), rgba(9,7,9,0.8)), url('../assets/yoru-azul.png'); background-size: cover; background-position: center; }
+.hero-proyectos { background-image: linear-gradient(rgba(9,7,9,0.7), rgba(9,7,9,0.8)), url('../assets/yoru-morada.png'); background-size: cover; background-position: center; }
+.hero-sobre-mi { background-image: linear-gradient(rgba(9,7,9,0.7), rgba(9,7,9,0.8)), url('../assets/yoru-roja.png'); background-size: cover; background-position: center; }
+.hero-contacto { background-image: linear-gradient(rgba(9,7,9,0.7), rgba(9,7,9,0.8)), url('../assets/yoru-bosque.png'); background-size: cover; background-position: center; }
+
 @media (max-width: 800px) {
-  .section-bg {
-    background-attachment: scroll;
-    opacity: 0.25; /* Un poco más oscuro en móvil para legibilidad */
-  }
+  .section-bg { background-attachment: scroll; opacity: 0.25; }
 }
