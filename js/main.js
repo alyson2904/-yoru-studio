@@ -43,7 +43,7 @@
     document.addEventListener("keydown", e => { if (e.key === "Escape") closeMenu(); });
   }
 
-  // Efectos de scroll (parallax y barra de progreso)
+  // Efectos de scroll (barra de progreso)
   const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   let scheduled = false;
   
@@ -54,7 +54,6 @@
       const y = window.scrollY;
       const max = Math.max(1, document.documentElement.scrollHeight - window.innerHeight);
       document.documentElement.style.setProperty("--scroll", (y / max).toFixed(4));
-      if (!reduced) document.documentElement.style.setProperty("--shift", Math.max(-125, Math.min(125, -y * .085)) + "px");
       if (nav) nav.classList.toggle("scrolled", y > 35);
       scheduled = false;
     });
@@ -74,5 +73,33 @@
     document.querySelectorAll(".reveal").forEach(el => io.observe(el));
   } else {
     document.querySelectorAll(".reveal").forEach(el => el.classList.add("visible"));
+  }
+
+  // --- FONDO DINÁMICO POR SECCIÓN ---
+  const bgElement = document.getElementById("global-bg");
+  const sections = document.querySelectorAll("section");
+  
+  // Mapeo de las secciones a sus imágenes
+  const sectionBackgrounds = {
+    "inicio": "./assets/yoru.png",
+    "estudio": "./assets/yoru-roja.png",
+    "servicios-top": "./assets/yoru-azul.png",
+    "proyectos-top": "./assets/yoru-morada.png",
+    "contacto": "./assets/yoru-bosque.png"
+  };
+
+  if (bgElement && sections.length > 0) {
+    const observerBg = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const id = entry.target.id;
+          if (sectionBackgrounds[id]) {
+            bgElement.style.backgroundImage = `url('${sectionBackgrounds[id]}')`;
+          }
+        }
+      });
+    }, { threshold: 0.3 });
+
+    sections.forEach(section => observerBg.observe(section));
   }
 })();
