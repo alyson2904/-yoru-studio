@@ -1,5 +1,5 @@
 (() => {
-  // Número de WhatsApp (solo dígitos, sin +)
+  // Número de WhatsApp
   const WHATSAPP_NUMBER = "525664921229";
   const messages = {
     general: "Hola, YORU STUDIO. Me gustaría hablar sobre una idea que tengo.",
@@ -7,7 +7,6 @@
     quote: "Hola, YORU STUDIO. Me gustaría solicitar una cotización para un proyecto. ¿Qué información necesitan?"
   };
   
-  // Lógica de WhatsApp
   document.querySelectorAll(".whatsapp-link").forEach(link => {
     const text = messages[link.dataset.message] || messages.general;
     link.href = "https://wa.me/" + WHATSAPP_NUMBER + "?text=" + encodeURIComponent(text);
@@ -15,7 +14,6 @@
     link.rel = "noopener noreferrer";
   });
 
-  // Año dinámico en el footer
   const yearEl = document.getElementById("year");
   if (yearEl) yearEl.textContent = new Date().getFullYear();
 
@@ -43,10 +41,9 @@
     document.addEventListener("keydown", e => { if (e.key === "Escape") closeMenu(); });
   }
 
-  // Efectos de scroll (barra de progreso)
+  // Scroll y progreso
   const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   let scheduled = false;
-  
   function onScroll() {
     if (scheduled) return;
     scheduled = true;
@@ -58,11 +55,10 @@
       scheduled = false;
     });
   }
-  
   window.addEventListener("scroll", onScroll, {passive:true});
   onScroll();
 
-  // Animaciones de aparición
+  // Animaciones reveal
   if ("IntersectionObserver" in window && !reduced) {
     const io = new IntersectionObserver(entries => entries.forEach(entry => {
       if (entry.isIntersecting) { 
@@ -75,70 +71,40 @@
     document.querySelectorAll(".reveal").forEach(el => el.classList.add("visible"));
   }
 
-  // --- FONDO DINÁMICO POR SECCIÓN ---
-  const bgElement = document.getElementById("global-bg");
-  const sections = document.querySelectorAll("section");
-  
-  // Mapeo de las secciones a sus imágenes
-  const sectionBackgrounds = {
-    "inicio": "./assets/yoru.png",
-    "estudio": "./assets/yoru.png", // Mantenemos la imagen original aquí para que no cambie
-    "servicios-top": "./assets/yoru-azul.png",
-    "proyectos-top": "./assets/yoru-morada.png",
-    "contacto": "./assets/yoru-bosque.png"
-  };
+  // --- LÓGICA DE MODALES (CATÁLOGO) ---
+  const serviceCards = document.querySelectorAll('.service[data-target]');
+  const modals = document.querySelectorAll('.modal-overlay');
+  const closeBtns = document.querySelectorAll('[data-close]');
 
-  if (bgElement && sections.length > 0) {
-    const observerBg = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          const id = entry.target.id;
-          if (sectionBackgrounds[id]) {
-            bgElement.style.backgroundImage = `url('${sectionBackgrounds[id]}')`;
-          }
+  if (serviceCards.length > 0) {
+    serviceCards.forEach(card => {
+      card.addEventListener('click', () => {
+        const targetId = card.getAttribute('data-target');
+        const modal = document.getElementById(targetId);
+        if (modal) {
+          modal.classList.add('active');
+          document.body.style.overflow = 'hidden';
         }
       });
-    }, { threshold: 0.3 });
+    });
 
-    sections.forEach(section => observerBg.observe(section));
+    closeBtns.forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        const modal = e.target.closest('.modal-overlay');
+        if (modal) {
+          modal.classList.remove('active');
+          document.body.style.overflow = '';
+        }
+      });
+    });
+
+    modals.forEach(modal => {
+      modal.addEventListener('click', (e) => {
+        if (e.target === modal) {
+          modal.classList.remove('active');
+          document.body.style.overflow = '';
+        }
+      });
+    });
   }
-  // --- LÓGICA DE MODALES (CATÁLOGO DE SERVICIOS) ---
-const serviceCards = document.querySelectorAll('.service[data-target]');
-const modals = document.querySelectorAll('.modal-overlay');
-const closeBtns = document.querySelectorAll('[data-close]');
-
-if (serviceCards.length > 0) {
-  // Abrir modal al tocar una tarjeta
-  serviceCards.forEach(card => {
-    card.addEventListener('click', () => {
-      const targetId = card.getAttribute('data-target');
-      const modal = document.getElementById(targetId);
-      if (modal) {
-        modal.classList.add('active');
-        document.body.style.overflow = 'hidden'; // Evitar scroll de fondo
-      }
-    });
-  });
-
-  // Cerrar modal con la X
-  closeBtns.forEach(btn => {
-    btn.addEventListener('click', (e) => {
-      const modal = e.target.closest('.modal-overlay');
-      if (modal) {
-        modal.classList.remove('active');
-        document.body.style.overflow = '';
-      }
-    });
-  });
-
-  // Cerrar modal al tocar fuera de la caja
-  modals.forEach(modal => {
-    modal.addEventListener('click', (e) => {
-      if (e.target === modal) {
-        modal.classList.remove('active');
-        document.body.style.overflow = '';
-      }
-    });
-  });
-}
 })();
