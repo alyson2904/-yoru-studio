@@ -1,198 +1,157 @@
 <!DOCTYPE html>
-<html lang="es"><head><meta charset="utf-8"/><meta content="width=device-width,initial-scale=1,viewport-fit=cover" name="viewport"/><meta content="#090709" name="theme-color"/><meta name="description" content="YORU STUDIO: tecnología con propósito, diseño digital y soluciones creativas."/><title>YORU STUDIO 「夜」 — Digital Atelier</title>
-<meta property="og:type" content="website"/>
-<meta property="og:title" content="YORU STUDIO — Digital Atelier"/>
-<meta property="og:description" content="Tecnología con propósito. Ideas sin límites."/>
-<meta property="og:url" content="https://alyson2904.github.io/-yoru-studio/"/>
-<meta property="og:image" content="https://alyson2904.github.io/-yoru-studio/assets/yoru.png"/>
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='8' fill='%23090709'/%3E%3Ctext x='12' y='46' font-size='42' fill='%23e84967'%3E%E5%A4%9C%3C/text%3E%3C/svg%3E"/>
-<link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&amp;family=DM+Sans:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<html lang="es"><head><meta charset="utf-8"/><meta content="width=device-width,initial-scale=1,viewport-fit=cover" name="viewport"/><meta content="#090709" name="theme-color"/><title>YORU STUDIO — Digital Atelier</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
 <link rel="stylesheet" href="./css/style.css">
 </head><body>
 <div aria-hidden="true" class="noise"></div><div aria-hidden="true" class="progress"></div>
 
-<header class="nav" id="nav"><div class="wrap nav-inner">
-<a aria-label="Yoru Studio, ir al inicio" class="logo" href="#inicio"><span class="logo-mark">夜</span><span>yoru studio<small>digital atelier</small></span></a>
-<button type="button" aria-controls="menu" aria-expanded="false" aria-label="Abrir menú" class="menu-toggle" id="menuBtn">☰</button>
-<nav aria-label="Navegación principal" class="nav-links" id="menu">
-<a href="#inicio">Inicio</a>
-<a href="#servicios">Servicios</a>
-<a href="#portafolio">Portafolio</a>
-<a class="nav-cta whatsapp-link" data-message="general" href="https://wa.me/525664921229">Hablemos ↗</a>
-</nav></div></header>
-
-<main>
-<!-- 1. HERO -->
-<section class="hero" id="inicio">
-  <div class="bg-fixed" style="background-image: url('./assets/yoru.png'); position: fixed; height: 100vh; z-index: -1;"></div>
-  <div class="wrap"><div class="hero-copy">
-    <div class="eyebrow reveal" style="display:flex;align-items:center;gap:15px;font-size:10px;font-weight:600;letter-spacing:.38em;text-transform:uppercase;color:#eaa4b6;"><span style="display:inline-block;width:35px;height:1px;background:var(--red);"></span>夜 · creative technology studio</div>
-    <h1 class="reveal">yoru<span>studio.</span></h1>
-    <p class="lead reveal">Tecnología con propósito. Ideas sin límites.</p>
-    <p class="lead reveal" style="max-width:470px">Diseño, código y creatividad en soluciones digitales con una identidad propia, pensadas para funcionar y hechas con intención.</p>
-    <div class="actions reveal">
-      <a class="btn" href="#servicios">explorar servicios <span aria-hidden="true">↗</span></a>
-      <a class="btn secondary whatsapp-link" data-message="general" href="https://wa.me/525664921229">hablemos de tu idea <span aria-hidden="true">→</span></a>
-    </div>
-  </div><div class="hero-bottom"><div class="scroll-mark"><span class="scroll-line"></span>desliza para descubrir</div><span class="vertical-word">est. 2026 — 夜</span></div></div>
-</section>
-
-<!-- 2. SERVICIOS (MÁS COMPACTOS) -->
-<section class="section" id="servicios">
+<!-- HEADER ESTILO TIENDA -->
+<header class="nav" id="nav">
   <div class="wrap">
-    <div class="section-heading reveal">
-      <div>
-        <p class="kicker">01 / lo que hacemos</p>
-        <h2>ideas que se<br/><em>convierten en realidad.</em></h2>
+    <div class="nav-top">
+      <a class="logo" href="index.html">
+        <span class="logo-mark">夜</span>
+        <span>YORU STUDIO</span>
+      </a>
+      <div class="nav-actions">
+        <button class="nav-btn">ES · MX</button>
+        <button class="nav-btn cart">🛒 0</button>
+        <button class="nav-btn" id="menuBtn">☰</button>
       </div>
-      <p class="section-intro">Soluciones digitales con intención. Cada propuesta se adapta a tus necesidades.</p>
     </div>
-    
-    <div class="services-grid">
-      <div class="service-compact reveal" data-target="modal-1">
-        <div><div class="num">01 / WEB</div><h3>Desarrollo Web</h3><p>Sitios adaptables y claros para cualquier pantalla.</p></div><span class="icon">↗</span>
-      </div>
-      <div class="service-compact reveal" data-target="modal-2">
-        <div><div class="num">02 / DESIGN</div><h3>Diseño e Identidad</h3><p>Interfaces y recursos visuales coherentes.</p></div><span class="icon">↗</span>
-      </div>
-      <div class="service-compact reveal" data-target="modal-3">
-        <div><div class="num">03 / AUTOMATION</div><h3>Bots y Automatización</h3><p>Flujos para simplificar tareas y procesos.</p></div><span class="icon">↗</span>
-      </div>
-      <div class="service-compact reveal" data-target="modal-4">
-        <div><div class="num">04 / TOOLS</div><h3>Apps y Herramientas</h3><p>Herramientas prácticas para necesidades concretas.</p></div><span class="icon">↗</span>
-      </div>
-      <div class="service-compact reveal" data-target="modal-5">
-        <div><div class="num">05 / SUPPORT</div><h3>Soporte Técnico</h3><p>Orientación y mantenimiento de herramientas.</p></div><span class="icon">↗</span>
-      </div>
+    <div class="search-bar">
+      <input type="text" placeholder="Buscar productos, servicios..." />
+      <button>🔍</button>
+    </div>
+    <div class="nav-links-row" id="menu">
+      <a href="#inicio" style="color:#fff; border-bottom: 2px solid var(--red); padding-bottom: 5px;">Inicio</a>
+      <a href="#servicios">Servicios</a>
+      <a href="#portafolio">Portafolio</a>
+      <a href="#estudio">El Estudio</a>
+      <a href="https://wa.me/525664921229" target="_blank" style="margin-left: auto; color: var(--white); border: 1px solid var(--wine); padding: 5px 10px; border-radius: 4px;">Contacto</a>
     </div>
   </div>
-</section>
+</header>
 
-<!-- 3. PORTAFOLIO (CATEGORÍAS COMPACTAS) -->
-<section class="section" id="portafolio">
-  <div class="wrap">
-    <div class="section-heading reveal">
-      <div>
-        <p class="kicker">02 / portafolio</p>
-        <h2>explora nuestro<br/><em>trabajo.</em></h2>
-      </div>
-      <p class="section-intro">Toca una categoría para explorar el catálogo completo de proyectos.</p>
-    </div>
-
-    <div class="portfolio-grid">
-      <a href="./proyectos-gaming.html" class="project-card reveal">
-        <div class="project-img-wrapper"><img src="./assets/cat-gaming.png" alt="Gaming" loading="lazy"></div>
-        <div class="project-info"><h4>Gaming y Streamers</h4></div>
-      </a>
-      <a href="#" class="project-card reveal" onclick="alert('Próximamente')">
-        <div class="project-img-wrapper"><img src="./assets/cat-web.png" alt="Desarrollo Web" loading="lazy"></div>
-        <div class="project-info"><h4>Desarrollo Web</h4></div>
-      </a>
-      <a href="#" class="project-card reveal" onclick="alert('Próximamente')">
-        <div class="project-img-wrapper"><img src="./assets/cat-diseno.png" alt="Diseño Digital" loading="lazy"></div>
-        <div class="project-info"><h4>Diseño Digital</h4></div>
-      </a>
-      <a href="#" class="project-card reveal" onclick="alert('Próximamente')">
-        <div class="project-img-wrapper"><img src="./assets/cat-bots.png" alt="Bots" loading="lazy"></div>
-        <div class="project-info"><h4>Bots y Automatización</h4></div>
-      </a>
-      <a href="#" class="project-card reveal" onclick="alert('Próximamente')">
-        <div class="project-img-wrapper"><img src="./assets/cat-apps.png" alt="Apps" loading="lazy"></div>
-        <div class="project-info"><h4>Programación y Apps</h4></div>
-      </a>
-    </div>
-  </div>
-</section>
-
-<!-- 4. EL ESTUDIO (MÁS COMPACTO) -->
-<section class="section" id="estudio">
-  <div class="wrap">
-    <div class="contact-panel reveal">
-      <p class="kicker">03 / el estudio</p>
-      <h2>“la tecnología también puede tener<br/><em>personalidad.”</em></h2>
-      <p>YORU STUDIO une creatividad y tecnología para transformar ideas en experiencias digitales claras. Sin plantillas genéricas: escuchamos, entendemos y damos forma a soluciones que sean tan útiles como visualmente impactantes.</p>
-      <div class="actions" style="justify-content: center;">
-        <a class="btn whatsapp-link" data-message="general" href="https://wa.me/525664921229">hablemos de tu idea <span aria-hidden="true">↗</span></a>
+<main class="main-content">
+  <!-- HERO (MÁS COMPACTO) -->
+  <section id="inicio" style="padding: 60px 0; background: url('./assets/yoru.png') center/cover; position: relative;">
+    <div style="position: absolute; inset: 0; background: rgba(9,7,9,0.7);"></div>
+    <div class="wrap" style="position: relative; z-index: 1;">
+      <div style="max-width: 600px;">
+        <div style="font-size: 10px; letter-spacing: 0.2em; color: var(--red); text-transform: uppercase; margin-bottom: 10px;">Programador & Developer</div>
+        <h1 style="font-family: Cinzel, serif; font-size: clamp(40px, 6vw, 70px); line-height: 1.1; margin: 0 0 15px;">YORU <br><span style="color: transparent; -webkit-text-stroke: 1px var(--wine);">STUDIO</span></h1>
+        <p style="font-size: 14px; color: #ccc; margin-bottom: 20px; max-width: 400px;">Desarrollo · Programación · Automatización · Proyectos personalizados</p>
+        <a href="#portafolio" class="btn">🔥 EXPLORAR PORTAFOLIO</a>
       </div>
     </div>
-  </div>
-</section>
+  </section>
+
+  <!-- SECCIÓN DE SERVICIOS (4 COLUMNAS) -->
+  <section class="section" id="servicios">
+    <div class="wrap">
+      <div class="section-title">NUESTROS SERVICIOS <span>5</span></div>
+      <div class="services-grid">
+        <div class="service-card" data-target="modal-1">
+          <div class="cat">WEB</div>
+          <h3>Desarrollo Web</h3>
+          <p>Sitios adaptables y claros.</p>
+        </div>
+        <div class="service-card" data-target="modal-2">
+          <div class="cat">DESIGN</div>
+          <h3>Diseño e Identidad</h3>
+          <p>Interfaces y recursos visuales.</p>
+        </div>
+        <div class="service-card" data-target="modal-3">
+          <div class="cat">BOTS</div>
+          <h3>Automatización</h3>
+          <p>Flujos y bots inteligentes.</p>
+        </div>
+        <div class="service-card" data-target="modal-4">
+          <div class="cat">APPS</div>
+          <h3>Apps y Herramientas</h3>
+          <p>Soluciones concretas.</p>
+        </div>
+        <div class="service-card" data-target="modal-5">
+          <div class="cat">SUPPORT</div>
+          <h3>Soporte Técnico</h3>
+          <p>Mantenimiento y solución.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECCIÓN DE PORTAFOLIO (3 COLUMNAS CON TUS BANNERS) -->
+  <section class="section" id="portafolio">
+    <div class="wrap">
+      <div class="section-title">PRODUCTOS DEL CATÁLOGO <span style="background: #2a0a12; color: var(--red); padding: 2px 8px; border-radius: 4px; font-size: 10px;">5 CATEGORÍAS</span></div>
+      <div class="portfolio-grid">
+        <a href="proyectos-gaming.html" class="project-card">
+          <div class="project-img-wrapper"><img src="./assets/cat-gaming.png" alt="Gaming"></div>
+          <div class="project-info"><h4>Gaming y Streamers</h4></div>
+        </a>
+        <a href="#" class="project-card" onclick="alert('Próximamente')">
+          <div class="project-img-wrapper"><img src="./assets/cat-web.png" alt="Desarrollo Web"></div>
+          <div class="project-info"><h4>Desarrollo Web</h4></div>
+        </a>
+        <a href="#" class="project-card" onclick="alert('Próximamente')">
+          <div class="project-img-wrapper"><img src="./assets/cat-diseno.png" alt="Diseño Digital"></div>
+          <div class="project-info"><h4>Diseño Digital</h4></div>
+        </a>
+        <a href="#" class="project-card" onclick="alert('Próximamente')">
+          <div class="project-img-wrapper"><img src="./assets/cat-bots.png" alt="Bots"></div>
+          <div class="project-info"><h4>Bots y Automatización</h4></div>
+        </a>
+        <a href="#" class="project-card" onclick="alert('Próximamente')">
+          <div class="project-img-wrapper"><img src="./assets/cat-apps.png" alt="Apps"></div>
+          <div class="project-info"><h4>Programación y Apps</h4></div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECCIÓN EL ESTUDIO / CONTACTO -->
+  <section class="section" id="estudio">
+    <div class="wrap">
+      <div class="contact-panel">
+        <h2>“LA TECNOLOGÍA TAMBIÉN PUEDE TENER <em>PERSONALIDAD.”</em></h2>
+        <p>YORU STUDIO une creatividad y tecnología para transformar ideas en experiencias digitales claras. Sin plantillas genéricas: escuchamos, entendemos y damos forma a soluciones que sean tan útiles como visualmente impactantes.</p>
+        <a href="https://wa.me/525664921229" target="_blank" class="btn">CONTÁCTAME →</a>
+      </div>
+    </div>
+  </section>
 </main>
 
-<footer class="footer"><div class="wrap footer-inner">
-<a class="logo" href="#inicio"><span class="logo-mark">夜</span><span>yoru studio<small>digital atelier</small></span></a>
-<div class="footer-links" aria-label="Enlaces del pie"><a href="#inicio">Inicio</a><a href="#servicios">Servicios</a><a href="#portafolio">Portafolio</a></div>
-<p>© <span id="year"></span> YORU STUDIO. DISEÑADO PARA DESTACAR.</p><p>YOUR VISION. OUR POWER.</p></div></footer>
+<footer class="footer">
+  <div class="wrap footer-inner">
+    <div>© 2026 YORU STUDIO. Todos los derechos reservados.</div>
+    <div style="display: flex; gap: 10px;">
+      <a href="#inicio">Inicio</a>
+      <a href="#servicios">Servicios</a>
+      <a href="#portafolio">Portafolio</a>
+    </div>
+  </div>
+</footer>
 
-<!-- MODALES -->
-<div class="modal-overlay" id="modal-1">
-  <div class="modal-content">
-    <button class="modal-close" data-close>&times;</button>
-    <h3>Desarrollo Web</h3>
-    <p>Sitios y experiencias adaptables, claros y pensados para verse bien en cualquier pantalla. Desde landings page hasta tiendas online.</p>
-    <ul class="modal-list"><li>Diseño responsivo (móvil y escritorio)</li><li>Optimización de velocidad de carga</li><li>Integración con WhatsApp y redes</li><li>Estructura SEO amigable</li></ul>
-    <a href="https://wa.me/525664921229?text=Hola,%20me%20interesa%20el%20servicio%20de%20Desarrollo%20Web" target="_blank" class="btn" style="width: 100%;">consultar <span aria-hidden="true">↗</span></a>
-  </div>
-</div>
-<div class="modal-overlay" id="modal-2">
-  <div class="modal-content">
-    <button class="modal-close" data-close>&times;</button>
-    <h3>Diseño e Identidad Visual</h3>
-    <p>Interfaces, recursos visuales e identidad digital con una estética coherente y reconocible que conecte con tu audiencia.</p>
-    <ul class="modal-list"><li>Diseño de logotipos y paletas de color</li><li>Diseño de interfaces UI/UX</li><li>Creación de banners y piezas gráficas</li><li>Manual de marca básico</li></ul>
-    <a href="https://wa.me/525664921229?text=Hola,%20me%20interesa%20el%20servicio%20de%20Diseño%20e%20Identidad" target="_blank" class="btn" style="width: 100%;">consultar <span aria-hidden="true">↗</span></a>
-  </div>
-</div>
-<div class="modal-overlay" id="modal-3">
-  <div class="modal-content">
-    <button class="modal-close" data-close>&times;</button>
-    <h3>Bots y Automatización</h3>
-    <p>Flujos digitales para organizar tareas repetitivas y simplificar procesos, ahorrándote tiempo y reduciendo errores.</p>
-    <ul class="modal-list"><li>Creación de bots para Discord o Telegram</li><li>Automatización de respuestas en WhatsApp</li><li>Scripts para organización de archivos</li><li>Conexión entre distintas herramientas</li></ul>
-    <a href="https://wa.me/525664921229?text=Hola,%20me%20interesa%20el%20servicio%20de%20Bots%20y%20Automatización" target="_blank" class="btn" style="width: 100%;">consultar <span aria-hidden="true">↗</span></a>
-  </div>
-</div>
-<div class="modal-overlay" id="modal-4">
-  <div class="modal-content">
-    <button class="modal-close" data-close>&times;</button>
-    <h3>Aplicaciones y Herramientas</h3>
-    <p>Pequeñas herramientas digitales centradas en una necesidad concreta, ideales para resolver problemas específicos de tu negocio.</p>
-    <ul class="modal-list"><li>Calculadoras personalizadas</li><li>Generadores de contenido o documentos</li><li>Paneles de control simples</li><li>Extensiones para navegador</li></ul>
-    <a href="https://wa.me/525664921229?text=Hola,%20me%20interesa%20el%20servicio%20de%20Aplicaciones%20y%20Herramientas" target="_blank" class="btn" style="width: 100%;">consultar <span aria-hidden="true">↗</span></a>
-  </div>
-</div>
-<div class="modal-overlay" id="modal-5">
-  <div class="modal-content">
-    <button class="modal-close" data-close>&times;</button>
-    <h3>Soporte Técnico</h3>
-    <p>Orientación para revisar problemas y mantener tus recursos digitales funcionando mejor, evitando caídas y pérdida de datos.</p>
-    <ul class="modal-list"><li>Revisión de páginas web</li><li>Solución de errores en código</li><li>Asesoría para mejoras de rendimiento</li><li>Mantenimiento preventivo</li></ul>
-    <a href="https://wa.me/525664921229?text=Hola,%20me%20interesa%20el%20servicio%20de%20Soporte%20Técnico" target="_blank" class="btn" style="width: 100%;">consultar <span aria-hidden="true">↗</span></a>
-  </div>
-</div>
+<!-- MODALES (Ocultos) -->
+<div class="modal-overlay" id="modal-1"><div class="modal-content"><button class="modal-close">&times;</button><h3>Desarrollo Web</h3><p>...</p><a href="https://wa.me/525664921229" class="btn">Consultar</a></div></div>
+<div class="modal-overlay" id="modal-2"><div class="modal-content"><button class="modal-close">&times;</button><h3>Diseño e Identidad</h3><p>...</p><a href="https://wa.me/525664921229" class="btn">Consultar</a></div></div>
+<div class="modal-overlay" id="modal-3"><div class="modal-content"><button class="modal-close">&times;</button><h3>Automatización</h3><p>...</p><a href="https://wa.me/525664921229" class="btn">Consultar</a></div></div>
+<div class="modal-overlay" id="modal-4"><div class="modal-content"><button class="modal-close">&times;</button><h3>Apps y Herramientas</h3><p>...</p><a href="https://wa.me/525664921229" class="btn">Consultar</a></div></div>
+<div class="modal-overlay" id="modal-5"><div class="modal-content"><button class="modal-close">&times;</button><h3>Soporte Técnico</h3><p>...</p><a href="https://wa.me/525664921229" class="btn">Consultar</a></div></div>
 
-<script src="./js/main.js"></script>
 <script>
-  const serviceCards = document.querySelectorAll('.service-compact[data-target]');
-  serviceCards.forEach(card => {
+  // Abrir modales
+  document.querySelectorAll('.service-card').forEach(card => {
     card.addEventListener('click', () => {
-      const targetId = card.getAttribute('data-target');
-      document.getElementById(targetId).classList.add('active');
-      document.body.style.overflow = 'hidden';
+      const id = card.getAttribute('data-target');
+      document.getElementById(id).classList.add('active');
     });
   });
+  // Cerrar modales
   document.querySelectorAll('.modal-close').forEach(btn => {
-    btn.addEventListener('click', (e) => {
-      e.target.closest('.modal-overlay').classList.remove('active');
-      document.body.style.overflow = '';
-    });
-  });
-  document.querySelectorAll('.modal-overlay').forEach(modal => {
-    modal.addEventListener('click', (e) => {
-      if (e.target === modal) {
-        modal.classList.remove('active');
-        document.body.style.overflow = '';
-      }
+    btn.addEventListener('click', () => {
+      btn.closest('.modal-overlay').classList.remove('active');
     });
   });
 </script>
