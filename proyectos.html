@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es"><head><meta charset="utf-8"/><meta content="width=device-width,initial-scale=1,viewport-fit=cover" name="viewport"/><meta content="#090709" name="theme-color"/><meta name="description" content="Espacio de proyectos de YORU STUDIO."/><title>Proyectos — YORU STUDIO</title>
+<html lang="es"><head><meta charset="utf-8"/><meta content="width=device-width,initial-scale=1,viewport-fit=cover" name="viewport"/><meta content="#090709" name="theme-color"/><meta name="description" content="Categorías de proyectos de YORU STUDIO."/><title>Proyectos — YORU STUDIO</title>
 <meta property="og:type" content="website"/>
 <meta property="og:title" content="YORU STUDIO — Digital Atelier"/>
 <meta property="og:description" content="Tecnología con propósito. Ideas sin límites."/>
@@ -8,14 +8,6 @@
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='8' fill='%23090709'/%3E%3Ctext x='12' y='46' font-size='42' fill='%23e84967'%3E%E5%A4%9C%3C/text%3E%3C/svg%3E"/>
 <link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&amp;family=DM+Sans:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
 <link rel="stylesheet" href="./css/style.css">
-<style>
-  /* Protección */
-  .watermark-layer {
-    position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Ctext x='50' y='50' font-size='40' fill='rgba(255,255,255,0.15)' transform='rotate(-45 50 50)' text-anchor='middle' dominant-baseline='middle' font-family='sans-serif'%3E%E5%A4%9C%3C/text%3E%3C/svg%3E");
-    background-repeat: repeat; z-index: 2; pointer-events: none;
-  }
-</style>
 </head><body>
 <div class="bg-fixed" style="background-image: url('./assets/yoru-morada.png');"></div>
 <div aria-hidden="true" class="noise"></div><div aria-hidden="true" class="progress"></div>
@@ -33,59 +25,72 @@
 <section class="hero hero-proyectos" id="proyectos-top"><div class="wrap"><div class="hero-copy">
 <div class="eyebrow reveal">夜 · archivo creativo</div><h1 class="reveal">proyectos<span> seleccionados.</span></h1>
 <p class="lead reveal">Diseño, código y experiencias visuales.</p>
-<p class="lead reveal" style="max-width:520px">Una muestra de las soluciones y piezas gráficas que construimos. Cada proyecto tiene un objetivo claro y una identidad propia.</p>
-<div class="actions reveal"><a class="btn secondary" href="./index.html">volver al inicio <span aria-hidden="true">→</span></a><a class="btn whatsapp-link" data-message="general" href="https://wa.me/525664921229">proponer una idea <span aria-hidden="true">↗</span></a></div>
+<p class="lead reveal" style="max-width:520px">Explora nuestro portafolio por categorías. Selecciona el área que te interesa para ver los casos de estudio y piezas gráficas que hemos desarrollado.</p>
 </div><div class="hero-bottom"><div class="scroll-mark"><span class="scroll-line"></span>YORU STUDIO / 夜</div><span class="vertical-word">WORK ARCHIVE</span></div></div></section>
 
 <section class="section section-rule">
   <div class="wrap">
     <div class="section-heading reveal">
       <div>
-        <p class="kicker">01 / portafolio</p>
-        <h2>trabajos<br/><em>recientes.</em></h2>
+        <p class="kicker">01 / categorías</p>
+        <h2>explora nuestro<br/><em>trabajo.</em></h2>
       </div>
-      <p class="section-intro">Piezas gráficas y digitales creadas para marcas, creadores de contenido y proyectos independientes.</p>
+      <p class="section-intro">Cada disciplina tiene su propio espacio. Toca una categoría para ver el catálogo completo.</p>
     </div>
 
-    <div class="project-grid">
-      <div class="project-card reveal" onclick="openProject('Banners para Streamers', 'Diseño de identidad visual y banners para plataformas de streaming y comunidades de gaming.', './assets/proyecto-gamer-1.jpg')">
-        <div class="project-img-wrapper">
-          <div class="watermark-layer"></div>
-          <img src="./assets/proyecto-gamer-1.jpg" alt="Proyecto 1" loading="lazy" oncontextmenu="return false;">
+    <!-- CATÁLOGO DE CATEGORÍAS CON PORTADAS -->
+    <div class="project-grid category-grid">
+      
+      <!-- Categoría: Gaming -->
+      <a href="./proyectos-gaming.html" class="project-card reveal category-card">
+        <div class="project-img-wrapper category-img">
+          <img src="./assets/cat-gaming.png" alt="Gaming" loading="lazy">
         </div>
         <div class="project-info">
-          <span class="project-tag">Gaming & Branding</span>
-          <h4>Banners para Streamers</h4>
-          <p>Identidad visual y arte digital.</p>
-          <span class="project-link">Ver ficha →</span>
+          <h4>Gaming y Streamers</h4>
         </div>
-      </div>
+      </a>
 
-      <div class="project-card reveal" onclick="openProject('Diseño para Creadores', 'Creación de banners de alto impacto para canales de YouTube, TikTok y Discord.', './assets/proyecto-gamer-2.png')">
-        <div class="project-img-wrapper">
-          <div class="watermark-layer"></div>
-          <img src="./assets/proyecto-gamer-2.png" alt="Proyecto 2" loading="lazy" oncontextmenu="return false;">
+      <!-- Categoría: Desarrollo Web -->
+      <a href="#" class="project-card reveal category-card" onclick="alert('Catálogo de Desarrollo Web próximamente')">
+        <div class="project-img-wrapper category-img">
+          <img src="./assets/cat-web.png" alt="Desarrollo Web" loading="lazy">
         </div>
         <div class="project-info">
-          <span class="project-tag">Diseño Web & Arte</span>
-          <h4>Diseño para Creadores</h4>
-          <p>Banners de alto impacto visual.</p>
-          <span class="project-link">Ver ficha →</span>
+          <h4>Desarrollo Web</h4>
         </div>
-      </div>
+      </a>
 
-      <div class="project-card reveal" onclick="openProject('Arte Digital y Portadas', 'Creación de portadas personalizadas y recursos visuales para comunidades y eventos en línea.', './assets/proyecto-gamer-3.jpg')">
-        <div class="project-img-wrapper">
-          <div class="watermark-layer"></div>
-          <img src="./assets/proyecto-gamer-3.jpg" alt="Proyecto 3" loading="lazy" oncontextmenu="return false;">
+      <!-- Categoría: Diseño Digital -->
+      <a href="#" class="project-card reveal category-card" onclick="alert('Catálogo de Diseño Digital próximamente')">
+        <div class="project-img-wrapper category-img">
+          <img src="./assets/cat-diseno.png" alt="Diseño Digital" loading="lazy">
         </div>
         <div class="project-info">
-          <span class="project-tag">Arte Digital</span>
-          <h4>Portadas Personalizadas</h4>
-          <p>Recursos visuales únicos.</p>
-          <span class="project-link">Ver ficha →</span>
+          <h4>Diseño Digital</h4>
         </div>
-      </div>
+      </a>
+
+      <!-- Categoría: Bots y Automatización -->
+      <a href="#" class="project-card reveal category-card" onclick="alert('Catálogo de Bots próximamente')">
+        <div class="project-img-wrapper category-img">
+          <img src="./assets/cat-bots.png" alt="Bots" loading="lazy">
+        </div>
+        <div class="project-info">
+          <h4>Bots y Automatización</h4>
+        </div>
+      </a>
+
+      <!-- Categoría: Programación y Apps -->
+      <a href="#" class="project-card reveal category-card" onclick="alert('Catálogo de Apps próximamente')">
+        <div class="project-img-wrapper category-img">
+          <img src="./assets/cat-apps.png" alt="Apps" loading="lazy">
+        </div>
+        <div class="project-info">
+          <h4>Programación y Apps</h4>
+        </div>
+      </a>
+
     </div>
     
     <div class="contact-panel reveal" style="margin-top: 60px;">
@@ -99,45 +104,9 @@
   </div>
 </section>
 </main>
-
-<div class="modal-overlay" id="modal-proyecto">
-  <div class="modal-content">
-    <button class="modal-close" data-close>&times;</button>
-    <div class="modal-img-container">
-      <div class="watermark-layer" style="opacity: 0.8;"></div>
-      <img id="modal-img" src="" alt="Proyecto" oncontextmenu="return false;">
-    </div>
-    <div class="modal-text">
-      <h3 id="modal-title"></h3>
-      <p id="modal-desc"></p>
-    </div>
-  </div>
-</div>
-
 <footer class="footer"><div class="wrap footer-inner">
 <a class="logo" href="./index.html"><span class="logo-mark">夜</span><span>yoru studio<small>digital atelier</small></span></a>
 <div class="footer-links" aria-label="Enlaces del pie"><a href="./index.html">Inicio</a><a href="./servicios.html">Servicios</a><a href="./proyectos.html">Proyectos</a><a href="./sobre-mi.html">Sobre mí</a><a href="./contacto.html">Contacto</a></div>
 <p>© <span id="year"></span> YORU STUDIO. DISEÑADO PARA DESTACAR.</p><p>YOUR VISION. OUR POWER.</p></div></footer>
 <script src="./js/main.js"></script>
-<script>
-  function openProject(title, desc, imgSrc) {
-    document.getElementById('modal-title').textContent = title;
-    document.getElementById('modal-desc').textContent = desc;
-    document.getElementById('modal-img').src = imgSrc;
-    document.getElementById('modal-proyecto').classList.add('active');
-    document.body.style.overflow = 'hidden';
-  }
-  document.querySelectorAll('#modal-proyecto [data-close]').forEach(btn => {
-    btn.addEventListener('click', () => {
-      document.getElementById('modal-proyecto').classList.remove('active');
-      document.body.style.overflow = '';
-    });
-  });
-  document.getElementById('modal-proyecto').addEventListener('click', (e) => {
-    if (e.target.id === 'modal-proyecto') {
-      e.target.classList.remove('active');
-      document.body.style.overflow = '';
-    }
-  });
-</script>
 </body></html>
