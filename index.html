@@ -4,7 +4,6 @@
 <link rel="stylesheet" href="./css/style.css">
 </head><body>
 <div class="bg-global" id="global-bg" style="background-image: url('./assets/yoru.png');"></div>
-<div aria-hidden="true" class="noise"></div><div aria-hidden="true" class="progress"></div>
 
 <header class="nav" id="nav">
   <div class="wrap">
@@ -37,11 +36,12 @@
       </div>
     </div>
     
-    <div class="nav-links-row" id="menu">
-      <a href="#inicio" style="color:#fff; border-bottom: 2px solid var(--pink); padding-bottom: 5px;">Inicio</a>
-      <a href="#portafolio">Catálogo</a>
-      <a href="#estudio">El Estudio</a>
-      <a href="https://wa.me/525664921229" target="_blank" style="margin-left: auto; color: var(--white); border: 1px solid var(--wine); padding: 5px 10px; border-radius: 4px;">Contacto</a>
+    <!-- MENÚ DESPLEGABLE -->
+    <div class="menu-dropdown" id="menu">
+      <a href="index.html">Inicio</a>
+      <a href="index.html#portafolio">Catálogo</a>
+      <a href="index.html#estudio">El Estudio</a>
+      <a href="https://wa.me/525664921229" target="_blank" class="btn-contact">Contacto</a>
     </div>
   </div>
 </header>
@@ -62,7 +62,6 @@
     <div class="wrap">
       <div class="section-title">PRODUCTOS DEL CATÁLOGO <span>5 CATEGORÍAS</span></div>
       <div class="portfolio-grid">
-        <!-- ENLACES DIRECTOS A LAS PÁGINAS -->
         <a href="proyectos-gaming.html" class="project-card">
           <div class="project-img-wrapper"><img src="./assets/cat-gaming.png" alt="Gaming"></div>
           <div class="project-info"><h4>Gaming y Streamers</h4></div>
@@ -101,23 +100,23 @@
 <footer class="footer">
   <div class="wrap footer-inner">
     <div>© 2026 YORU STUDIO. Todos los derechos reservados.</div>
-    <div style="display: flex; gap: 15px;">
-      <a href="#inicio">Inicio</a>
-      <a href="#portafolio">Catálogo</a>
-    </div>
   </div>
 </footer>
 
-<script src="./js/main.js"></script>
 <script>
+  // Lógica del buscador
   const searchToggle = document.getElementById('searchToggle');
   const searchForm = document.getElementById('searchForm');
   searchToggle.addEventListener('click', () => {
     searchForm.classList.toggle('active');
-    searchToggle.classList.toggle('hidden');
-    if(searchForm.classList.contains('active')) {
-      searchForm.querySelector('input').focus();
-    }
+    if(searchForm.classList.contains('active')) searchForm.querySelector('input').focus();
+  });
+
+  // Lógica del menú desplegable
+  const menuBtn = document.getElementById('menuBtn');
+  const menu = document.getElementById('menu');
+  menuBtn.addEventListener('click', () => {
+    menu.classList.toggle('active');
   });
 </script>
 </body></html>
