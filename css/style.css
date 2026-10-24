@@ -12,7 +12,7 @@
 @media(max-width:800px){.nav-links{top:68px;max-height:calc(100svh - 68px);overflow-y:auto}.nav-links a{padding:8px 0}}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;transition:none!important;animation:none!important}}
 
-/* El fondo para las portadas */
+/* Fondo para las portadas */
 .bg-fixed {
   position: absolute;
   top: 0; left: 0; width: 100%; height: 100vh;
@@ -29,7 +29,6 @@
   background: rgba(9, 7, 9, 0.7); 
   pointer-events: none;
 }
-
 .hero-servicios, .hero-proyectos, .hero-sobre-mi, .hero-contacto {
   min-height: 100svh;
   position: relative;
@@ -42,9 +41,7 @@
   border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
-/* =========================================
-   MODAL DE SERVICIOS
-   ========================================= */
+/* MODAL */
 .modal-overlay {
   position: fixed;
   top: 0; left: 0; width: 100%; height: 100%;
@@ -103,7 +100,7 @@
 }
 
 /* =========================================
-   TARJETAS DE PROYECTOS (GALERÍA VERTICAL)
+   TARJETAS DE PROYECTOS (GALERÍA)
    ========================================= */
 .project-grid {
   display: grid;
@@ -111,21 +108,25 @@
   gap: 30px;
   margin-top: 40px;
 }
+
 .project-card {
   position: relative;
   border-radius: 6px;
   overflow: hidden;
   background: #111;
-  aspect-ratio: 9/16; /* Proporción vertical para tus banners */
+  /* Le damos una altura fija para que todas se vean igual */
+  height: 400px; 
   border: 1px solid rgba(255,255,255,0.05);
   display: block;
   cursor: pointer;
   transition: transform 0.3s ease, border-color 0.3s ease;
 }
+
 .project-card:hover {
   transform: translateY(-5px);
   border-color: var(--wine);
 }
+
 .project-card img {
   width: 100%;
   height: 100%;
@@ -133,10 +134,12 @@
   opacity: 0.6;
   transition: opacity 0.4s ease, transform 0.6s ease;
 }
+
 .project-card:hover img {
   opacity: 0.8;
   transform: scale(1.05);
 }
+
 .project-info {
   position: absolute;
   bottom: 0; left: 0; right: 0;
@@ -144,7 +147,9 @@
   background: linear-gradient(transparent, rgba(9,7,9,0.98));
   display: flex;
   flex-direction: column;
+  z-index: 3; /* Por encima de la marca de agua */
 }
+
 .project-tag {
   background: var(--wine);
   color: #fff;
@@ -157,6 +162,7 @@
   margin-bottom: 15px;
   font-weight: 700;
 }
+
 .project-info h4 {
   margin: 0;
   color: var(--white);
@@ -165,6 +171,7 @@
   font-weight: 500;
   line-height: 1.2;
 }
+
 .project-info p {
   margin: 10px 0 0 0;
   color: var(--muted);
@@ -175,4 +182,5 @@
 @media(max-width: 800px) {
   .hero-copy, .contact-panel { padding: 20px; background: rgba(9, 7, 9, 0.6); }
   .modal-content { padding: 25px; }
+  .project-card { height: 320px; } /* Altura más cómoda para móvil */
 }
