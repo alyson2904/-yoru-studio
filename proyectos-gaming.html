@@ -4,13 +4,11 @@
 <link rel="stylesheet" href="./css/style.css">
 </head><body>
 <div class="bg-global" style="background-image: url('./assets/yoru-morada.png');"></div>
-<div aria-hidden="true" class="noise"></div><div aria-hidden="true" class="progress"></div>
 
 <header class="nav" id="nav">
   <div class="wrap">
     <div class="nav-top">
       <a class="logo" href="index.html"><span class="logo-mark">夜</span><span>YORU STUDIO</span></a>
-      
       <div class="nav-actions">
         <select class="nav-btn" style="appearance: none; cursor:pointer; outline:none;">
           <option>ES · MXN</option>
@@ -26,20 +24,19 @@
         <button class="nav-btn" id="menuBtn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg></button>
       </div>
     </div>
-    <div class="nav-links-row" id="menu">
+    <div class="menu-dropdown" id="menu">
       <a href="index.html">Inicio</a>
       <a href="index.html#portafolio">Catálogo</a>
       <a href="index.html#estudio">El Estudio</a>
-      <a href="https://wa.me/525664921229" target="_blank" style="margin-left: auto; color: var(--white); border: 1px solid var(--wine); padding: 5px 10px; border-radius: 4px;">Contacto</a>
+      <a href="https://wa.me/525664921229" target="_blank" class="btn-contact">Contacto</a>
     </div>
   </div>
 </header>
 
 <main class="main-content">
   <div class="wrap">
-    <!-- INFORMACIÓN DE LA CATEGORÍA (Aquí va el texto de servicios) -->
-    <div class="category-header reveal">
-      <div class="kicker" style="color: var(--pink); font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 10px;">Catálogo</div>
+    <div class="category-header">
+      <div style="color: var(--pink); font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 10px;">Catálogo</div>
       <h1>Gaming y Streamers</h1>
       <p>Diseño de identidad visual y arte digital para creadores de contenido. Creamos piezas únicas que destacan en plataformas de streaming y comunidades de gaming.</p>
       <ul>
@@ -50,40 +47,48 @@
       </ul>
     </div>
 
-    <!-- PRODUCTOS EN VENTA -->
     <div class="section-title">PRODUCTOS DISPONIBLES <span>3 DISEÑOS</span></div>
     <div class="shop-grid">
       
       <!-- Producto 1 -->
-      <div class="shop-card reveal">
-        <img src="./assets/proyecto-gamer-1.jpg" alt="Banner Cartoons" class="shop-img">
+      <div class="shop-card" onclick="openProductModal('Banners Cartoons', 'Pack de banners con estilo cartoons, ideal para streams de variedad.', '$250 MXN', './assets/proyecto-gamer-1.jpg')">
+        <div class="shop-img-wrapper">
+          <div class="watermark-layer"></div>
+          <img src="./assets/proyecto-gamer-1.jpg" alt="Banner Cartoons" oncontextmenu="return false;">
+        </div>
         <div class="shop-info">
           <div class="shop-cat">Pack de Banners</div>
           <h3 class="shop-title">Banners Cartoons</h3>
           <div class="shop-price">$250 MXN</div>
-          <button class="shop-btn">Añadir al carrito</button>
+          <button class="shop-btn">Ver producto</button>
         </div>
       </div>
 
       <!-- Producto 2 -->
-      <div class="shop-card reveal">
-        <img src="./assets/proyecto-gamer-2.png" alt="Banner The Donato" class="shop-img">
+      <div class="shop-card" onclick="openProductModal('Banners The Donato', 'Pack de banners estilo urbano/gamer con colores neón.', '$250 MXN', './assets/proyecto-gamer-2.png')">
+        <div class="shop-img-wrapper">
+          <div class="watermark-layer"></div>
+          <img src="./assets/proyecto-gamer-2.png" alt="Banner The Donato" oncontextmenu="return false;">
+        </div>
         <div class="shop-info">
           <div class="shop-cat">Pack de Banners</div>
           <h3 class="shop-title">Banners The Donato</h3>
           <div class="shop-price">$250 MXN</div>
-          <button class="shop-btn">Añadir al carrito</button>
+          <button class="shop-btn">Ver producto</button>
         </div>
       </div>
 
       <!-- Producto 3 -->
-      <div class="shop-card reveal">
-        <img src="./assets/proyecto-gamer-3.jpg" alt="Banner Rick and Morty" class="shop-img">
+      <div class="shop-card" onclick="openProductModal('Banners Rick & Morty', 'Pack de banners con temática sci-fi y portal verde.', '$250 MXN', './assets/proyecto-gamer-3.jpg')">
+        <div class="shop-img-wrapper">
+          <div class="watermark-layer"></div>
+          <img src="./assets/proyecto-gamer-3.jpg" alt="Banner Rick and Morty" oncontextmenu="return false;">
+        </div>
         <div class="shop-info">
           <div class="shop-cat">Pack de Banners</div>
           <h3 class="shop-title">Banners Rick & Morty</h3>
           <div class="shop-price">$250 MXN</div>
-          <button class="shop-btn">Añadir al carrito</button>
+          <button class="shop-btn">Ver producto</button>
         </div>
       </div>
 
@@ -91,24 +96,59 @@
   </div>
 </main>
 
+<!-- MODAL EMERGENTE DEL PRODUCTO -->
+<div class="modal-overlay" id="productModal">
+  <div class="modal-content">
+    <button class="modal-close" onclick="closeProductModal()">&times;</button>
+    
+    <!-- Contenedor de la imagen protegida -->
+    <div class="protected-img-container">
+      <div class="watermark-layer" style="opacity: 0.8;"></div>
+      <img id="modalProdImg" src="" alt="Producto" oncontextmenu="return false;">
+    </div>
+    
+    <h2 class="modal-product-title" id="modalProdTitle"></h2>
+    <p class="modal-product-desc" id="modalProdDesc"></p>
+    <div class="modal-product-price" id="modalProdPrice"></div>
+    
+    <button class="btn" style="width: 100%; justify-content: center;">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
+      Añadir al carrito
+    </button>
+  </div>
+</div>
+
 <footer class="footer">
   <div class="wrap footer-inner">
     <div>© 2026 YORU STUDIO. Todos los derechos reservados.</div>
-    <div style="display: flex; gap: 15px;">
-      <a href="index.html">Inicio</a>
-      <a href="index.html#portafolio">Catálogo</a>
-    </div>
   </div>
 </footer>
 
-<script src="./js/main.js"></script>
 <script>
+  // Lógica del buscador y menú
   const searchToggle = document.getElementById('searchToggle');
   const searchForm = document.getElementById('searchForm');
   searchToggle.addEventListener('click', () => {
     searchForm.classList.toggle('active');
-    searchToggle.classList.toggle('hidden');
     if(searchForm.classList.contains('active')) searchForm.querySelector('input').focus();
   });
+  const menuBtn = document.getElementById('menuBtn');
+  const menu = document.getElementById('menu');
+  menuBtn.addEventListener('click', () => menu.classList.toggle('active'));
+
+  // Lógica para abrir el modal del producto con su información
+  function openProductModal(title, desc, price, imgSrc) {
+    document.getElementById('modalProdTitle').textContent = title;
+    document.getElementById('modalProdDesc').textContent = desc;
+    document.getElementById('modalProdPrice').textContent = price;
+    document.getElementById('modalProdImg').src = imgSrc;
+    
+    document.getElementById('productModal').classList.add('active');
+  }
+
+  // Cerrar el modal
+  function closeProductModal() {
+    document.getElementById('productModal').classList.remove('active');
+  }
 </script>
 </body></html>
