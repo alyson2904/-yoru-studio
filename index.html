@@ -3,11 +3,11 @@
 <link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
 <link rel="stylesheet" href="./css/style.css">
 </head><body>
-<!-- FONDO GLOBAL QUE SE MUEVE CON EL SCROLL -->
+<!-- FONDO GLOBAL ANIMADO -->
 <div class="bg-global" id="global-bg" style="background-image: url('./assets/yoru.png');"></div>
 <div aria-hidden="true" class="noise"></div><div aria-hidden="true" class="progress"></div>
 
-<!-- HEADER -->
+<!-- HEADER ESTILO TIENDA -->
 <header class="nav" id="nav">
   <div class="wrap">
     <div class="nav-top">
@@ -16,29 +16,38 @@
         <span>YORU STUDIO</span>
       </a>
       <div class="nav-actions">
-        <button class="nav-btn">ES · MX</button>
+        <!-- Selector de moneda -->
+        <select class="nav-btn" style="appearance: none; cursor:pointer; outline:none;">
+          <option>ES · MXN</option>
+          <option>EN · USD</option>
+        </select>
+        
         <button class="nav-btn cart">
-          <!-- Icono Carrito SVG -->
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
           0
         </button>
         <button class="nav-btn" id="menuBtn">
-          <!-- Icono Menú SVG -->
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
         </button>
       </div>
     </div>
-    <div class="search-bar">
-      <input type="text" placeholder="Buscar productos, servicios..." />
-      <button>
-        <!-- Icono Lupa SVG -->
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+    
+    <!-- BUSCADOR MINIMALISTA -->
+    <div class="search-container">
+      <button class="search-toggle" id="searchToggle">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
       </button>
+      <form class="search-form" id="searchForm">
+        <input type="text" placeholder="Buscar..." />
+        <button type="submit">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+        </button>
+      </form>
     </div>
+    
     <div class="nav-links-row" id="menu">
-      <a href="#inicio" style="color:#fff; border-bottom: 2px solid var(--red); padding-bottom: 5px;">Inicio</a>
-      <a href="#servicios">Servicios</a>
-      <a href="#portafolio">Portafolio</a>
+      <a href="#inicio" style="color:#fff; border-bottom: 2px solid var(--pink); padding-bottom: 5px;">Inicio</a>
+      <a href="#portafolio">Catálogo</a>
       <a href="#estudio">El Estudio</a>
       <a href="https://wa.me/525664921229" target="_blank" style="margin-left: auto; color: var(--white); border: 1px solid var(--wine); padding: 5px 10px; border-radius: 4px;">Contacto</a>
     </div>
@@ -46,89 +55,55 @@
 </header>
 
 <main class="main-content">
-  <!-- HERO (SIN FONDO PROPIO, USA EL GLOBAL) -->
-  <section id="inicio" style="padding: 40px 0 60px;">
+  <!-- HERO (Usa el fondo global) -->
+  <section id="inicio" style="padding: 30px 0 50px;">
     <div class="wrap">
       <div style="max-width: 600px;">
-        <div style="font-size: 10px; letter-spacing: 0.2em; color: var(--red); text-transform: uppercase; margin-bottom: 10px;">Programador & Developer</div>
-        <h1 style="font-family: Cinzel, serif; font-size: clamp(40px, 6vw, 70px); line-height: 1.1; margin: 0 0 15px;">YORU <br><span style="color: transparent; -webkit-text-stroke: 1px var(--wine);">STUDIO</span></h1>
+        <div style="font-size: 10px; letter-spacing: 0.2em; color: var(--pink); text-transform: uppercase; margin-bottom: 10px;">Programador & Developer</div>
+        <h1 style="font-family: Cinzel, serif; font-size: clamp(40px, 6vw, 70px); line-height: 1.1; margin: 0 0 15px;">YORU <br><span style="color: transparent; -webkit-text-stroke: 1px var(--pink);">STUDIO</span></h1>
         <p style="font-size: 14px; color: #ccc; margin-bottom: 20px; max-width: 400px;">Desarrollo · Programación · Automatización · Proyectos personalizados</p>
-        <a href="#portafolio" class="btn">EXPLORAR PORTAFOLIO</a>
+        <a href="#portafolio" class="btn">EXPLORAR CATÁLOGO</a>
       </div>
     </div>
   </section>
 
-  <!-- SECCIÓN DE SERVICIOS (4 COLUMNAS) -->
-  <section class="section" id="servicios">
-    <div class="wrap">
-      <div class="section-title">NUESTROS SERVICIOS <span>5</span></div>
-      <div class="services-grid">
-        <div class="service-card" data-target="modal-1">
-          <div class="cat">WEB</div>
-          <h3>Desarrollo Web</h3>
-          <p>Sitios adaptables y claros.</p>
-        </div>
-        <div class="service-card" data-target="modal-2">
-          <div class="cat">DESIGN</div>
-          <h3>Diseño e Identidad</h3>
-          <p>Interfaces y recursos visuales.</p>
-        </div>
-        <div class="service-card" data-target="modal-3">
-          <div class="cat">BOTS</div>
-          <h3>Automatización</h3>
-          <p>Flujos y bots inteligentes.</p>
-        </div>
-        <div class="service-card" data-target="modal-4">
-          <div class="cat">APPS</div>
-          <h3>Apps y Herramientas</h3>
-          <p>Soluciones concretas.</p>
-        </div>
-        <div class="service-card" data-target="modal-5">
-          <div class="cat">SUPPORT</div>
-          <h3>Soporte Técnico</h3>
-          <p>Mantenimiento y solución.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- SECCIÓN DE PORTAFOLIO (3 COLUMNAS) -->
+  <!-- SECCIÓN DE PORTAFOLIO (CATÁLOGO) -->
   <section class="section" id="portafolio">
     <div class="wrap">
-      <div class="section-title">PRODUCTOS DEL CATÁLOGO <span style="background: #2a0a12; color: var(--red); border-color: var(--red);">5 CATEGORÍAS</span></div>
+      <div class="section-title">PRODUCTOS DEL CATÁLOGO <span>5 CATEGORÍAS</span></div>
       <div class="portfolio-grid">
-        <a href="proyectos-gaming.html" class="project-card">
+        <!-- Al tocar, abre el modal con los servicios de esa categoría -->
+        <div class="project-card" onclick="openModal('modal-gaming')">
           <div class="project-img-wrapper"><img src="./assets/cat-gaming.png" alt="Gaming"></div>
           <div class="project-info"><h4>Gaming y Streamers</h4></div>
-        </a>
-        <a href="#" class="project-card" onclick="alert('Próximamente')">
+        </div>
+        <div class="project-card" onclick="openModal('modal-web')">
           <div class="project-img-wrapper"><img src="./assets/cat-web.png" alt="Desarrollo Web"></div>
           <div class="project-info"><h4>Desarrollo Web</h4></div>
-        </a>
-        <a href="#" class="project-card" onclick="alert('Próximamente')">
+        </div>
+        <div class="project-card" onclick="openModal('modal-diseno')">
           <div class="project-img-wrapper"><img src="./assets/cat-diseno.png" alt="Diseño Digital"></div>
           <div class="project-info"><h4>Diseño Digital</h4></div>
-        </a>
-        <a href="#" class="project-card" onclick="alert('Próximamente')">
+        </div>
+        <div class="project-card" onclick="openModal('modal-bots')">
           <div class="project-img-wrapper"><img src="./assets/cat-bots.png" alt="Bots"></div>
           <div class="project-info"><h4>Bots y Automatización</h4></div>
-        </a>
-        <a href="#" class="project-card" onclick="alert('Próximamente')">
+        </div>
+        <div class="project-card" onclick="openModal('modal-apps')">
           <div class="project-img-wrapper"><img src="./assets/cat-apps.png" alt="Apps"></div>
           <div class="project-info"><h4>Programación y Apps</h4></div>
-        </a>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- SECCIÓN EL ESTUDIO / CONTACTO -->
+  <!-- SECCIÓN EL ESTUDIO -->
   <section class="section" id="estudio">
     <div class="wrap">
       <div class="contact-panel">
         <h2>“LA TECNOLOGÍA TAMBIÉN PUEDE TENER <em>PERSONALIDAD.”</em></h2>
         <p>YORU STUDIO une creatividad y tecnología para transformar ideas en experiencias digitales claras. Sin plantillas genéricas: escuchamos, entendemos y damos forma a soluciones que sean tan útiles como visualmente impactantes.</p>
         <a href="https://wa.me/525664921229" target="_blank" class="btn">CONTÁCTAME 
-          <!-- Icono Flecha SVG -->
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
         </a>
       </div>
@@ -141,79 +116,116 @@
     <div>© 2026 YORU STUDIO. Todos los derechos reservados.</div>
     <div style="display: flex; gap: 15px;">
       <a href="#inicio">Inicio</a>
-      <a href="#servicios">Servicios</a>
-      <a href="#portafolio">Portafolio</a>
+      <a href="#portafolio">Catálogo</a>
+      <a href="#estudio">Estudio</a>
     </div>
   </div>
 </footer>
 
-<!-- MODALES COMPLETOS -->
-<div class="modal-overlay" id="modal-1">
+<!-- MODALES DE SERVICIOS (Se abren al tocar las categorías) -->
+<div class="modal-overlay" id="modal-gaming">
   <div class="modal-content">
-    <button class="modal-close">&times;</button>
+    <button class="modal-close" onclick="closeModal('modal-gaming')">&times;</button>
+    <h3>Gaming y Streamers</h3>
+    <p>Diseño de identidad visual y arte digital para creadores de contenido.</p>
+    <ul class="modal-list">
+      <li>Banners para Twitch, YouTube, TikTok</li>
+      <li>Diseño de portadas y avatares</li>
+      <li>Overlays y alertas para streams</li>
+      <li>Piezas gráficas para Discord</li>
+    </ul>
+    <a href="https://wa.me/525664921229?text=Hola,%20me%20interesa%20el%20diseño%20Gaming" class="btn" style="width:100%; justify-content:center;">Consultar Cotización</a>
+  </div>
+</div>
+
+<div class="modal-overlay" id="modal-web">
+  <div class="modal-content">
+    <button class="modal-close" onclick="closeModal('modal-web')">&times;</button>
     <h3>Desarrollo Web</h3>
     <p>Sitios y experiencias adaptables, claros y pensados para verse bien en cualquier pantalla.</p>
-    <ul class="modal-list"><li>Diseño responsivo</li><li>Optimización de velocidad</li><li>Integración con WhatsApp</li><li>Estructura SEO</li></ul>
-    <a href="https://wa.me/525664921229?text=Hola,%20me%20interesa%20el%20Desarrollo%20Web" class="btn" style="width:100%; justify-content:center;">Consultar Servicio</a>
+    <ul class="modal-list">
+      <li>Diseño responsivo (móvil y PC)</li>
+      <li>Optimización de velocidad de carga</li>
+      <li>Integración con WhatsApp y redes</li>
+      <li>Estructura SEO amigable</li>
+    </ul>
+    <a href="https://wa.me/525664921229?text=Hola,%20me%20interesa%20el%20Desarrollo%20Web" class="btn" style="width:100%; justify-content:center;">Consultar Cotización</a>
   </div>
 </div>
-<div class="modal-overlay" id="modal-2">
+
+<div class="modal-overlay" id="modal-diseno">
   <div class="modal-content">
-    <button class="modal-close">&times;</button>
-    <h3>Diseño e Identidad</h3>
-    <p>Interfaces, recursos visuales e identidad digital con una estética coherente y reconocible.</p>
-    <ul class="modal-list"><li>Diseño de logotipos</li><li>Interfaces UI/UX</li><li>Banners y piezas gráficas</li><li>Manual de marca</li></ul>
-    <a href="https://wa.me/525664921229?text=Hola,%20me%20interesa%20el%20Diseño" class="btn" style="width:100%; justify-content:center;">Consultar Servicio</a>
+    <button class="modal-close" onclick="closeModal('modal-diseno')">&times;</button>
+    <h3>Diseño Digital</h3>
+    <p>Interfaces, recursos visuales e identidad digital con una estética coherente.</p>
+    <ul class="modal-list">
+      <li>Diseño de logotipos y paletas</li>
+      <li>Diseño de interfaces UI/UX</li>
+      <li>Creación de banners y posts</li>
+      <li>Manual de marca básico</li>
+    </ul>
+    <a href="https://wa.me/525664921229?text=Hola,%20me%20interesa%20el%20Diseño%20Digital" class="btn" style="width:100%; justify-content:center;">Consultar Cotización</a>
   </div>
 </div>
-<div class="modal-overlay" id="modal-3">
+
+<div class="modal-overlay" id="modal-bots">
   <div class="modal-content">
-    <button class="modal-close">&times;</button>
-    <h3>Automatización</h3>
+    <button class="modal-close" onclick="closeModal('modal-bots')">&times;</button>
+    <h3>Bots y Automatización</h3>
     <p>Flujos digitales para organizar tareas repetitivas y simplificar procesos.</p>
-    <ul class="modal-list"><li>Bots para Discord/Telegram</li><li>Automatización en WhatsApp</li><li>Scripts de organización</li><li>Conexión de herramientas</li></ul>
-    <a href="https://wa.me/525664921229?text=Hola,%20me%20interesa%20la%20Automatización" class="btn" style="width:100%; justify-content:center;">Consultar Servicio</a>
+    <ul class="modal-list">
+      <li>Creación de bots para Discord/Telegram</li>
+      <li>Automatización de respuestas WhatsApp</li>
+      <li>Scripts para organización de archivos</li>
+      <li>Conexión entre herramientas</li>
+    </ul>
+    <a href="https://wa.me/525664921229?text=Hola,%20me%20interesa%20la%20Automatización" class="btn" style="width:100%; justify-content:center;">Consultar Cotización</a>
   </div>
 </div>
-<div class="modal-overlay" id="modal-4">
+
+<div class="modal-overlay" id="modal-apps">
   <div class="modal-content">
-    <button class="modal-close">&times;</button>
-    <h3>Apps y Herramientas</h3>
-    <p>Pequeñas herramientas digitales centradas en resolver problemas específicos de tu negocio.</p>
-    <ul class="modal-list"><li>Calculadoras personalizadas</li><li>Generadores de contenido</li><li>Paneles de control</li><li>Extensiones web</li></ul>
-    <a href="https://wa.me/525664921229?text=Hola,%20me%20interesan%20las%20Apps" class="btn" style="width:100%; justify-content:center;">Consultar Servicio</a>
-  </div>
-</div>
-<div class="modal-overlay" id="modal-5">
-  <div class="modal-content">
-    <button class="modal-close">&times;</button>
-    <h3>Soporte Técnico</h3>
-    <p>Orientación para revisar problemas y mantener tus recursos digitales funcionando mejor.</p>
-    <ul class="modal-list"><li>Revisión de páginas web</li><li>Solución de errores</li><li>Mejoras de rendimiento</li><li>Mantenimiento</li></ul>
-    <a href="https://wa.me/525664921229?text=Hola,%20me%20interesa%20el%20Soporte" class="btn" style="width:100%; justify-content:center;">Consultar Servicio</a>
+    <button class="modal-close" onclick="closeModal('modal-apps')">&times;</button>
+    <h3>Programación y Apps</h3>
+    <p>Pequeñas herramientas digitales centradas en resolver problemas específicos.</p>
+    <ul class="modal-list">
+      <li>Calculadoras personalizadas</li>
+      <li>Generadores de documentos</li>
+      <li>Paneles de control simples</li>
+      <li>Extensiones para navegador</li>
+    </ul>
+    <a href="https://wa.me/525664921229?text=Hola,%20me%20interesa%20el%20desarrollo%20de%20Apps" class="btn" style="width:100%; justify-content:center;">Consultar Cotización</a>
   </div>
 </div>
 
 <script src="./js/main.js"></script>
 <script>
-  // Abrir modales
-  document.querySelectorAll('.service-card').forEach(card => {
-    card.addEventListener('click', () => {
-      const id = card.getAttribute('data-target');
-      document.getElementById(id).classList.add('active');
-    });
+  // Funciones de los Modales
+  function openModal(id) {
+    document.getElementById(id).classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeModal(id) {
+    document.getElementById(id).classList.remove('active');
+    document.body.style.overflow = '';
+  }
+
+  // Buscador Minimalista
+  const searchToggle = document.getElementById('searchToggle');
+  const searchForm = document.getElementById('searchForm');
+  
+  searchToggle.addEventListener('click', () => {
+    searchForm.classList.toggle('active');
+    searchToggle.classList.toggle('hidden');
+    if(searchForm.classList.contains('active')) {
+      searchForm.querySelector('input').focus();
+    }
   });
-  // Cerrar modales
-  document.querySelectorAll('.modal-close').forEach(btn => {
-    btn.addEventListener('click', () => {
-      btn.closest('.modal-overlay').classList.remove('active');
-    });
-  });
-  // Cerrar al hacer click fuera
-  document.querySelectorAll('.modal-overlay').forEach(overlay => {
-    overlay.addEventListener('click', (e) => {
-      if (e.target === overlay) overlay.classList.remove('active');
-    });
+
+  searchForm.addEventListener('submit', (e) => {
+    e.preventDefault(); // Evita que la página se recargue al buscar
+    searchForm.classList.remove('active');
+    searchToggle.classList.remove('hidden');
   });
 </script>
 </body></html>
