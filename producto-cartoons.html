@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="es"><head><meta charset="utf-8"/><meta content="width=device-width,initial-scale=1,viewport-fit=cover" name="viewport"/><meta content="#090709" name="theme-color"/><title>Banners Cartoons — YORU STUDIO</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="./css/style.css">
+</head><body>
+<div class="bg-global" style="background-image: url('./assets/yoru-morada.png');"></div>
+
+<header class="nav" id="nav">
+  <div class="wrap">
+    <div class="nav-top">
+      <a class="logo" href="index.html"><span class="logo-mark">夜</span><span>YORU STUDIO</span></a>
+      <div class="nav-actions">
+        <select class="nav-btn"><option>ES · MXN</option><option>EN · USD</option></select>
+        <button class="nav-btn cart"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg> 0</button>
+        <button class="nav-btn" id="menuBtn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg></button>
+      </div>
+    </div>
+    <div class="menu-dropdown" id="menu">
+      <a href="index.html">Inicio</a>
+      <a href="index.html#portafolio">Catálogo</a>
+      <a href="index.html#estudio">El Estudio</a>
+      <a href="https://wa.me/525664921229" class="btn-contact">Contacto</a>
+    </div>
+  </div>
+</header>
+
+<main class="main-content product-page">
+  <div class="wrap">
+    
+    <!-- DETALLE DEL PRODUCTO -->
+    <div class="product-main">
+      <!-- Imagen Protegida -->
+      <div class="product-image-container">
+        <div class="watermark-layer" style="opacity: 0.8;"></div>
+        <img src="./assets/proyecto-gamer-1.jpg" alt="Banners Cartoons" oncontextmenu="return false;">
+      </div>
+      
+      <!-- Información -->
+      <div class="product-details">
+        <span class="category-tag">Gaming y Streamers</span>
+        <h1>Banners Cartoons</h1>
+        <p class="desc">Pack de banners con estilo cartoons, ideal para streams de variedad. Diseños llamativos con colores vibrantes y referencias a personajes clásicos. Perfecto para darle personalidad a tu canal de Twitch o YouTube.</p>
+        <div class="price">$250 MXN</div>
+        
+        <button class="btn" style="width: 100%; justify-content: center; padding: 15px;">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
+          AÑADIR AL CARRITO
+        </button>
+      </div>
+    </div>
+
+    <!-- SUGERENCIAS ALEATORIAS -->
+    <div class="suggestions-section">
+      <h3>También te podría interesar</h3>
+      <div class="shop-grid" id="suggestionsContainer">
+        <!-- El script llenará esto con 2 productos al azar -->
+      </div>
+    </div>
+
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="wrap footer-inner"><div>© 2026 YORU STUDIO. Todos los derechos reservados.</div></div>
+</footer>
+
+<script>
+  // Menú
+  const menuBtn = document.getElementById('menuBtn');
+  const menu = document.getElementById('menu');
+  menuBtn.addEventListener('click', () => menu.classList.toggle('active'));
+
+  // --- LÓGICA DE SUGERENCIAS ALEATORIAS ---
+  // Catálogo de productos de esta categoría
+  const catalog = [
+    { title: "Banners Cartoons", img: "./assets/proyecto-gamer-1.jpg", link: "producto-cartoons.html", price: "$250 MXN" },
+    { title: "Banners The Donato", img: "./assets/proyecto-gamer-2.png", link: "producto-donato.html", price: "$250 MXN" },
+    { title: "Banners Rick & Morty", img: "./assets/proyecto-gamer-3.jpg", link: "producto-rick.html", price: "$250 MXN" }
+  ];
+
+  // El producto actual (para no sugerirlo a sí mismo)
+  const currentProduct = "Banners Cartoons";
+
+  // Filtrar el producto actual
+  let availableSuggestions = catalog.filter(item => item.title !== currentProduct);
+
+  // Mezclar los productos aleatoriamente
+  availableSuggestions.sort(() => Math.random() - 0.5);
+
+  // Tomar 2 productos al azar
+  const selectedSuggestions = availableSuggestions.slice(0, 2);
+
+  // Renderizar en el HTML
+  const container = document.getElementById('suggestionsContainer');
+  selectedSuggestions.forEach(prod => {
+    container.innerHTML += `
+      <div class="shop-card">
+        <div class="shop-img-wrapper">
+          <div class="watermark-layer"></div>
+          <img src="${prod.img}" alt="${prod.title}" oncontextmenu="return false;">
+        </div>
+        <div class="shop-info">
+          <h3 class="shop-title">${prod.title}</h3>
+          <div class="shop-price">${prod.price}</div>
+          <a href="${prod.link}" class="shop-btn" style="text-decoration:none;">Ver producto</a>
+        </div>
+      </div>
+    `;
+  });
+</script>
+</body></html>
