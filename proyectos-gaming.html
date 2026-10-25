@@ -3,17 +3,13 @@
 <link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
 <link rel="stylesheet" href="./css/style.css">
 <style>
-  /* Estilos para los filtros de Gaming */
-  .filters-container {
-    display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 30px; justify-content: center;
-  }
+  /* Estilos para los filtros */
+  .filters-container { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 30px; justify-content: center; }
   .filter-btn {
     background: #111; border: 1px solid #333; color: #ccc; padding: 8px 16px; border-radius: 20px;
-    font-size: 12px; cursor: pointer; transition: all 0.3s ease;
+    font-size: 12px; cursor: pointer; transition: all 0.3s ease; font-family: 'DM Sans', sans-serif;
   }
-  .filter-btn:hover, .filter-btn.active {
-    background: var(--wine); border-color: var(--wine); color: white;
-  }
+  .filter-btn:hover, .filter-btn.active { background: var(--wine); border-color: var(--wine); color: white; }
 </style>
 </head><body>
 <div class="bg-global" style="background-image: url('./assets/yoru-morada.png');"></div>
@@ -50,23 +46,22 @@
     <!-- FILTROS -->
     <div class="filters-container">
       <button class="filter-btn active" data-filter="all">Todos</button>
+      <button class="filter-btn" data-filter="streamers">Streamers</button>
       <button class="filter-btn" data-filter="clanes">Clanes</button>
       <button class="filter-btn" data-filter="jugadores">Jugadores</button>
-      <button class="filter-btn" data-filter="streamers">Streamers</button>
       <button class="filter-btn" data-filter="torneos">Torneos</button>
       <button class="filter-btn" data-filter="web_gaming">Web Gaming</button>
     </div>
 
     <!-- CONTENEDOR DE PRODUCTOS -->
     <div class="shop-grid" id="catalog-container">
-      <p style="color: #888; padding: 20px; text-align:center; width:100%;">Cargando productos desde la nube...</p>
+      <p style="color: #888; padding: 20px; text-align:center; width:100%;">Cargando productos...</p>
     </div>
   </div>
 </main>
 
 <footer class="footer"><div class="wrap footer-inner"><div>© 2026 YORU STUDIO. Todos los derechos reservados.</div></div></footer>
 
-<!-- SCRIPT DE FIREBASE Y FILTROS -->
 <script type="module">
   import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
   import { getFirestore, collection, getDocs } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
@@ -84,27 +79,28 @@
   const app = initializeApp(firebaseConfig);
   const db = getFirestore(app);
   const container = document.getElementById('catalog-container');
-  let allProducts = []; // Guardamos todos los productos aquí
+  let allProducts = []; // Aquí guardaremos todos los productos de gaming
 
-  // 1. Cargar datos de Firebase
   async function cargarProductos() {
     try {
       const querySnapshot = await getDocs(collection(db, "productos"));
-      container.innerHTML = ''; // Limpiar "Cargando"
+      container.innerHTML = ''; 
       
       if (querySnapshot.empty) {
-        container.innerHTML = '<p style="color: #888; padding: 20px; text-align:center; width:100%;">Aún no hay productos.</p>';
+        container.innerHTML = '<p style="color: #888; padding: 20px; text-align:center; width:100%;">No hay productos en el catálogo.</p>';
         return;
       }
 
       querySnapshot.forEach((doc) => {
         const prod = doc.data();
+        // Solo guardamos los que son de categoría 'gaming'
         if (prod.categoria === 'gaming') {
           allProducts.push({ id: doc.id, ...prod });
         }
       });
 
-      renderProducts(allProducts); // Mostrar todos al inicio
+      // Renderizamos todos al inicio
+      renderProducts(allProducts); 
 
     } catch (error) {
       console.error("Error al cargar:", error);
@@ -112,7 +108,6 @@
     }
   }
 
-  // 2. Función para dibujar los productos en pantalla
   function renderProducts(productsToRender) {
     container.innerHTML = '';
     
@@ -140,11 +135,11 @@
     });
   }
 
-  // 3. Lógica de los filtros
+  // Lógica de los filtros
   const filterButtons = document.querySelectorAll('.filter-btn');
   filterButtons.forEach(btn => {
     btn.addEventListener('click', () => {
-      // Cambiar estilo activo
+      // Cambiar el botón activo
       filterButtons.forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
 
@@ -153,13 +148,14 @@
       if (filterValue === 'all') {
         renderProducts(allProducts);
       } else {
+        // Filtrar por subcategoría
         const filtered = allProducts.filter(p => p.subcategoria === filterValue);
         renderProducts(filtered);
       }
     });
   });
 
-  // Iniciar
+  // Iniciar carga
   cargarProductos();
 
   // Menú móvil
