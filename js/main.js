@@ -1,110 +1,87 @@
 (() => {
-  // Número de WhatsApp
-  const WHATSAPP_NUMBER = "525664921229";
-  const messages = {
-    general: "Hola, YORU STUDIO. Me gustaría hablar sobre una idea que tengo.",
-    services: "Hola, YORU STUDIO. Quisiera consultar información sobre sus servicios.",
-    quote: "Hola, YORU STUDIO. Me gustaría solicitar una cotización para un proyecto. ¿Qué información necesitan?"
+  // --- CONFIGURACIÓN ---
+  const WHATSAPP_NUMBER = "525664921229"; 
+  
+  // --- LÓGICA DEL CARRITO (LocalStorage) ---
+  window.cart = JSON.parse(localStorage.getItem('yoru_cart')) || [];
+
+  // Guardar carrito
+  window.saveCart = () => {
+    localStorage.setItem('yoru_cart', JSON.stringify(window.cart));
+    updateCartUI();
   };
-  
-  document.querySelectorAll(".whatsapp-link").forEach(link => {
-    const text = messages[link.dataset.message] || messages.general;
-    link.href = "https://wa.me/" + WHATSAPP_NUMBER + "?text=" + encodeURIComponent(text);
-    link.target = "_blank";
-    link.rel = "noopener noreferrer";
-  });
 
-  const yearEl = document.getElementById("year");
-  if (yearEl) yearEl.textContent = new Date().getFullYear();
+  // Añadir producto
+  window.addToCart = (id, title, price, img) => {
+    const existingItem = window.cart.find(item => item.id === id);
+    if (existingItem) {
+      existingItem.quantity += 1;
+    } else {
+      window.cart.push({ id, title, price, img, quantity: 1 });
+    }
+    window.saveCart();
+    
+    // Feedback visual rápido
+    alert(`"${title}" añadido al carrito.`);
+  };
 
-  // Menú móvil
-  const nav = document.getElementById("nav");
-  const menu = document.getElementById("menu");
-  const menuBtn = document.getElementById("menuBtn");
-  
+  // Actualizar contador en el header
+  window.updateCartUI = () => {
+    const cartBtn = document.querySelector('.nav-btn.cart');
+    if (cartBtn) {
+      const totalItems = window.cart.reduce((sum, item) => sum + item.quantity, 0);
+      // Buscamos el texto actual y lo reemplazamos solo con el número
+      cartBtn.innerHTML = `
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
+        ${totalItems}
+      `;
+    }
+  };
+
+  // --- LÓGICA DEL MENÚ Y BUSCADOR ---
+  const menuBtn = document.getElementById('menuBtn');
+  const menu = document.getElementById('menu');
   if (menuBtn && menu) {
-    const closeMenu = () => {
-      menu.classList.remove("open");
-      menuBtn.setAttribute("aria-expanded", "false");
-      menuBtn.textContent = "☰";
-      menuBtn.setAttribute("aria-label", "Abrir menú");
-    };
-    
-    menuBtn.addEventListener("click", () => {
-      const open = menu.classList.toggle("open");
-      menuBtn.setAttribute("aria-expanded", String(open));
-      menuBtn.textContent = open ? "×" : "☰";
-      menuBtn.setAttribute("aria-label", open ? "Cerrar menú" : "Abrir menú");
-    });
-    
-    menu.querySelectorAll("a").forEach(a => a.addEventListener("click", closeMenu));
-    document.addEventListener("keydown", e => { if (e.key === "Escape") closeMenu(); });
+    menuBtn.addEventListener('click', () => menu.classList.toggle('active'));
   }
 
-  // Scroll y progreso
-  const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  let scheduled = false;
-  function onScroll() {
-    if (scheduled) return;
-    scheduled = true;
-    requestAnimationFrame(() => {
-      const y = window.scrollY;
-      const max = Math.max(1, document.documentElement.scrollHeight - window.innerHeight);
-      document.documentElement.style.setProperty("--scroll", (y / max).toFixed(4));
-      if (nav) nav.classList.toggle("scrolled", y > 35);
-      scheduled = false;
+  const searchToggle = document.getElementById('searchToggle');
+  const searchForm = document.getElementById('searchForm');
+  if (searchToggle && searchForm) {
+    searchToggle.addEventListener('click', () => {
+      searchForm.classList.toggle('active');
+      if(searchForm.classList.contains('active')) searchForm.querySelector('input').focus();
     });
   }
-  window.addEventListener("scroll", onScroll, {passive:true});
-  onScroll();
 
-  // Animaciones reveal
-  if ("IntersectionObserver" in window && !reduced) {
-    const io = new IntersectionObserver(entries => entries.forEach(entry => {
-      if (entry.isIntersecting) { 
-        entry.target.classList.add("visible"); 
-        io.unobserve(entry.target); 
-      }
-    }), {threshold:.09});
-    document.querySelectorAll(".reveal").forEach(el => io.observe(el));
-  } else {
-    document.querySelectorAll(".reveal").forEach(el => el.classList.add("visible"));
-  }
+  // --- FINALIZAR COMPRA POR WHATSAPP ---
+  window.checkoutWhatsApp = () => {
+    if (window.cart.length === 0) {
+      alert("Tu carrito está vacío.");
+      return;
+    }
 
-  // --- LÓGICA DE MODALES (CATÁLOGO) ---
-  const serviceCards = document.querySelectorAll('.service[data-target]');
-  const modals = document.querySelectorAll('.modal-overlay');
-  const closeBtns = document.querySelectorAll('[data-close]');
+    let message = "¡Hola YORU STUDIO! Me gustaría comprar los siguientes productos:\n\n";
+    let total = 0;
 
-  if (serviceCards.length > 0) {
-    serviceCards.forEach(card => {
-      card.addEventListener('click', () => {
-        const targetId = card.getAttribute('data-target');
-        const modal = document.getElementById(targetId);
-        if (modal) {
-          modal.classList.add('active');
-          document.body.style.overflow = 'hidden';
-        }
-      });
+    window.cart.forEach((item, index) => {
+      // Limpiamos el precio de caracteres raros para poder sumar (ej. "$250 MXN" -> 250)
+      const priceNumber = parseFloat(item.price.replace(/[^0-9.]/g, ''));
+      const subtotal = priceNumber * item.quantity;
+      total += subtotal;
+
+      message += `${index + 1}. ${item.title} (x${item.quantity}) - $${subtotal} MXN\n`;
     });
 
-    closeBtns.forEach(btn => {
-      btn.addEventListener('click', (e) => {
-        const modal = e.target.closest('.modal-overlay');
-        if (modal) {
-          modal.classList.remove('active');
-          document.body.style.overflow = '';
-        }
-      });
-    });
+    message += `\n*Total aproximado:* $${total} MXN\n`;
+    message += `\nPor favor, confírmenme la disponibilidad y los métodos de pago.`;
 
-    modals.forEach(modal => {
-      modal.addEventListener('click', (e) => {
-        if (e.target === modal) {
-          modal.classList.remove('active');
-          document.body.style.overflow = '';
-        }
-      });
-    });
-  }
+    const encodedMessage = encodeURIComponent(message);
+    window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodedMessage}`, '_blank');
+  };
+
+  // Inicializar UI del carrito al cargar la página
+  document.addEventListener('DOMContentLoaded', () => {
+    window.updateCartUI();
+  });
 })();
