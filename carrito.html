@@ -83,9 +83,8 @@
 
 <script src="./js/main.js"></script>
 <script>
-  // Función principal para dibujar el carrito
   function renderCart() {
-    const cart = window.getCart(); // Leemos el carrito desde main.js
+    const cart = window.getCart(); 
     const container = document.getElementById('cart-items-container');
     const summary = document.getElementById('cart-summary');
     const emptyCart = document.getElementById('empty-cart');
@@ -130,7 +129,6 @@
     document.getElementById('summary-total').textContent = `$${total} MXN`;
   }
 
-  // Cambiar cantidad
   window.changeQty = (id, change) => {
     let cart = window.getCart();
     const item = cart.find(i => i.id === id);
@@ -139,19 +137,17 @@
       if (item.quantity <= 0) {
         cart = cart.filter(i => i.id !== id);
       }
-      window.saveCart(cart); // Guarda y actualiza el contador de arriba
-      renderCart(); // Vuelve a dibujar la lista
+      window.saveCart(cart); 
+      renderCart(); 
     }
   };
 
-  // Eliminar producto
   window.removeFromCart = (id) => {
     let cart = window.getCart().filter(i => i.id !== id);
-    window.saveCart(cart); // Guarda y actualiza el contador de arriba
-    renderCart(); // Vuelve a dibujar la lista
+    window.saveCart(cart); 
+    renderCart(); 
   };
 
-  // Dibujar la primera vez que carga la página
   document.addEventListener('DOMContentLoaded', renderCart);
 </script>
 </body></html>
