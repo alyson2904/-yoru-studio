@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es"><head><meta charset="utf-8"/><meta content="width=device-width,initial-scale=1,viewport-fit=cover" name="viewport"/><meta content="#090709" name="theme-color"/><title>Desarrollo Web — YORU STUDIO</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="./css/style.css">
+<style>
+  /* Estilos específicos para la página de Caso de Estudio */
+  .case-study-header { padding: 40px 0; text-align: center; }
+  .case-study-header h1 { font-family: Cinzel, serif; font-size: clamp(36px, 6vw, 60px); color: var(--white); margin-bottom: 15px; }
+  .case-study-header p { font-size: 16px; color: #ccc; max-width: 700px; margin: 0 auto 30px; line-height: 1.6; }
+  
+  .project-showcase { display: flex; flex-direction: column; gap: 30px; align-items: center; margin-bottom: 60px; }
+  .project-showcase img { width: 100%; max-width: 800px; border-radius: 12px; border: 1px solid var(--line); box-shadow: 0 20px 50px rgba(0,0,0,0.5); }
+  
+  .project-details { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; background: #111; padding: 40px; border-radius: 8px; border: 1px solid #222; margin-bottom: 60px; }
+  .project-details h3 { font-family: Cinzel, serif; font-size: 24px; color: var(--pink); margin-bottom: 20px; }
+  .project-details ul { list-style: none; padding: 0; }
+  .project-details ul li { font-size: 14px; color: var(--white); margin-bottom: 12px; display: flex; align-items: center; gap: 10px; }
+  .project-details ul li::before { content: "✓"; color: var(--pink); font-weight: bold; }
+
+  @media (max-width: 800px) {
+    .project-details { grid-template-columns: 1fr; padding: 20px; }
+  }
+</style>
+</head><body>
+<div class="bg-global" style="background-image: url('./assets/yoru-azul.png');"></div>
+
+<header class="nav" id="nav">
+  <div class="wrap">
+    <div class="nav-top">
+      <a class="logo" href="index.html"><span class="logo-mark">夜</span><span>YORU STUDIO</span></a>
+      <div class="nav-actions">
+        <select class="nav-btn"><option>ES · MXN</option><option>EN · USD</option></select>
+        <a href="carrito.html" class="nav-btn cart" style="text-decoration: none;">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg> 
+          <span id="cart-count">0</span>
+        </a>
+        <button class="nav-btn" id="menuBtn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg></button>
+      </div>
+    </div>
+    <div class="menu-dropdown" id="menu">
+      <a href="index.html">Inicio</a>
+      <a href="index.html#portafolio">Catálogo</a>
+      <a href="https://wa.me/525664921229" class="btn-contact">Contacto</a>
+    </div>
+  </div>
+</header>
+
+<main class="main-content">
+  <div class="wrap">
+    <div class="case-study-header">
+      <div style="color: var(--pink); font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 10px;">Caso de Estudio</div>
+      <h1>Instituto Educativo José María Morelos</h1>
+      <p>Desarrollo web completo para una institución educativa con múltiples niveles académicos. Un proyecto enfocado en la navegación intuitiva, la presentación clara de la oferta educativa y la integración de canales de contacto directo.</p>
+    </div>
+
+    <div class="project-showcase">
+      <!-- Aquí debes subir una captura de pantalla de la página de la universidad a tu carpeta assets y cambiar la ruta -->
+      <img src="./assets/proyecto-gamer-1.jpg" alt="Captura de la página web de la universidad" style="border-radius: 12px; border: 1px solid #333;">
+      <!-- Nota: He puesto la imagen del banner como placeholder. Deberías reemplazarla por una foto real de la web de la uni. -->
+    </div>
+
+    <div class="project-details">
+      <div>
+        <h3>El Desafío</h3>
+        <p style="font-size: 14px; color: #ccc; line-height: 1.6;">El cliente necesitaba un sitio web moderno que no solo presentara su oferta educativa (desde preescolar hasta maestrías), sino que también facilitara la solicitud de informes y centralizara el contacto de manera eficiente.</p>
+      </div>
+      <div>
+        <h3>Lo que se construyó</h3>
+        <ul>
+          <li>Diseño responsivo (Móvil y PC)</li>
+          <li>Estructura de oferta académica</li>
+          <li>Modales con mapas curriculares</li>
+          <li>Integración de solicitudes por WhatsApp</li>
+          <li>Mapa de ubicación interactivo</li>
+          <li>Optimización de experiencia de usuario</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Panel de contacto final -->
+    <div class="contact-panel reveal" style="margin-top: 60px;">
+      <p class="kicker">¿necesitas una web así?</p>
+      <h2>construyamos tu<br/><em>próximo proyecto.</em></h2>
+      <p>Si tienes una idea o necesitas un desarrollo web a medida como este, podemos conversar sobre cómo llevarlo a cabo.</p>
+      <div class="actions" style="justify-content: center;">
+        <a href="https://wa.me/525664921229?text=Hola,%20vi%20el%20caso%20de%20estudio%20de%20la%20universidad%20y%20me%20interesa%20un%20desarrollo%20web" target="_blank" class="btn">Hablemos por WhatsApp</a>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer class="footer"><div class="wrap footer-inner"><div>© 2026 YORU STUDIO. Todos los derechos reservados.</div></div></footer>
+
+<script src="./js/main.js"></script>
+<script>
+  // Menú
+  document.getElementById('menuBtn').addEventListener('click', () => {
+    document.getElementById('menu').classList.toggle('active');
+  });
+</script>
+</body></html>
