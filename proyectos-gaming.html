@@ -10,14 +10,8 @@
     <div class="nav-top">
       <a class="logo" href="index.html"><span class="logo-mark">夜</span><span>YORU STUDIO</span></a>
       <div class="nav-actions">
-        <select class="nav-btn" style="appearance: none; cursor:pointer; outline:none;">
-          <option>ES · MXN</option><option>EN · USD</option>
-        </select>
+        <select class="nav-btn"><option>ES · MXN</option><option>EN · USD</option></select>
         <button class="nav-btn cart"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg> 0</button>
-        <div class="search-container">
-          <form class="search-form" id="searchForm"><input type="text" placeholder="Buscar..." /></form>
-          <button class="search-toggle" id="searchToggle"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg></button>
-        </div>
         <button class="nav-btn" id="menuBtn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg></button>
       </div>
     </div>
@@ -25,7 +19,7 @@
       <a href="index.html">Inicio</a>
       <a href="index.html#portafolio">Catálogo</a>
       <a href="index.html#estudio">El Estudio</a>
-      <a href="https://wa.me/525664921229" target="_blank" class="btn-contact">Contacto</a>
+      <a href="https://wa.me/525664921229" class="btn-contact">Contacto</a>
     </div>
   </div>
 </header>
@@ -38,69 +32,68 @@
       <p>Diseño de identidad visual y arte digital para creadores de contenido. Creamos piezas únicas que destacan en plataformas de streaming y comunidades de gaming.</p>
     </div>
 
-    <div class="section-title">PRODUCTOS DISPONIBLES <span>3 DISEÑOS</span></div>
-    <div class="shop-grid">
-      
-      <!-- Producto 1 -->
-      <div class="shop-card">
-        <div class="shop-img-wrapper">
-          <div class="watermark-layer"></div>
-          <img src="./assets/proyecto-gamer-1.jpg" alt="Banner Cartoons" oncontextmenu="return false;">
-        </div>
-        <div class="shop-info">
-          <div class="shop-cat">Pack de Banners</div>
-          <h3 class="shop-title">Banners Cartoons</h3>
-          <div class="shop-price">$250 MXN</div>
-          <!-- ENLACE A LA NUEVA PÁGINA -->
-          <a href="producto-cartoons.html" class="shop-btn" style="text-decoration:none;">Ver producto</a>
-        </div>
-      </div>
+    <div class="section-title">PRODUCTOS DISPONIBLES</div>
+    
+    <!-- Aquí JS inyectará los productos -->
+    <div class="shop-grid" id="catalog-container"></div>
 
-      <!-- Producto 2 -->
-      <div class="shop-card">
-        <div class="shop-img-wrapper">
-          <div class="watermark-layer"></div>
-          <img src="./assets/proyecto-gamer-2.png" alt="Banner The Donato" oncontextmenu="return false;">
-        </div>
-        <div class="shop-info">
-          <div class="shop-cat">Pack de Banners</div>
-          <h3 class="shop-title">Banners The Donato</h3>
-          <div class="shop-price">$250 MXN</div>
-          <a href="producto-donato.html" class="shop-btn" style="text-decoration:none;">Ver producto</a>
-        </div>
-      </div>
-
-      <!-- Producto 3 -->
-      <div class="shop-card">
-        <div class="shop-img-wrapper">
-          <div class="watermark-layer"></div>
-          <img src="./assets/proyecto-gamer-3.jpg" alt="Banner Rick and Morty" oncontextmenu="return false;">
-        </div>
-        <div class="shop-info">
-          <div class="shop-cat">Pack de Banners</div>
-          <h3 class="shop-title">Banners Rick & Morty</h3>
-          <div class="shop-price">$250 MXN</div>
-          <a href="producto-rick.html" class="shop-btn" style="text-decoration:none;">Ver producto</a>
-        </div>
-      </div>
-
-    </div>
   </div>
 </main>
 
-<footer class="footer">
-  <div class="wrap footer-inner"><div>© 2026 YORU STUDIO. Todos los derechos reservados.</div></div>
-</footer>
+<footer class="footer"><div class="wrap footer-inner"><div>© 2026 YORU STUDIO. Todos los derechos reservados.</div></div></footer>
 
 <script>
-  const searchToggle = document.getElementById('searchToggle');
-  const searchForm = document.getElementById('searchForm');
-  searchToggle.addEventListener('click', () => {
-    searchForm.classList.toggle('active');
-    if(searchForm.classList.contains('active')) searchForm.querySelector('input').focus();
+  // 1. DEFINIMOS EL CATÁLOGO DE PRODUCTOS AQUÍ
+  // Cuando tengas 50 productos, solo tienes que añadir más objetos a esta lista.
+  const catalogData = [
+    { 
+      id: "cartoons", 
+      title: "Banners Cartoons", 
+      desc: "Pack de banners con estilo cartoons, ideal para streams de variedad.",
+      price: "$250 MXN", 
+      img: "./assets/proyecto-gamer-1.jpg" 
+    },
+    { 
+      id: "donato", 
+      title: "Banners The Donato", 
+      desc: "Pack de banners estilo urbano/gamer con colores neón.",
+      price: "$250 MXN", 
+      img: "./assets/proyecto-gamer-2.png" 
+    },
+    { 
+      id: "rick", 
+      title: "Banners Rick & Morty", 
+      desc: "Pack de banners con temática sci-fi y portal verde.",
+      price: "$250 MXN", 
+      img: "./assets/proyecto-gamer-3.jpg" 
+    }
+  ];
+
+  // 2. RENDERIZAMOS LOS PRODUCTOS EN LA PÁGINA
+  const container = document.getElementById('catalog-container');
+  
+  catalogData.forEach(prod => {
+    // Creamos el HTML de cada tarjeta y le pasamos el ID del producto por la URL
+    const cardHTML = `
+      <div class="shop-card">
+        <div class="shop-img-wrapper">
+          <div class="watermark-layer"></div>
+          <img src="${prod.img}" alt="${prod.title}" oncontextmenu="return false;">
+        </div>
+        <div class="shop-info">
+          <div class="shop-cat">Pack de Banners</div>
+          <h3 class="shop-title">${prod.title}</h3>
+          <div class="shop-price">${prod.price}</div>
+          <a href="producto.html?id=${prod.id}" class="shop-btn" style="text-decoration:none;">Ver producto</a>
+        </div>
+      </div>
+    `;
+    container.innerHTML += cardHTML;
   });
-  const menuBtn = document.getElementById('menuBtn');
-  const menu = document.getElementById('menu');
-  menuBtn.addEventListener('click', () => menu.classList.toggle('active'));
+
+  // Lógica del menú
+  document.getElementById('menuBtn').addEventListener('click', () => {
+    document.getElementById('menu').classList.toggle('active');
+  });
 </script>
 </body></html>
