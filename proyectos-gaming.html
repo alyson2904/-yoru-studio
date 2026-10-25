@@ -79,7 +79,7 @@
   const app = initializeApp(firebaseConfig);
   const db = getFirestore(app);
   const container = document.getElementById('catalog-container');
-  let allProducts = []; // Aquí guardaremos todos los productos de gaming
+  let allProducts = []; 
 
   async function cargarProductos() {
     try {
@@ -93,13 +93,11 @@
 
       querySnapshot.forEach((doc) => {
         const prod = doc.data();
-        // Solo guardamos los que son de categoría 'gaming'
         if (prod.categoria === 'gaming') {
           allProducts.push({ id: doc.id, ...prod });
         }
       });
 
-      // Renderizamos todos al inicio
       renderProducts(allProducts); 
 
     } catch (error) {
@@ -135,11 +133,9 @@
     });
   }
 
-  // Lógica de los filtros
   const filterButtons = document.querySelectorAll('.filter-btn');
   filterButtons.forEach(btn => {
     btn.addEventListener('click', () => {
-      // Cambiar el botón activo
       filterButtons.forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
 
@@ -148,17 +144,14 @@
       if (filterValue === 'all') {
         renderProducts(allProducts);
       } else {
-        // Filtrar por subcategoría
         const filtered = allProducts.filter(p => p.subcategoria === filterValue);
         renderProducts(filtered);
       }
     });
   });
 
-  // Iniciar carga
   cargarProductos();
 
-  // Menú móvil
   document.getElementById('menuBtn').addEventListener('click', () => {
     document.getElementById('menu').classList.toggle('active');
   });
