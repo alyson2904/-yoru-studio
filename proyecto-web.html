@@ -9,10 +9,11 @@
   .case-study-header p { font-size: 16px; color: #ccc; max-width: 700px; margin: 0 auto 30px; line-height: 1.6; }
   
   .project-showcase { display: flex; flex-direction: column; gap: 30px; align-items: center; margin-bottom: 60px; }
-  .project-showcase img { width: 100%; max-width: 800px; border-radius: 12px; border: 1px solid var(--line); box-shadow: 0 20px 50px rgba(0,0,0,0.5); }
+  .project-showcase img { width: 100%; max-width: 900px; border-radius: 12px; border: 1px solid var(--line); box-shadow: 0 20px 50px rgba(0,0,0,0.5); }
   
   .project-details { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; background: #111; padding: 40px; border-radius: 8px; border: 1px solid #222; margin-bottom: 60px; }
   .project-details h3 { font-family: Cinzel, serif; font-size: 24px; color: var(--pink); margin-bottom: 20px; }
+  .project-details p { font-size: 14px; color: #ccc; line-height: 1.6; }
   .project-details ul { list-style: none; padding: 0; }
   .project-details ul li { font-size: 14px; color: var(--white); margin-bottom: 12px; display: flex; align-items: center; gap: 10px; }
   .project-details ul li::before { content: "✓"; color: var(--pink); font-weight: bold; }
@@ -54,15 +55,14 @@
     </div>
 
     <div class="project-showcase">
-      <!-- Aquí debes subir una captura de pantalla de la página de la universidad a tu carpeta assets y cambiar la ruta -->
-      <img src="./assets/universidad.jpg" alt="Captura de la página web de la universidad" ...>
-      <!-- Nota: He puesto la imagen del banner como placeholder. Deberías reemplazarla por una foto real de la web de la uni. -->
+      <!-- Aquí va la captura de tu universidad -->
+      <img src="./assets/universidad.jpg" alt="Captura de la página web del Instituto José María Morelos">
     </div>
 
     <div class="project-details">
       <div>
         <h3>El Desafío</h3>
-        <p style="font-size: 14px; color: #ccc; line-height: 1.6;">El cliente necesitaba un sitio web moderno que no solo presentara su oferta educativa (desde preescolar hasta maestrías), sino que también facilitara la solicitud de informes y centralizara el contacto de manera eficiente.</p>
+        <p>El cliente necesitaba un sitio web moderno que no solo presentara su oferta educativa (desde preescolar hasta maestrías), sino que también facilitara la solicitud de informes y centralizara el contacto de manera eficiente.</p>
       </div>
       <div>
         <h3>Lo que se construyó</h3>
@@ -93,7 +93,7 @@
 
 <script src="./js/main.js"></script>
 <script>
-  // Menú
+  // Lógica del menú
   document.getElementById('menuBtn').addEventListener('click', () => {
     document.getElementById('menu').classList.toggle('active');
   });
