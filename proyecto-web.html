@@ -3,23 +3,24 @@
 <link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
 <link rel="stylesheet" href="./css/style.css">
 <style>
-  /* Estilos específicos para la página de Caso de Estudio */
-  .case-study-header { padding: 40px 0; text-align: center; }
+  /* Estilos específicos para la página de Caso de Estudio sin imagen */
+  .case-study-header { padding: 50px 0 30px; text-align: center; }
   .case-study-header h1 { font-family: Cinzel, serif; font-size: clamp(36px, 6vw, 60px); color: var(--white); margin-bottom: 15px; }
-  .case-study-header p { font-size: 16px; color: #ccc; max-width: 700px; margin: 0 auto 30px; line-height: 1.6; }
+  .case-study-header p { font-size: 16px; color: #ccc; max-width: 800px; margin: 0 auto 30px; line-height: 1.8; }
   
-  .project-showcase { display: flex; flex-direction: column; gap: 30px; align-items: center; margin-bottom: 60px; }
-  .project-showcase img { width: 100%; max-width: 900px; border-radius: 12px; border: 1px solid var(--line); box-shadow: 0 20px 50px rgba(0,0,0,0.5); }
+  .project-content { max-width: 800px; margin: 0 auto 60px; }
   
-  .project-details { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; background: #111; padding: 40px; border-radius: 8px; border: 1px solid #222; margin-bottom: 60px; }
-  .project-details h3 { font-family: Cinzel, serif; font-size: 24px; color: var(--pink); margin-bottom: 20px; }
-  .project-details p { font-size: 14px; color: #ccc; line-height: 1.6; }
-  .project-details ul { list-style: none; padding: 0; }
-  .project-details ul li { font-size: 14px; color: var(--white); margin-bottom: 12px; display: flex; align-items: center; gap: 10px; }
-  .project-details ul li::before { content: "✓"; color: var(--pink); font-weight: bold; }
+  .project-block { background: #111; padding: 40px; border-radius: 8px; border: 1px solid #222; margin-bottom: 30px; }
+  .project-block h3 { font-family: Cinzel, serif; font-size: 24px; color: var(--pink); margin-bottom: 20px; }
+  .project-block p { font-size: 15px; color: #ccc; line-height: 1.8; margin-bottom: 15px; }
+  
+  .project-features { list-style: none; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+  .project-features li { font-size: 14px; color: var(--white); display: flex; align-items: flex-start; gap: 10px; }
+  .project-features li::before { content: "✓"; color: var(--pink); font-weight: bold; }
 
   @media (max-width: 800px) {
-    .project-details { grid-template-columns: 1fr; padding: 20px; }
+    .project-block { padding: 25px; }
+    .project-features { grid-template-columns: 1fr; }
   }
 </style>
 </head><body>
@@ -51,30 +52,38 @@
     <div class="case-study-header">
       <div style="color: var(--pink); font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 10px;">Caso de Estudio</div>
       <h1>Instituto Educativo José María Morelos</h1>
-      <p>Desarrollo web completo para una institución educativa con múltiples niveles académicos. Un proyecto enfocado en la navegación intuitiva, la presentación clara de la oferta educativa y la integración de canales de contacto directo.</p>
+      <p>Un proyecto de desarrollo web integral para una institución educativa con múltiples niveles académicos. El objetivo principal fue digitalizar su oferta educativa, facilitar el acceso a la información y optimizar la captación de nuevos estudiantes a través de canales directos.</p>
     </div>
 
-    <div class="project-showcase">
-      <!-- Aquí va la captura de tu universidad -->
-      <img src="./assets/universidad.jpg" alt="Captura de la página web del Instituto José María Morelos">
-    </div>
-
-    <div class="project-details">
-      <div>
+    <div class="project-content">
+      
+      <!-- Bloque 1: El Desafío -->
+      <div class="project-block">
         <h3>El Desafío</h3>
-        <p>El cliente necesitaba un sitio web moderno que no solo presentara su oferta educativa (desde preescolar hasta maestrías), sino que también facilitara la solicitud de informes y centralizara el contacto de manera eficiente.</p>
+        <p>La institución contaba con una gran cantidad de información académica (desde nivel preescolar hasta maestrías), pero no tenía una plataforma centralizada y moderna que la presentara de manera clara. Además, el proceso para solicitar informes o contactar a la escuela era lento y poco intuitivo para los padres de familia y futuros alumnos.</p>
+        <p>El reto consistía en organizar toda esa estructura académica en un sitio web rápido, visualmente atractivo y fácil de navegar desde cualquier dispositivo móvil.</p>
       </div>
-      <div>
-        <h3>Lo que se construyó</h3>
-        <ul>
-          <li>Diseño responsivo (Móvil y PC)</li>
-          <li>Estructura de oferta académica</li>
-          <li>Modales con mapas curriculares</li>
-          <li>Integración de solicitudes por WhatsApp</li>
-          <li>Mapa de ubicación interactivo</li>
-          <li>Optimización de experiencia de usuario</li>
+
+      <!-- Bloque 2: La Solución -->
+      <div class="project-block">
+        <h3>La Solución Construida</h3>
+        <p>Desarrollé un sitio web a medida utilizando HTML, CSS y JavaScript, enfocado en una arquitectura de información limpia. Se diseñaron secciones específicas para cada nivel educativo, permitiendo a los usuarios explorar los programas académicos de forma detallada.</p>
+        <p>Se integraron elementos interactivos clave, como ventanas modales para visualizar las mallas curriculares sin tener que salir de la página, y mapas interactivos para ubicar las instalaciones. Todo el flujo de contacto se redirigió a WhatsApp para agilizar la atención al cliente.</p>
+      </div>
+
+      <!-- Bloque 3: Características Técnicas -->
+      <div class="project-block">
+        <h3>Características Técnicas</h3>
+        <ul class="project-features">
+          <li>Diseño 100% responsivo para móviles y PC.</li>
+          <li>Estructura semántica y optimizada para SEO.</li>
+          <li>Ventanas modales dinámicas para mallas curriculares.</li>
+          <li>Integración directa de botones de contacto a WhatsApp.</li>
+          <li>Mapa de ubicación interactivo de Google Maps.</li>
+          <li>Optimización de tiempos de carga y recursos visuales.</li>
         </ul>
       </div>
+
     </div>
 
     <!-- Panel de contacto final -->
