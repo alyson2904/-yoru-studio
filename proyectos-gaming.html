@@ -10,27 +10,17 @@
     <div class="nav-top">
       <a class="logo" href="index.html"><span class="logo-mark">夜</span><span>YORU STUDIO</span></a>
       <div class="nav-actions">
-        <select class="nav-btn" style="appearance: none; cursor:pointer; outline:none;">
-          <option>ES · MXN</option><option>EN · USD</option>
-        </select>
-        
-        <!-- ENLACE AL CARRITO -->
+        <select class="nav-btn"><option>ES · MXN</option><option>EN · USD</option></select>
         <a href="carrito.html" class="nav-btn cart" style="text-decoration: none;">
           <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg> 
           <span id="cart-count">0</span>
         </a>
-        
-        <div class="search-container">
-          <form class="search-form" id="searchForm"><input type="text" placeholder="Buscar..." /></form>
-          <button class="search-toggle" id="searchToggle"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg></button>
-        </div>
         <button class="nav-btn" id="menuBtn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg></button>
       </div>
     </div>
     <div class="menu-dropdown" id="menu">
       <a href="index.html">Inicio</a>
       <a href="index.html#portafolio">Catálogo</a>
-      <a href="index.html#estudio">El Estudio</a>
       <a href="https://wa.me/525664921229" class="btn-contact">Contacto</a>
     </div>
   </div>
@@ -41,62 +31,85 @@
     <div class="category-header">
       <div style="color: var(--pink); font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 10px;">Catálogo</div>
       <h1>Gaming y Streamers</h1>
-      <p>Diseño de identidad visual y arte digital para creadores de contenido. Creamos piezas únicas que destacan en plataformas de streaming y comunidades de gaming.</p>
+      <p>Diseño de identidad visual y arte digital para creadores de contenido.</p>
     </div>
 
     <div class="section-title">PRODUCTOS DISPONIBLES</div>
-    
-    <div class="shop-grid" id="catalog-container"></div>
-
+    <div class="shop-grid" id="catalog-container">
+      <p style="color: #888; padding: 20px;">Cargando productos desde la nube...</p>
+    </div>
   </div>
 </main>
 
 <footer class="footer"><div class="wrap footer-inner"><div>© 2026 YORU STUDIO. Todos los derechos reservados.</div></div></footer>
 
-<script src="./js/main.js"></script>
-<script>
-  const catalogData = [
-    { 
-      id: "cartoons", 
-      title: "Banners Cartoons", 
-      desc: "Pack de banners con estilo cartoons, ideal para streams de variedad.",
-      price: "$250 MXN", 
-      img: "./assets/proyecto-gamer-1.jpg" 
-    },
-    { 
-      id: "donato", 
-      title: "Banners The Donato", 
-      desc: "Pack de banners estilo urbano/gamer con colores neón.",
-      price: "$250 MXN", 
-      img: "./assets/proyecto-gamer-2.png" 
-    },
-    { 
-      id: "rick", 
-      title: "Banners Rick & Morty", 
-      desc: "Pack de banners con temática sci-fi y portal verde.",
-      price: "$250 MXN", 
-      img: "./assets/proyecto-gamer-3.jpg" 
-    }
-  ];
+<!-- 1. IMPORTAMOS FIREBASE (Módulos) -->
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+  import { getFirestore, collection, getDocs } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
 
+  // 2. CONFIGURACIÓN (Tus credenciales reales)
+  const firebaseConfig = {
+    apiKey: "AIzaSyDuc4Rhu9i_Td_ZBCUcEs2NOjA__Jk9Hew",
+    authDomain: "yoru-studio-b0942.firebaseapp.com",
+    projectId: "yoru-studio-b0942",
+    storageBucket: "yoru-studio-b0942.firebasestorage.app",
+    messagingSenderId: "54161833689",
+    appId: "1:54161833689:web:d72b91878948cf11e2c8c8",
+    measurementId: "G-4CV5ZQJ986"
+  };
+
+  // 3. INICIALIZAR FIREBASE
+  const app = initializeApp(firebaseConfig);
+  const db = getFirestore(app);
+
+  // 4. LEER PRODUCTOS DE LA COLECCIÓN "productos"
   const container = document.getElementById('catalog-container');
   
-  catalogData.forEach(prod => {
-    const cardHTML = `
-      <div class="shop-card">
-        <div class="shop-img-wrapper">
-          <div class="watermark-layer"></div>
-          <img src="${prod.img}" alt="${prod.title}" oncontextmenu="return false;">
-        </div>
-        <div class="shop-info">
-          <div class="shop-cat">Pack de Banners</div>
-          <h3 class="shop-title">${prod.title}</h3>
-          <div class="shop-price">${prod.price}</div>
-          <a href="producto.html?id=${prod.id}" class="shop-btn" style="text-decoration:none;">Ver producto</a>
-        </div>
-      </div>
-    `;
-    container.innerHTML += cardHTML;
+  async function cargarProductos() {
+    try {
+      const querySnapshot = await getDocs(collection(db, "productos"));
+      
+      container.innerHTML = ''; // Limpiamos el mensaje de carga
+      
+      querySnapshot.forEach((doc) => {
+        const prod = doc.data();
+        
+        // Solo mostramos si la categoría es gaming
+        if (prod.categoria === 'gaming') {
+          const cardHTML = `
+            <div class="shop-card">
+              <div class="shop-img-wrapper">
+                <div class="watermark-layer"></div>
+                <img src="${prod.imagen}" alt="${prod.titulo}" oncontextmenu="return false;">
+              </div>
+              <div class="shop-info">
+                <div class="shop-cat">${prod.etiqueta || 'Pack'}</div>
+                <h3 class="shop-title">${prod.titulo}</h3>
+                <div class="shop-price">${prod.precio}</div>
+                <a href="producto.html?id=${doc.id}" class="shop-btn" style="text-decoration:none;">Ver producto</a>
+              </div>
+            </div>
+          `;
+          container.innerHTML += cardHTML;
+        }
+      });
+      
+      if (container.innerHTML === '') {
+        container.innerHTML = '<p style="color: #888; padding: 20px;">Próximamente nuevos diseños...</p>';
+      }
+
+    } catch (error) {
+      console.error("Error al cargar:", error);
+      container.innerHTML = '<p style="color: red; padding: 20px;">Error al conectar con la base de datos. Revisa la consola.</p>';
+    }
+  }
+
+  cargarProductos();
+
+  // Lógica del menú
+  document.getElementById('menuBtn').addEventListener('click', () => {
+    document.getElementById('menu').classList.toggle('active');
   });
 </script>
 </body></html>
