@@ -11,13 +11,10 @@
       <a class="logo" href="index.html"><span class="logo-mark">夜</span><span>YORU STUDIO</span></a>
       <div class="nav-actions">
         <select class="nav-btn"><option>ES · MXN</option><option>EN · USD</option></select>
-        
-        <!-- ENLACE AL CARRITO -->
         <a href="carrito.html" class="nav-btn cart" style="text-decoration: none;">
           <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg> 
           <span id="cart-count">0</span>
         </a>
-        
         <button class="nav-btn" id="menuBtn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg></button>
       </div>
     </div>
@@ -60,50 +57,83 @@
 <footer class="footer"><div class="wrap footer-inner"><div>© 2026 YORU STUDIO. Todos los derechos reservados.</div></div></footer>
 
 <script src="./js/main.js"></script>
-<script>
-  const catalogData = [
-    { id: "cartoons", title: "Banners Cartoons", desc: "Pack de banners con estilo cartoons, ideal para streams de variedad.", price: "$250 MXN", img: "./assets/proyecto-gamer-1.jpg" },
-    { id: "donato", title: "Banners The Donato", desc: "Pack de banners estilo urbano/gamer con colores neón.", price: "$250 MXN", img: "./assets/proyecto-gamer-2.png" },
-    { id: "rick", title: "Banners Rick & Morty", desc: "Pack de banners con temática sci-fi y portal verde.", price: "$250 MXN", img: "./assets/proyecto-gamer-3.jpg" }
-  ];
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+  import { getFirestore, doc, getDoc, collection, getDocs } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyDuc4Rhu9i_Td_ZBCUcEs2NOjA__Jk9Hew",
+    authDomain: "yoru-studio-b0942.firebaseapp.com",
+    projectId: "yoru-studio-b0942",
+    storageBucket: "yoru-studio-b0942.firebasestorage.app",
+    messagingSenderId: "54161833689",
+    appId: "1:54161833689:web:d72b91878948cf11e2c8c8",
+    measurementId: "G-4CV5ZQJ986"
+  };
+
+  const app = initializeApp(firebaseConfig);
+  const db = getFirestore(app);
 
   const urlParams = new URLSearchParams(window.location.search);
   const productId = urlParams.get('id');
-  const currentProduct = catalogData.find(p => p.id === productId);
 
-  if (currentProduct) {
-    document.getElementById('prod-title').textContent = currentProduct.title;
-    document.getElementById('prod-desc').textContent = currentProduct.desc;
-    document.getElementById('prod-price').textContent = currentProduct.price;
-    document.getElementById('prod-img').src = currentProduct.img;
-    document.title = currentProduct.title + " — YORU STUDIO";
-
-    document.getElementById('add-btn').addEventListener('click', () => {
-      addToCart(currentProduct.id, currentProduct.title, currentProduct.price, currentProduct.img);
-    });
-
-    let otherProducts = catalogData.filter(p => p.id !== productId);
-    otherProducts.sort(() => 0.5 - Math.random());
-    const suggestions = otherProducts.slice(0, 2);
+  async function loadProduct() {
+    if (!productId) return;
     
-    const suggestionsContainer = document.getElementById('suggestions-container');
-    suggestions.forEach(prod => {
-      suggestionsContainer.innerHTML += `
-        <div class="shop-card">
-          <div class="shop-img-wrapper">
-            <div class="watermark-layer"></div>
-            <img src="${prod.img}" alt="${prod.title}" oncontextmenu="return false;">
-          </div>
-          <div class="shop-info">
-            <h3 class="shop-title">${prod.title}</h3>
-            <div class="shop-price">${prod.price}</div>
-            <a href="producto.html?id=${prod.id}" class="shop-btn" style="text-decoration:none;">Ver producto</a>
-          </div>
-        </div>
-      `;
-    });
-  } else {
-    document.getElementById('prod-title').textContent = "Producto no encontrado";
+    try {
+      const docRef = doc(db, "productos", productId);
+      const docSnap = await getDoc(docRef);
+
+      if (docSnap.exists()) {
+        const prod = docSnap.data();
+        document.getElementById('prod-title').textContent = prod.titulo;
+        document.getElementById('prod-desc').textContent = prod.descripcion || prod.desc || "Diseño exclusivo de YORU STUDIO.";
+        document.getElementById('prod-price').textContent = prod.precio;
+        document.getElementById('prod-img').src = prod.imagen;
+        document.title = prod.titulo + " — YORU STUDIO";
+
+        document.getElementById('add-btn').addEventListener('click', () => {
+          addToCart(docSnap.id, prod.titulo, prod.precio, prod.imagen);
+        });
+
+        // Cargar sugerencias aleatorias
+        const querySnapshot = await getDocs(collection(db, "productos"));
+        let allProducts = [];
+        querySnapshot.forEach((doc) => {
+          if(doc.id !== productId) {
+            allProducts.push({ id: doc.id, ...doc.data() });
+          }
+        });
+
+        // Mezclar y mostrar 2
+        allProducts.sort(() => 0.5 - Math.random());
+        const suggestions = allProducts.slice(0, 2);
+        
+        const suggestionsContainer = document.getElementById('suggestions-container');
+        suggestions.forEach(prod => {
+          suggestionsContainer.innerHTML += `
+            <div class="shop-card">
+              <div class="shop-img-wrapper">
+                <div class="watermark-layer"></div>
+                <img src="${prod.imagen}" alt="${prod.titulo}" oncontextmenu="return false;">
+              </div>
+              <div class="shop-info">
+                <h3 class="shop-title">${prod.titulo}</h3>
+                <div class="shop-price">${prod.precio}</div>
+                <a href="producto.html?id=${prod.id}" class="shop-btn" style="text-decoration:none;">Ver producto</a>
+              </div>
+            </div>
+          `;
+        });
+
+      } else {
+        document.getElementById('prod-title').textContent = "Producto no encontrado";
+      }
+    } catch (error) {
+      console.error("Error:", error);
+    }
   }
+
+  loadProduct();
 </script>
 </body></html>
