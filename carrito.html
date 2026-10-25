@@ -26,7 +26,6 @@
   @media (max-width: 800px) {
     .cart-layout { grid-template-columns: 1fr; }
     .cart-summary { position: static; }
-    .cart-item { flex-direction: row; align-items: flex-start; }
     .cart-item img { width: 60px; height: 60px; }
     .cart-item-title { font-size: 14px; }
   }
@@ -57,7 +56,6 @@
 
 <main class="main-content cart-page">
   <div class="wrap">
-    <div style="font-size: 10px; letter-spacing: 0.2em; color: var(--pink); text-transform: uppercase; margin-bottom: 10px;">Tu selección</div>
     <h1 style="font-family: Cinzel, serif; font-size: clamp(30px, 5vw, 50px); margin: 0 0 30px;">Carrito de compras</h1>
 
     <div class="cart-layout" id="cart-layout">
@@ -85,15 +83,14 @@
 
 <script src="./js/main.js"></script>
 <script>
-  // Renderizar carrito
+  // Función principal para dibujar el carrito
   function renderCart() {
+    const cart = window.getCart(); // Leemos el carrito desde main.js
     const container = document.getElementById('cart-items-container');
     const summary = document.getElementById('cart-summary');
     const emptyCart = document.getElementById('empty-cart');
-    
-    const currentCart = window.getCart();
 
-    if (currentCart.length === 0) {
+    if (cart.length === 0) {
       container.style.display = 'none';
       summary.style.display = 'none';
       emptyCart.style.display = 'block';
@@ -107,7 +104,7 @@
     container.innerHTML = '';
     let total = 0;
 
-    currentCart.forEach(item => {
+    cart.forEach(item => {
       const priceNum = parseFloat(item.price.replace(/[^0-9.]/g, ''));
       const subtotal = priceNum * item.quantity;
       total += subtotal;
@@ -133,27 +130,28 @@
     document.getElementById('summary-total').textContent = `$${total} MXN`;
   }
 
+  // Cambiar cantidad
   window.changeQty = (id, change) => {
-    let cartCopy = window.getCart();
-    const item = cartCopy.find(i => i.id === id);
+    let cart = window.getCart();
+    const item = cart.find(i => i.id === id);
     if (item) {
       item.quantity += change;
       if (item.quantity <= 0) {
-        cartCopy = cartCopy.filter(i => i.id !== id);
+        cart = cart.filter(i => i.id !== id);
       }
-      localStorage.setItem('yoru_cart', JSON.stringify(cartCopy));
-      renderCart();
-      window.updateCartUI();
+      window.saveCart(cart); // Guarda y actualiza el contador de arriba
+      renderCart(); // Vuelve a dibujar la lista
     }
   };
 
+  // Eliminar producto
   window.removeFromCart = (id) => {
-    let cartCopy = window.getCart().filter(i => i.id !== id);
-    localStorage.setItem('yoru_cart', JSON.stringify(cartCopy));
-    renderCart();
-    window.updateCartUI(); // Esto hace que el contador rojo se actualice al instante
+    let cart = window.getCart().filter(i => i.id !== id);
+    window.saveCart(cart); // Guarda y actualiza el contador de arriba
+    renderCart(); // Vuelve a dibujar la lista
   };
 
+  // Dibujar la primera vez que carga la página
   document.addEventListener('DOMContentLoaded', renderCart);
 </script>
 </body></html>
