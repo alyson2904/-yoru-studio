@@ -3,24 +3,24 @@
 <link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
 <link rel="stylesheet" href="./css/style.css">
 <style>
-  /* Estilos específicos para la página de Caso de Estudio sin imagen */
-  .case-study-header { padding: 50px 0 30px; text-align: center; }
-  .case-study-header h1 { font-family: Cinzel, serif; font-size: clamp(36px, 6vw, 60px); color: var(--white); margin-bottom: 15px; }
-  .case-study-header p { font-size: 16px; color: #ccc; max-width: 800px; margin: 0 auto 30px; line-height: 1.8; }
+  /* Estilos específicos para la página de Servicios Web */
+  .services-header { padding: 50px 0 30px; text-align: center; }
+  .services-header h1 { font-family: Cinzel, serif; font-size: clamp(36px, 6vw, 60px); color: var(--white); margin-bottom: 15px; }
+  .services-header p { font-size: 16px; color: #ccc; max-width: 800px; margin: 0 auto 30px; line-height: 1.8; }
   
-  .project-content { max-width: 800px; margin: 0 auto 60px; }
+  .services-container { max-width: 900px; margin: 0 auto 60px; display: flex; flex-direction: column; gap: 20px; }
   
-  .project-block { background: #111; padding: 40px; border-radius: 8px; border: 1px solid #222; margin-bottom: 30px; }
-  .project-block h3 { font-family: Cinzel, serif; font-size: 24px; color: var(--pink); margin-bottom: 20px; }
-  .project-block p { font-size: 15px; color: #ccc; line-height: 1.8; margin-bottom: 15px; }
+  .service-block { background: #111; padding: 40px; border-radius: 8px; border: 1px solid #222; border-left: 4px solid var(--wine); }
+  .service-block h3 { font-family: Cinzel, serif; font-size: 24px; color: var(--pink); margin-bottom: 15px; }
+  .service-block p { font-size: 15px; color: #ccc; line-height: 1.8; margin-bottom: 15px; }
   
-  .project-features { list-style: none; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
-  .project-features li { font-size: 14px; color: var(--white); display: flex; align-items: flex-start; gap: 10px; }
-  .project-features li::before { content: "✓"; color: var(--pink); font-weight: bold; }
+  .service-features { list-style: none; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-top: 20px; }
+  .service-features li { font-size: 14px; color: var(--white); display: flex; align-items: flex-start; gap: 10px; }
+  .service-features li::before { content: "✓"; color: var(--pink); font-weight: bold; }
 
   @media (max-width: 800px) {
-    .project-block { padding: 25px; }
-    .project-features { grid-template-columns: 1fr; }
+    .service-block { padding: 25px; }
+    .service-features { grid-template-columns: 1fr; }
   }
 </style>
 </head><body>
@@ -49,38 +49,50 @@
 
 <main class="main-content">
   <div class="wrap">
-    <div class="case-study-header">
-      <div style="color: var(--pink); font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 10px;">Caso de Estudio</div>
-      <h1>Instituto Educativo José María Morelos</h1>
-      <p>Un proyecto de desarrollo web integral para una institución educativa con múltiples niveles académicos. El objetivo principal fue digitalizar su oferta educativa, facilitar el acceso a la información y optimizar la captación de nuevos estudiantes a través de canales directos.</p>
+    
+    <!-- Encabezado -->
+    <div class="services-header">
+      <div style="color: var(--pink); font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 10px;">Servicios Profesionales</div>
+      <h1>Desarrollo Web a Medida</h1>
+      <p>Construimos sitios web que no solo se ven bien, sino que funcionan perfectamente. Desde landing pages hasta plataformas complejas, nos enfocamos en la velocidad, la usabilidad y el diseño que convierte visitantes en clientes.</p>
     </div>
 
-    <div class="project-content">
+    <!-- Bloques de Servicios -->
+    <div class="services-container">
       
-      <!-- Bloque 1: El Desafío -->
-      <div class="project-block">
-        <h3>El Desafío</h3>
-        <p>La institución contaba con una gran cantidad de información académica (desde nivel preescolar hasta maestrías), pero no tenía una plataforma centralizada y moderna que la presentara de manera clara. Además, el proceso para solicitar informes o contactar a la escuela era lento y poco intuitivo para los padres de familia y futuros alumnos.</p>
-        <p>El reto consistía en organizar toda esa estructura académica en un sitio web rápido, visualmente atractivo y fácil de navegar desde cualquier dispositivo móvil.</p>
+      <!-- Bloque 1 -->
+      <div class="service-block">
+        <h3>Sitios Web y Landing Pages</h3>
+        <p>Diseñamos y desarrollamos sitios web desde cero, adaptados a la identidad de tu marca. Nos enfocamos en crear experiencias de usuario fluidas, con una estructura clara que guíe a tus visitantes hacia la acción (como comprar o contactarte).</p>
+        <ul class="service-features">
+          <li>Diseño a medida (sin plantillas genéricas)</li>
+          <li>Estructura optimizada para conversión</li>
+          <li>Adaptado a móviles y computadoras</li>
+          <li>Integración con redes sociales</li>
+        </ul>
       </div>
 
-      <!-- Bloque 2: La Solución -->
-      <div class="project-block">
-        <h3>La Solución Construida</h3>
-        <p>Desarrollé un sitio web a medida utilizando HTML, CSS y JavaScript, enfocado en una arquitectura de información limpia. Se diseñaron secciones específicas para cada nivel educativo, permitiendo a los usuarios explorar los programas académicos de forma detallada.</p>
-        <p>Se integraron elementos interactivos clave, como ventanas modales para visualizar las mallas curriculares sin tener que salir de la página, y mapas interactivos para ubicar las instalaciones. Todo el flujo de contacto se redirigió a WhatsApp para agilizar la atención al cliente.</p>
+      <!-- Bloque 2 -->
+      <div class="service-block">
+        <h3>Optimización y Rendimiento</h3>
+        <p>Tu sitio no puede ser lento. Nos aseguramos de que cada imagen, cada script y cada línea de código esté optimizada para cargar en milisegundos, mejorando la experiencia del usuario y tu posicionamiento en Google (SEO).</p>
+        <ul class="service-features">
+          <li>Optimización de velocidad de carga</li>
+          <li>Estructura amigable para buscadores (SEO)</li>
+          <li>Código limpio y mantenible</li>
+          <li>Seguridad y buenas prácticas</li>
+        </ul>
       </div>
 
-      <!-- Bloque 3: Características Técnicas -->
-      <div class="project-block">
-        <h3>Características Técnicas</h3>
-        <ul class="project-features">
-          <li>Diseño 100% responsivo para móviles y PC.</li>
-          <li>Estructura semántica y optimizada para SEO.</li>
-          <li>Ventanas modales dinámicas para mallas curriculares.</li>
-          <li>Integración directa de botones de contacto a WhatsApp.</li>
-          <li>Mapa de ubicación interactivo de Google Maps.</li>
-          <li>Optimización de tiempos de carga y recursos visuales.</li>
+      <!-- Bloque 3 -->
+      <div class="service-block">
+        <h3>Integraciones y Funcionalidades</h3>
+        <p>Conectamos tu página web con las herramientas que ya usas. Desde pasarelas de pago y sistemas de reservas, hasta chatbots y automatizaciones. Tu web se convierte en el centro de operaciones de tu negocio digital.</p>
+        <ul class="service-features">
+          <li>Integración con WhatsApp y correos</li>
+          <li>Conexión con bases de datos (Firebase)</li>
+          <li>Formularios y sistemas de contacto</li>
+          <li>Sistemas de gestión de contenido</li>
         </ul>
       </div>
 
@@ -88,11 +100,11 @@
 
     <!-- Panel de contacto final -->
     <div class="contact-panel reveal" style="margin-top: 60px;">
-      <p class="kicker">¿necesitas una web así?</p>
-      <h2>construyamos tu<br/><em>próximo proyecto.</em></h2>
-      <p>Si tienes una idea o necesitas un desarrollo web a medida como este, podemos conversar sobre cómo llevarlo a cabo.</p>
+      <p class="kicker">¿listo para dar el salto?</p>
+      <h2>tu próxima web<br/><em>comienza aquí.</em></h2>
+      <p>Cuéntanos qué tienes en mente. Evaluamos tu proyecto, te damos una propuesta clara y nos ponemos a trabajar.</p>
       <div class="actions" style="justify-content: center;">
-        <a href="https://wa.me/525664921229?text=Hola,%20vi%20el%20caso%20de%20estudio%20de%20la%20universidad%20y%20me%20interesa%20un%20desarrollo%20web" target="_blank" class="btn">Hablemos por WhatsApp</a>
+        <a href="https://wa.me/525664921229?text=Hola,%20me%20interesa%20el%20servicio%20de%20Desarrollo%20Web" target="_blank" class="btn">Solicitar Cotización</a>
       </div>
     </div>
   </div>
@@ -102,7 +114,6 @@
 
 <script src="./js/main.js"></script>
 <script>
-  // Lógica del menú
   document.getElementById('menuBtn').addEventListener('click', () => {
     document.getElementById('menu').classList.toggle('active');
   });
