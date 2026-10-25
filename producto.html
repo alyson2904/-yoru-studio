@@ -56,11 +56,15 @@
 
 <footer class="footer"><div class="wrap footer-inner"><div>© 2026 YORU STUDIO. Todos los derechos reservados.</div></div></footer>
 
+<!-- 1. CARGAMOS EL SCRIPT GLOBAL DEL CARRITO -->
 <script src="./js/main.js"></script>
+
+<!-- 2. CARGAMOS EL SCRIPT DE FIREBASE PARA ESTA PÁGINA -->
 <script type="module">
   import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
   import { getFirestore, doc, getDoc, collection, getDocs } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
 
+  // Tus credenciales
   const firebaseConfig = {
     apiKey: "AIzaSyDuc4Rhu9i_Td_ZBCUcEs2NOjA__Jk9Hew",
     authDomain: "yoru-studio-b0942.firebaseapp.com",
@@ -74,53 +78,71 @@
   const app = initializeApp(firebaseConfig);
   const db = getFirestore(app);
 
+  // Obtenemos el ID del producto de la URL
   const urlParams = new URLSearchParams(window.location.search);
   const productId = urlParams.get('id');
 
   async function loadProduct() {
-    if (!productId) return;
+    if (!productId) {
+      document.getElementById('prod-title').textContent = "Producto no especificado";
+      return;
+    }
     
     try {
+      // Buscamos el producto específico en Firestore
       const docRef = doc(db, "productos", productId);
       const docSnap = await getDoc(docRef);
 
       if (docSnap.exists()) {
         const prod = docSnap.data();
+        
+        // Llenamos los datos en el HTML
         document.getElementById('prod-title').textContent = prod.titulo;
+        // Si no hay descripción larga, usamos la corta o un texto por defecto
         document.getElementById('prod-desc').textContent = prod.descripcion || prod.desc || "Diseño exclusivo de YORU STUDIO.";
         document.getElementById('prod-price').textContent = prod.precio;
         document.getElementById('prod-img').src = prod.imagen;
         document.title = prod.titulo + " — YORU STUDIO";
 
+        // Evento del botón Añadir al carrito
         document.getElementById('add-btn').addEventListener('click', () => {
+          // Llamamos a la función de main.js
           addToCart(docSnap.id, prod.titulo, prod.precio, prod.imagen);
         });
 
-        // Cargar sugerencias aleatorias
+        // --- LÓGICA DE SUGERENCIAS ALEATORIAS ---
         const querySnapshot = await getDocs(collection(db, "productos"));
         let allProducts = [];
+        
         querySnapshot.forEach((doc) => {
+          // Filtramos para no recomendar el producto actual
           if(doc.id !== productId) {
             allProducts.push({ id: doc.id, ...doc.data() });
           }
         });
 
-        // Mezclar y mostrar 2
+        // Mezclamos los productos aleatoriamente
         allProducts.sort(() => 0.5 - Math.random());
+        // Tomamos los primeros 2
         const suggestions = allProducts.slice(0, 2);
         
         const suggestionsContainer = document.getElementById('suggestions-container');
-        suggestions.forEach(prod => {
+        
+        if(suggestions.length === 0) {
+           suggestionsContainer.innerHTML = '<p style="color: #888;">No hay más productos por ahora.</p>';
+        }
+
+        suggestions.forEach(sug => {
           suggestionsContainer.innerHTML += `
             <div class="shop-card">
               <div class="shop-img-wrapper">
                 <div class="watermark-layer"></div>
-                <img src="${prod.imagen}" alt="${prod.titulo}" oncontextmenu="return false;">
+                <img src="${sug.imagen}" alt="${sug.titulo}" oncontextmenu="return false;">
               </div>
               <div class="shop-info">
-                <h3 class="shop-title">${prod.titulo}</h3>
-                <div class="shop-price">${prod.precio}</div>
-                <a href="producto.html?id=${prod.id}" class="shop-btn" style="text-decoration:none;">Ver producto</a>
+                <h3 class="shop-title">${sug.titulo}</h3>
+                <div class="shop-price">${sug.precio}</div>
+                <a href="producto.html?id=${sug.id}" class="shop-btn" style="text-decoration:none;">Ver producto</a>
               </div>
             </div>
           `;
@@ -128,12 +150,15 @@
 
       } else {
         document.getElementById('prod-title').textContent = "Producto no encontrado";
+        document.getElementById('add-btn').style.display = 'none';
       }
     } catch (error) {
-      console.error("Error:", error);
+      console.error("Error al cargar el producto:", error);
+      document.getElementById('prod-title').textContent = "Error de conexión";
     }
   }
 
+  // Iniciar la carga
   loadProduct();
 </script>
 </body></html>
