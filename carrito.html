@@ -3,7 +3,6 @@
 <link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
 <link rel="stylesheet" href="./css/style.css">
 <style>
-  /* Estilos específicos del carrito */
   .cart-page { padding: 30px 0 60px; }
   .cart-layout { display: grid; grid-template-columns: 2fr 1fr; gap: 30px; align-items: start; }
   .cart-items { display: flex; flex-direction: column; gap: 15px; }
@@ -17,16 +16,13 @@
   .cart-controls span { font-size: 14px; width: 20px; text-align: center; }
   .cart-item-remove { background: none; border: none; color: #666; cursor: pointer; font-size: 20px; padding: 5px; transition: color 0.2s; }
   .cart-item-remove:hover { color: var(--red); }
-
   .cart-summary { background: #111; border: 1px solid var(--line); border-radius: 8px; padding: 25px; position: sticky; top: 90px; }
   .cart-summary h3 { font-family: Cinzel, serif; font-size: 22px; margin: 0 0 20px; color: var(--white); border-bottom: 1px solid #333; padding-bottom: 15px; }
   .summary-row { display: flex; justify-content: space-between; margin-bottom: 15px; font-size: 14px; color: #ccc; }
   .summary-row.total { font-size: 20px; color: var(--pink); font-weight: 700; margin-top: 20px; border-top: 1px solid #333; padding-top: 15px; }
-  
   .empty-cart { text-align: center; padding: 50px 20px; background: #111; border: 1px solid #222; border-radius: 8px; }
   .empty-cart h2 { font-family: Cinzel, serif; font-size: 28px; margin-bottom: 15px; }
   .empty-cart p { color: #888; margin-bottom: 25px; }
-
   @media (max-width: 800px) {
     .cart-layout { grid-template-columns: 1fr; }
     .cart-summary { position: static; }
@@ -44,17 +40,16 @@
       <a class="logo" href="index.html"><span class="logo-mark">夜</span><span>YORU STUDIO</span></a>
       <div class="nav-actions">
         <select class="nav-btn"><option>ES · MXN</option><option>EN · USD</option></select>
-        <button class="nav-btn cart" style="background: var(--wine);">
+        <a href="carrito.html" class="nav-btn cart" style="background: var(--wine); text-decoration:none;">
           <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg> 
           <span id="cart-count">0</span>
-        </button>
+        </a>
         <button class="nav-btn" id="menuBtn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg></button>
       </div>
     </div>
     <div class="menu-dropdown" id="menu">
       <a href="index.html">Inicio</a>
       <a href="index.html#portafolio">Catálogo</a>
-      <a href="index.html#estudio">El Estudio</a>
       <a href="https://wa.me/525664921229" class="btn-contact">Contacto</a>
     </div>
   </div>
@@ -66,39 +61,22 @@
     <h1 style="font-family: Cinzel, serif; font-size: clamp(30px, 5vw, 50px); margin: 0 0 30px;">Carrito de compras</h1>
 
     <div class="cart-layout" id="cart-layout">
-      
-      <!-- Aquí JS inyectará los productos -->
       <div class="cart-items" id="cart-items-container"></div>
       
-      <!-- Resumen de compra -->
       <div class="cart-summary" id="cart-summary">
         <h3>Resumen de compra</h3>
-        <div class="summary-row">
-          <span>Subtotal</span>
-          <span id="summary-subtotal">$0 MXN</span>
-        </div>
-        <div class="summary-row">
-          <span>Envío</span>
-          <span style="color: var(--muted);">A convenir por WhatsApp</span>
-        </div>
-        <div class="summary-row total">
-          <span>Total</span>
-          <span id="summary-total">$0 MXN</span>
-        </div>
-        
-        <button class="btn" style="width: 100%; margin-top: 20px; justify-content: center; padding: 15px;" onclick="checkoutWhatsApp()">
-          FINALIZAR POR WHATSAPP
-        </button>
+        <div class="summary-row"><span>Subtotal</span><span id="summary-subtotal">$0 MXN</span></div>
+        <div class="summary-row"><span>Envío</span><span style="color: var(--muted);">A convenir</span></div>
+        <div class="summary-row total"><span>Total</span><span id="summary-total">$0 MXN</span></div>
+        <button class="btn" style="width: 100%; margin-top: 20px; justify-content: center; padding: 15px;" onclick="checkoutWhatsApp()">FINALIZAR POR WHATSAPP</button>
         <a href="index.html#portafolio" style="display: block; text-align: center; margin-top: 15px; font-size: 12px; color: #888; text-decoration: underline;">Seguir comprando</a>
       </div>
 
-      <!-- Mensaje si el carrito está vacío -->
       <div class="empty-cart" id="empty-cart" style="display: none; grid-column: 1 / -1;">
         <h2>Tu carrito está vacío</h2>
         <p>Parece que aún no has añadido ningún diseño.</p>
         <a href="index.html#portafolio" class="btn">Ver catálogo</a>
       </div>
-
     </div>
   </div>
 </main>
@@ -112,32 +90,27 @@
     const container = document.getElementById('cart-items-container');
     const summary = document.getElementById('cart-summary');
     const emptyCart = document.getElementById('empty-cart');
-    const countEl = document.getElementById('cart-count');
+    
+    const currentCart = window.getCart();
 
-    // Si está vacío
-    if (window.cart.length === 0) {
+    if (currentCart.length === 0) {
       container.style.display = 'none';
       summary.style.display = 'none';
       emptyCart.style.display = 'block';
-      if(countEl) countEl.textContent = '0';
       return;
     }
 
-    // Si hay productos
     container.style.display = 'flex';
     summary.style.display = 'block';
     emptyCart.style.display = 'none';
 
     container.innerHTML = '';
     let total = 0;
-    let totalItems = 0;
 
-    window.cart.forEach(item => {
-      // Convertir precio a número (ej. "$250 MXN" -> 250)
+    currentCart.forEach(item => {
       const priceNum = parseFloat(item.price.replace(/[^0-9.]/g, ''));
       const subtotal = priceNum * item.quantity;
       total += subtotal;
-      totalItems += item.quantity;
 
       container.innerHTML += `
         <div class="cart-item">
@@ -156,33 +129,31 @@
       `;
     });
 
-    // Actualizar resumen
     document.getElementById('summary-subtotal').textContent = `$${total} MXN`;
     document.getElementById('summary-total').textContent = `$${total} MXN`;
-    if(countEl) countEl.textContent = totalItems;
   }
 
-  // Cambiar cantidad
   window.changeQty = (id, change) => {
-    const item = window.cart.find(i => i.id === id);
+    let cartCopy = window.getCart();
+    const item = cartCopy.find(i => i.id === id);
     if (item) {
       item.quantity += change;
       if (item.quantity <= 0) {
-        window.cart = window.cart.filter(i => i.id !== id);
+        cartCopy = cartCopy.filter(i => i.id !== id);
       }
-      window.saveCart();
-      renderCart(); // Volver a dibujar la página
+      localStorage.setItem('yoru_cart', JSON.stringify(cartCopy));
+      renderCart();
+      window.updateCartUI();
     }
   };
 
-  // Eliminar producto
   window.removeFromCart = (id) => {
-    window.cart = window.cart.filter(i => i.id !== id);
-    window.saveCart();
+    let cartCopy = window.getCart().filter(i => i.id !== id);
+    localStorage.setItem('yoru_cart', JSON.stringify(cartCopy));
     renderCart();
+    window.updateCartUI(); // Esto hace que el contador rojo se actualice al instante
   };
 
-  // Inicializar al cargar
   document.addEventListener('DOMContentLoaded', renderCart);
 </script>
 </body></html>
