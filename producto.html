@@ -11,11 +11,13 @@
       <a class="logo" href="index.html"><span class="logo-mark">夜</span><span>YORU STUDIO</span></a>
       <div class="nav-actions">
         <select class="nav-btn"><option>ES · MXN</option><option>EN · USD</option></select>
-        <!-- El botón ahora llama a la función checkoutWhatsApp si haces clic -->
-        <button class="nav-btn cart" onclick="checkoutWhatsApp()">
+        
+        <!-- ENLACE AL CARRITO -->
+        <a href="carrito.html" class="nav-btn cart" style="text-decoration: none;">
           <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg> 
           <span id="cart-count">0</span>
-        </button>
+        </a>
+        
         <button class="nav-btn" id="menuBtn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg></button>
       </div>
     </div>
@@ -41,7 +43,6 @@
         <p class="desc" id="prod-desc">Cargando información...</p>
         <div class="price" id="prod-price">$0 MXN</div>
         
-        <!-- Botón que llama a addToCart -->
         <button class="btn" id="add-btn" style="width: 100%; justify-content: center; padding: 15px;">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
           AÑADIR AL CARRITO
@@ -77,12 +78,10 @@
     document.getElementById('prod-img').src = currentProduct.img;
     document.title = currentProduct.title + " — YORU STUDIO";
 
-    // Evento del botón Añadir al carrito
     document.getElementById('add-btn').addEventListener('click', () => {
       addToCart(currentProduct.id, currentProduct.title, currentProduct.price, currentProduct.img);
     });
 
-    // Sugerencias
     let otherProducts = catalogData.filter(p => p.id !== productId);
     otherProducts.sort(() => 0.5 - Math.random());
     const suggestions = otherProducts.slice(0, 2);
