@@ -2,6 +2,19 @@
 <html lang="es"><head><meta charset="utf-8"/><meta content="width=device-width,initial-scale=1,viewport-fit=cover" name="viewport"/><meta content="#090709" name="theme-color"/><title>Gaming — YORU STUDIO</title>
 <link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
 <link rel="stylesheet" href="./css/style.css">
+<style>
+  /* Estilos para los filtros de Gaming */
+  .filters-container {
+    display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 30px; justify-content: center;
+  }
+  .filter-btn {
+    background: #111; border: 1px solid #333; color: #ccc; padding: 8px 16px; border-radius: 20px;
+    font-size: 12px; cursor: pointer; transition: all 0.3s ease;
+  }
+  .filter-btn:hover, .filter-btn.active {
+    background: var(--wine); border-color: var(--wine); color: white;
+  }
+</style>
 </head><body>
 <div class="bg-global" style="background-image: url('./assets/yoru-morada.png');"></div>
 
@@ -28,29 +41,36 @@
 
 <main class="main-content">
   <div class="wrap">
-    <div class="category-header">
+    <div class="category-header" style="text-align:center; margin-bottom: 20px;">
       <div style="color: var(--pink); font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 10px;">Catálogo</div>
       <h1>Gaming y Streamers</h1>
-      <p>Diseño de identidad visual y arte digital para creadores de contenido.</p>
+      <p>Diseños para clanes, jugadores, creadores de contenido y comunidades de gaming.</p>
     </div>
 
-    <div class="section-title">PRODUCTOS DISPONIBLES</div>
-    
-    <!-- Contenedor donde se inyectarán los productos -->
+    <!-- FILTROS -->
+    <div class="filters-container">
+      <button class="filter-btn active" data-filter="all">Todos</button>
+      <button class="filter-btn" data-filter="clanes">Clanes</button>
+      <button class="filter-btn" data-filter="jugadores">Jugadores</button>
+      <button class="filter-btn" data-filter="streamers">Streamers</button>
+      <button class="filter-btn" data-filter="torneos">Torneos</button>
+      <button class="filter-btn" data-filter="web_gaming">Web Gaming</button>
+    </div>
+
+    <!-- CONTENEDOR DE PRODUCTOS -->
     <div class="shop-grid" id="catalog-container">
-      <p style="color: #888; padding: 20px;">Cargando productos desde la nube...</p>
+      <p style="color: #888; padding: 20px; text-align:center; width:100%;">Cargando productos desde la nube...</p>
     </div>
   </div>
 </main>
 
 <footer class="footer"><div class="wrap footer-inner"><div>© 2026 YORU STUDIO. Todos los derechos reservados.</div></div></footer>
 
-<!-- SCRIPT DE FIREBASE Y RENDERIZADO -->
+<!-- SCRIPT DE FIREBASE Y FILTROS -->
 <script type="module">
   import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
   import { getFirestore, collection, getDocs } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
 
-  // Tus credenciales
   const firebaseConfig = {
     apiKey: "AIzaSyDuc4Rhu9i_Td_ZBCUcEs2NOjA__Jk9Hew",
     authDomain: "yoru-studio-b0942.firebaseapp.com",
@@ -63,50 +83,86 @@
 
   const app = initializeApp(firebaseConfig);
   const db = getFirestore(app);
-
   const container = document.getElementById('catalog-container');
-  
+  let allProducts = []; // Guardamos todos los productos aquí
+
+  // 1. Cargar datos de Firebase
   async function cargarProductos() {
     try {
       const querySnapshot = await getDocs(collection(db, "productos"));
-      
-      container.innerHTML = ''; // Limpiamos el mensaje de "Cargando..."
+      container.innerHTML = ''; // Limpiar "Cargando"
       
       if (querySnapshot.empty) {
-        container.innerHTML = '<p style="color: #888; padding: 20px;">Aún no hay productos en la base de datos.</p>';
+        container.innerHTML = '<p style="color: #888; padding: 20px; text-align:center; width:100%;">Aún no hay productos.</p>';
         return;
       }
 
       querySnapshot.forEach((doc) => {
         const prod = doc.data();
-        
-        // Generamos la tarjeta del producto
-        const cardHTML = `
-          <div class="shop-card">
-            <div class="shop-img-wrapper">
-              <div class="watermark-layer"></div>
-              <img src="${prod.imagen}" alt="${prod.titulo}" oncontextmenu="return false;">
-            </div>
-            <div class="shop-info">
-              <div class="shop-cat">${prod.etiqueta || 'Pack'}</div>
-              <h3 class="shop-title">${prod.titulo}</h3>
-              <div class="shop-price">${prod.precio}</div>
-              <a href="producto.html?id=${doc.id}" class="shop-btn" style="text-decoration:none;">Ver producto</a>
-            </div>
-          </div>
-        `;
-        container.innerHTML += cardHTML;
+        if (prod.categoria === 'gaming') {
+          allProducts.push({ id: doc.id, ...prod });
+        }
       });
+
+      renderProducts(allProducts); // Mostrar todos al inicio
 
     } catch (error) {
       console.error("Error al cargar:", error);
-      container.innerHTML = '<p style="color: red; padding: 20px;">Error de conexión con Firebase. Revisa la consola.</p>';
+      container.innerHTML = '<p style="color: red; padding: 20px; text-align:center; width:100%;">Error al conectar con la base de datos. <br><button onclick="location.reload()" style="background:var(--wine); color:white; padding:5px 10px; border:none; border-radius:4px; margin-top:10px; cursor:pointer;">Reintentar</button></p>';
     }
   }
 
+  // 2. Función para dibujar los productos en pantalla
+  function renderProducts(productsToRender) {
+    container.innerHTML = '';
+    
+    if (productsToRender.length === 0) {
+      container.innerHTML = '<p style="color: #888; padding: 20px; text-align:center; width:100%;">No hay productos en esta categoría.</p>';
+      return;
+    }
+
+    productsToRender.forEach(prod => {
+      const cardHTML = `
+        <div class="shop-card">
+          <div class="shop-img-wrapper">
+            <div class="watermark-layer"></div>
+            <img src="${prod.imagen}" alt="${prod.titulo}" oncontextmenu="return false;">
+          </div>
+          <div class="shop-info">
+            <div class="shop-cat">${prod.etiqueta || 'Gaming'}</div>
+            <h3 class="shop-title">${prod.titulo}</h3>
+            <div class="shop-price">${prod.precio}</div>
+            <a href="producto.html?id=${prod.id}" class="shop-btn" style="text-decoration:none;">Ver producto</a>
+          </div>
+        </div>
+      `;
+      container.innerHTML += cardHTML;
+    });
+  }
+
+  // 3. Lógica de los filtros
+  const filterButtons = document.querySelectorAll('.filter-btn');
+  filterButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      // Cambiar estilo activo
+      filterButtons.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      const filterValue = btn.getAttribute('data-filter');
+      
+      if (filterValue === 'all') {
+        renderProducts(allProducts);
+      } else {
+        const filtered = allProducts.filter(p => p.subcategoria === filterValue);
+        renderProducts(filtered);
+      }
+    });
+  });
+
+  // Iniciar
   cargarProductos();
 
-  // Menú
+  // Menú móvil
   document.getElementById('menuBtn').addEventListener('click', () => {
     document.getElementById('menu').classList.toggle('active');
   });
