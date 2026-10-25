@@ -125,3 +125,80 @@
   .shop-price { font-size: 14px; }
   .shop-btn { font-size: 10px; padding: 6px; }
              }
+/* =========================================
+   ESTILOS PARA PÁGINA DE PRODUCTO INDIVIDUAL
+   ========================================= */
+.product-page {
+  padding-top: 20px;
+}
+.product-main {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  margin-bottom: 60px;
+}
+.product-image-container {
+  position: relative;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  overflow: hidden;
+  background: #000;
+}
+.product-image-container img {
+  width: 100%;
+  height: auto;
+  display: block;
+  pointer-events: none;
+  -webkit-user-drag: none;
+  user-select: none;
+}
+.product-details {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.product-details h1 {
+  font-family: Cinzel, serif;
+  font-size: clamp(28px, 4vw, 42px);
+  color: var(--white);
+  margin: 0 0 15px;
+}
+.product-details .category-tag {
+  font-size: 11px;
+  color: var(--pink);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 10px;
+  display: block;
+}
+.product-details p.desc {
+  font-size: 15px;
+  color: #ccc;
+  line-height: 1.7;
+  margin-bottom: 25px;
+}
+.product-details .price {
+  font-size: 28px;
+  color: var(--pink);
+  font-weight: 700;
+  margin-bottom: 30px;
+}
+
+/* SUGERENCIAS */
+.suggestions-section {
+  border-top: 1px solid var(--line);
+  padding-top: 40px;
+}
+.suggestions-section h3 {
+  font-family: Cinzel, serif;
+  font-size: 24px;
+  color: var(--white);
+  margin-bottom: 25px;
+}
+
+@media (max-width: 800px) {
+  .product-main {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+}
