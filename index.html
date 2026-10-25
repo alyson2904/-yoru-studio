@@ -16,10 +16,11 @@
           <option>EN · USD</option>
         </select>
         
-        <button class="nav-btn cart">
-          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
-          0
-        </button>
+        <!-- ENLACE AL CARRITO -->
+        <a href="carrito.html" class="nav-btn cart" style="text-decoration: none;">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg> 
+          <span id="cart-count">0</span>
+        </a>
         
         <div class="search-container">
           <form class="search-form" id="searchForm">
@@ -36,7 +37,6 @@
       </div>
     </div>
     
-    <!-- MENÚ DESPLEGABLE -->
     <div class="menu-dropdown" id="menu">
       <a href="index.html">Inicio</a>
       <a href="index.html#portafolio">Catálogo</a>
@@ -103,20 +103,5 @@
   </div>
 </footer>
 
-<script>
-  // Lógica del buscador
-  const searchToggle = document.getElementById('searchToggle');
-  const searchForm = document.getElementById('searchForm');
-  searchToggle.addEventListener('click', () => {
-    searchForm.classList.toggle('active');
-    if(searchForm.classList.contains('active')) searchForm.querySelector('input').focus();
-  });
-
-  // Lógica del menú desplegable
-  const menuBtn = document.getElementById('menuBtn');
-  const menu = document.getElementById('menu');
-  menuBtn.addEventListener('click', () => {
-    menu.classList.toggle('active');
-  });
-</script>
+<script src="./js/main.js"></script>
 </body></html>
