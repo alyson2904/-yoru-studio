@@ -10,8 +10,20 @@
     <div class="nav-top">
       <a class="logo" href="index.html"><span class="logo-mark">夜</span><span>YORU STUDIO</span></a>
       <div class="nav-actions">
-        <select class="nav-btn"><option>ES · MXN</option><option>EN · USD</option></select>
-        <button class="nav-btn cart"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg> 0</button>
+        <select class="nav-btn" style="appearance: none; cursor:pointer; outline:none;">
+          <option>ES · MXN</option><option>EN · USD</option>
+        </select>
+        
+        <!-- ENLACE AL CARRITO -->
+        <a href="carrito.html" class="nav-btn cart" style="text-decoration: none;">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg> 
+          <span id="cart-count">0</span>
+        </a>
+        
+        <div class="search-container">
+          <form class="search-form" id="searchForm"><input type="text" placeholder="Buscar..." /></form>
+          <button class="search-toggle" id="searchToggle"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg></button>
+        </div>
         <button class="nav-btn" id="menuBtn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg></button>
       </div>
     </div>
@@ -34,7 +46,6 @@
 
     <div class="section-title">PRODUCTOS DISPONIBLES</div>
     
-    <!-- Aquí JS inyectará los productos -->
     <div class="shop-grid" id="catalog-container"></div>
 
   </div>
@@ -42,9 +53,8 @@
 
 <footer class="footer"><div class="wrap footer-inner"><div>© 2026 YORU STUDIO. Todos los derechos reservados.</div></div></footer>
 
+<script src="./js/main.js"></script>
 <script>
-  // 1. DEFINIMOS EL CATÁLOGO DE PRODUCTOS AQUÍ
-  // Cuando tengas 50 productos, solo tienes que añadir más objetos a esta lista.
   const catalogData = [
     { 
       id: "cartoons", 
@@ -69,11 +79,9 @@
     }
   ];
 
-  // 2. RENDERIZAMOS LOS PRODUCTOS EN LA PÁGINA
   const container = document.getElementById('catalog-container');
   
   catalogData.forEach(prod => {
-    // Creamos el HTML de cada tarjeta y le pasamos el ID del producto por la URL
     const cardHTML = `
       <div class="shop-card">
         <div class="shop-img-wrapper">
@@ -89,11 +97,6 @@
       </div>
     `;
     container.innerHTML += cardHTML;
-  });
-
-  // Lógica del menú
-  document.getElementById('menuBtn').addEventListener('click', () => {
-    document.getElementById('menu').classList.toggle('active');
   });
 </script>
 </body></html>
